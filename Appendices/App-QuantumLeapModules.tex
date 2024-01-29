@@ -1,0 +1,156 @@
+\chapter{QuantumLeap Modules} \label{app:quantumleap-modules}
+This appendix provides a short description of the modules provided with the \ql framework. If necessary, developers may write new modules to better fit their needs.
+
+\section{Sensors} \label{app:quantumleap-modules:sensors}
+\subsection{Leap Motion Controller}
+A module that connects to the LMC and fetches frames using its JavaScript API. It returns the position of a set of articulations of the hand at one instant in time.
+
+\section{Filters} \label{app:quantumleap-modules:filters}
+\subsection{1\euro}
+A simple and efficient low-pass filter inspired by the \$-family of recognizers~\cite{Casiez:2012}. Designed for interactive systems, it relies on an adaptive cutoff frequency that allows it to greatly reduce jitter at low speed while limiting lag at high speed.
+
+\section{Static and Dynamic Datasets} \label{app:quantumleap-modules:datasets}
+    % \item \custominlinecode{Utopian}, which is composed of 22 letters (based on the shapes of the circle, square, and triangle from Thomas More) $\times$ 8 participants =  176 gesture multistroke samples.
+\subsection{QLDynamic} 
+A dataset composed of 17 dynamic gestures performed by four participants. Each participant performed each gesture four times above the LMC. This dataset was used in the LUI application (Chapter~\ref{chap:lui}), as well as the DICOM image viewer and Wall'ON application (Section~\ref{sec:quantumleap:integration}).
+\subsection{QLStatic} 
+A dataset composed of 5 static poses performed by only one participant above the LMC. It was also used in the LUI and Wall'ON applications.
+
+
+\section{Static Recognizers} \label{app:quantumleap-modules:static-recognizers}
+\ql comes with two modules for static gesture recognition. Table~\ref{tbl:app:quantumleap-modules:static-recognizers-properties} summarizes their invariance properties.
+
+\begin{table}[ht]
+  \footnotesize
+  \centering
+	\begin{tabular}{ccccc}
+	    \toprule
+        \multirow{2}{*}{\textbf{Recognizer}}& \multicolumn{4}{c}{\textbf{Type of invariance}} \\
+		& Position & Scale & Rotation & Direction \\
+		\midrule
+        \$P\textsuperscript{3}+ & \fullcirc & \fullcirc & \emptycirc & \fullcirc \\
+        GPSDa & \fullcirc & \fullcirc & \fullcirc & \fullcirc \\
+        \bottomrule
+	\end{tabular}
+	\caption{Invariance properties of the static recognizers.}
+	\label{tbl:app:quantumleap-modules:static-recognizers-properties}
+	% \vspace{-20px}
+\end{table}
+
+\subsection{\$P\texorpdfstring{\textsuperscript{3}}{3}+}
+A 3D version of \textit{\$P+} algorithm~\cite{Vatavu:2017a}. It is position-, direction-, and scale-invariant~\cite{Kurtenbach:1997}, but not rotation-invariant. It is described into more details in Appendix~\ref{app:quantumleap-modules:dynamic-recognizers}.
+\subsection{GPSDa}
+A novel position-, scale-, direction-, and rotation-invariant recognizer for hand poses regardless of the position of the hand. Its rotation-invariance makes it well-suited to situations where hand poses should be recognized regardless of their direction (\eg rotate a picture by performing a ``grab'' static gesture and gradually rotating the hand). %Static gestures, also called \textit{hand poses}, are represented as \textit{Point a-Shapes}. The Point a-Shape $PS_{P,a}$ of a static gesture $P$ is the list of the normalized reciprocal a-distances between each pair of points, arranged in non-decreasing order. If
+%\begin{itemize}
+%    \item $P=(P_{1},...,P_{N})$, where $P_{i}=(x,y,z)$, is the list of 3D points of gesture $P$;
+%    \item $|P_{i}-P_{j}| = \sqrt{(P_i.x - P_j.x)^2 + (P_i.y - P_j.y)^2 + (P_i.z - P_j.z)^2}$ is the Euclidean distance between points $P_{i}$ and $P_{j}$;
+%    \item $B_{P} = \frac{1}{N} \sum_{i{=}1}^N P_{i}$ is the barycentre of the points of $P$;
+%    \item $MD_{P,B,a} = \frac{1}{N} \sum_{i{=}1}^{N} |P_{i}-B_{P}|^{a}$ is the mean a-distance between the points $P_i$ and their barycentre $B_{P}$.
+%\end{itemize}
+%Then, the Point a-Shape of gesture $P$ is defined as:
+%$$PS_{P,a}=Sort\left(\left(\frac{\left|P_{i}-P_{j}\right|^a}{MD_{P,B,a}}\right)_{1 \leq i < j \leq N}\right) = (\sigma_{P_1},...\sigma_{P_{\frac{N(N-1)}{2}}})$$
+%The Global Point Shape a-Distance (GPSD) between a gesture $G$ and a template $T$ can now be defined as:
+%$$GPSD_{G,T,a}=\sum_{h{=}1}^{\frac{N(N-1)}{2}} |\sigma_{G_h} - \sigma_{T_h}|$$
+%Note that $a$ is a parameter that impacts recognition sensibility. Gesture recognition is a two steps process. The recognizer first computes the Point a-Shape of the gesture. Then, for each template, it calculates the GPSD between the template and the gesture and returns the template which minimizes it.
+
+\section{Analyzers} \label{app:quantumleap-modules:analyzers}
+\subsection{Basic Analyzer}
+This module extracts four values from each frame: (1) the rotation of the hand compared to the previous frame; (2) the ratio of the distances between the index and the thumb of the current and the previous frames; (3) the displacement of the palm compared to the previous frame; and (4) a 3D vector that gives the orientation of the thumb.
+
+\section{Segmenters} \label{app:quantumleap-modules:segmenters}
+Three simple segmentation methods have been implemented to demonstrate the possibilities of \ql. We are planning on implementing more advanced segmentation techniques such as Taranta \etal's Machete~\cite{Taranta:2021} and Chen \etal's Pactolus~\cite{Chen:2016}. However, support for Pactolus will only be relevant once EMG sensors are supported by \ql.
+
+\subsection{Zoning Segmenter}
+A segmenter that triggers gesture recognition when one or more selected points are within a bounding box above the sensor. After all the selected points have left, the recorded frames are sent to the recognizer.
+
+\subsection{Threshold Segmenter}
+A sensor that triggers gesture recognition when one or more parameters meet a pre-defined condition. The conditions (\eg the value of a parameter exceeds/falls below some threshold) can be manually configured from the UI. Once the conditions are no longer met, the recorded frames are sent to the recognizer.
+
+\subsection{Window Segmenter}
+A segmenter that triggers gesture recognition at regular intervals by relying on fixed-size buffers called \textit{windows}. To adapt to varying gesture duration, it can be configured with any number of windows. Each time a new frame is received, it is pushed in the window(s), while the oldest frame is removed. Every fixed number of frames, the buffered gesture data are sent to the recognizer.
+
+\section{Dynamic Recognizers} \label{app:quantumleap-modules:dynamic-recognizers}
+\ql comes with ten modules for dynamic gesture recognition. Table~\ref{tbl:app:quantumleap-modules:dynamic-recognizers-properties} compares their invariance properties.
+
+\begin{table}[ht]
+  \footnotesize
+  \centering
+	\begin{tabular}{ccccc}
+	    \toprule
+        \multirow{2}{*}{\textbf{Recognizer}}& \multicolumn{4}{c}{\textbf{Type of invariance}} \\
+		& Position & Scale & Rotation & Direction \\
+		\midrule
+        \$P\textsuperscript{3} & \fullcirc & \fullcirc & \emptycirc & \fullcirc \\
+        \$Q\textsuperscript{3} & \fullcirc & \fullcirc & \emptycirc & \fullcirc \\
+        \$P\textsuperscript{3}+ & \fullcirc & \fullcirc & \emptycirc & \fullcirc \\
+        \$P\textsuperscript{3}+X & \fullcirc & \fullcirc & \emptycirc & \halfcirc \\
+        3 cent & \fullcirc & \fullcirc & \emptycirc & \emptycirc \\
+        Jackknife & \fullcirc & \fullcirc & \emptycirc & \emptycirc \\
+        \$F & \fullcirc & \fullcirc & \emptycirc & \fullcirc \\
+        FreeHandUni & \fullcirc & \fullcirc & \emptycirc & \fullcirc \\
+        Rubine3D & \fullcirc & \fullcirc & \emptycirc & \emptycirc \\
+        Rubine-Sheng & \fullcirc & \fullcirc & \emptycirc & \emptycirc \\
+        \bottomrule
+	\end{tabular}
+	\caption{Invariance properties of the dynamic recognizers.}
+	\label{tbl:app:quantumleap-modules:dynamic-recognizers-properties}
+	% \vspace{-18px}
+\end{table}
+
+\subsection{\$P\texorpdfstring{\textsuperscript{3}}{3}}
+A generalization of \textit{\$P} \cite{Vatavu:2012} towards supporting 3D multi-stroke gestures which is similar to the \$P3D recognizer implemented by~\cite{Cook:2016}. However, unlike \$P3D the recognizer \$P\textsuperscript{3} does not support 3D static poses and 2D dynamic gestures recognition. To keep memory usage and execution time low, gestures are represented as unordered sets of points, called \textit{point clouds}. Gesture recognition happens in two phases: normalization and cloud-matching. The normalization process is similar to other \$-family algorithms and is divided into three steps: (1) resample the gesture to a fixed number of equidistant points; (2) scale the gesture uniformly to keep its shape; (3) translate the centroid of the point cloud to the origin, \ie $(0, 0, 0)$. The cloud-matching phase matches a gesture's point cloud to the point cloud of each template by associating each point from the template to exactly one point from the gesture. It then computes the resulting distance, as the sum of Euclidean distances between all pairs of matching points, and returns the template that minimizes it. This recognizer is position-, direction-, and scale-invariant, but not rotation-invariant.
+
+\subsection{\$Q\texorpdfstring{\textsuperscript{3}}{3}}
+A 3D variant of \textit{\$Q} \cite{Vatavu:2018}, which achieved a 46X speedup on average over \textit{\$P} with no loss of accuracy. It brings two key changes to \textit{\$P\textsuperscript{3}}: (1) early abandonment of templates, as soon as the distance exceeds the current shortest distance; (2) each point cloud has a $16{\times}16{\times}16$ 3D look-up table (LUT), where each location $(x, y, z)$ refers to the closest point. These LUTs allow \textit{\$Q\textsuperscript{3}} to compute a lower bound of the distance between a gesture and a template in $\mathcal{O}(n)$. If it exceeds the current shortest distance, the template can be rejected without computing the exact distance. It has the same invariance properties as \textit{\$P\textsuperscript{3}}.
+    
+\subsection{\$P\texorpdfstring{\textsuperscript{3}}{3}+}
+A more accurate version of \textit{\$P\textsuperscript{3}}, adapted from Vatavu's \textit{\$P+} \cite{Vatavu:2017a}. It brings three key improvements to \textit{\$P\textsuperscript{3}}: (1) each point from the template can now be matched to more than one point of the gesture; (2) the distance between a gesture and a template takes into account the connections between consecutive points (in the form of their turning angles); (3) early abandonment of templates. This recognizer has the same invariance properties as \textit{\$P\textsuperscript{3}}.
+
+\subsection{\$P\texorpdfstring{\textsuperscript{3}}{3}+X}
+A variant of \textit{\$P\textsuperscript{3}+}, which supports partial direction-invariance by keeping track of conflicting templates (\ie templates that represent the same gesture but drawn in different directions). If a gesture matches a conflicting template, its direction is compared with the direction of each conflicting template and the closest one is returned.
+
+\subsection{3 cent}
+An optimized 3D port of Wobbrock \etal's \textit{\$1} \cite{Wobbrock:2007} by Caputo \etal~\cite{Caputo:2017}, which recognizes uni-stroke gestures in two phases: the gesture is first normalized (similarly to \textit{\$P}) and its distance to each template is then computed as the sum of the squared distances of corresponding points. The template with the shortest distance is returned. \textit{3\textcent} is position- and scale-invariant, but neither rotation- nor direction-invariant. 
+
+\subsection{Jackknife}
+A general-purpose 3D gesture recognizer \cite{Taranta:2017} that supports any number of articulations. Unlike most \$-family recognizers, it represents gestures as time-series. It uses the nearest neighbor approach, where it compares a gesture to each template and returns the closest one. It uses \textit{Dynamic Time Warping} as a distance measure but applies a series of correction factors to take into account differences in gesture scale and span. As a result, this recognizer is both position- and scale-invariant, but neither direction- nor rotation-invariant.
+
+\subsection{\$F}    
+A new recognizer that adds \textit{\$P+}'s flexible cloud matching \cite{Vatavu:2017a} to \textit{\$P\textsuperscript{3}}. As for most \$-recognizers, the points of the candidate and the templates are resampled to equidistantly-spaced points, scaled within a unit box (isometric~\cite{Vanderdonckt:2018}), and translated so their centroid is at the origin $(0,0,0)$. The template with the lowest dissimilarity score is considered as the best matching template for the candidate. As opposed to \textit{\$P\textsuperscript{3}}, \textit{\$F}'s cloud matching is flexible, as points can be matched to more than one point. It consists of matching the points from the first cloud with their closest point from the second cloud, then matching the points from the second cloud that have not been matched yet with their closest point in the first cloud. 
+    
+\subsection{FreeHandUni}
+A recognizer derived from Vatavu \etal's Free-Hand recognizer~\cite{Vatavu:2016}, which extends \textit{\$P}~\cite{Vatavu:2012} to support 3D hand gestures. It replaces the hand pose structure with a 3D point structure $(x,y,z)$. With this modification, \textit{FreehandUni} improves \textit{\$P\textsuperscript{3}} using a flexible cloud matching based on a one-to-many alignment between points \cite{Vatavu:2017a}. The pre-processing stays the same but the matching process is more flexible: each point of the template cloud is matched with the closest point from the candidate cloud, then the remaining points from the candidate cloud are matched with the closest point from the template cloud. It returns the gesture class with the lowest dissimilarity score. \textit{FreeHandUni} is different from \textit{\$F} in that the early abandoning is not implemented, to align the computational complexity to \textit{\$P\textsuperscript{3}}.
+    
+\subsection{Rubine3D}
+Inspired by the iGesture framework~\cite{Signer:2007}, Rubine3D is a feature-based recognizer that combines a set of three individual 2D Rubine recognizers \cite{Rubine:1991}, one for each plane $XY$, $YZ$, and $ZX$. Before it can recognize 3D trajectories, Rubine3D pre-processes the training templates to compute weights for each feature of each gesture class. Then, it can recognize gestures in four steps: (1) it pre-processes the gesture by scaling and filtering its points; (2) it projects it onto each plane and extracts a feature vector $(f_1,..,f_{13})$ from each of the three projections; (3) for each projection, it selects the gesture class that maximizes the similarity score (computed by combining the weights of the gesture class with the feature vector of the gesture); (4) it determines the resulting class by merging the results from the three projections.
+
+\subsection{Rubine-Sheng}
+Rubine-Sheng (\textit{RS}) is a 3D recognizer inspired by Rubine. It supports 3D gestures by adding three new features proposed in the AdaBoost recognizer \cite{Sheng:2004} to Rubine's existing 13 features. Aside from this difference, it is extremely similar to its 2D counterpart.
+    
+\paragraph{Note}
+The implemented multipath recognizers include an optimization which avoids comparing the candidate gesture performed with one hand against the gestures performed with both hands in the training set.
+
+% \subsection{Sensors}
+% \label{chapter:implementation:architecture:hot-spots:sensors}
+% These modules serve as an interface between the framework and any physical sensor. Every sensor has to extend the \custominlinecode{AbstractSensor} class and implement its two methods:
+% \begin{itemize}[noitemsep]
+%     \item \custominlinecode{loop(callback)}: transforms frames from the sensor into a standardized format. Each time a frame is received, the callback is executed with the standardized frame as an argument.
+%     \item \custominlinecode{stop()}: stops processing frames from the sensor.
+% \end{itemize}
+% Provisionally, an LMC module calling the Leap Motion API fetches frames at regular intervals, whose duration is adjustable in the configuration file.
+% %Support for other types of sensors could be added in the future.
+
+% \subsection{Datasets}
+% \label{chapter:implementation:architecture:hot-spots:datasets}
+% Modules that transform a gesture set into a standardized format compatible with the framework (see \fig~\ref{fig:dataset-uml}). Only one method is required:
+% \begin{itemize}[noitemsep]
+%     \item \custominlinecode{loadDataset(name, directory)}: takes the name of the  gesture set and the path to the directory where it is stored and returns a \custominlinecode{GestureSet} object representing the set.
+% \end{itemize}
+% Developers have three possibilities for selecting a gesture set. They can create a custom gesture set with any specialized software, such as Magic2~\cite{Kohlsdorf:2011} or GestMan~\cite{Magrofuoco:2019a} or via an LMC gesture recorder\footnote{We release the code of the LMC GestureRecorder on GitHub at \url{https://github.com/anonymous/LeapGesturePlayback}.}. Another option is to pick one of the many publicly available datasets, such as SHREC2019~\cite{Caputo:2019}, and convert it into the standardized format to be considered in \ql. Alternatively, any gesture set made available today with the \ql framework can be considered:
+% \begin{enumerate}[noitemsep]
+%     \item \custominlinecode{Utopian}, which is composed of 22 letters (based on the shapes of the circle, square, and triangle from Thomas More) $\times$ 8 participants =  176 gesture multistroke samples.
+%     \item \custominlinecode{QLDynamic}, which is composed of 17 dynamic gestures performed by four participants. Each participant performed each gesture four times above the LMC. We used this dataset in the two applications described in Sections \ref{sec:dicom} and \ref{sec:lui}.
+%     \item \custominlinecode{QLStatic}, which is composed of 5 static poses performed by only one participant above the LMC. It was initially used in the  application described in Section \ref{sec:lui}.
+% \end{enumerate}
+
+

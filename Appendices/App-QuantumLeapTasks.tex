@@ -1,0 +1,37 @@
+\newpage
+\chapter{Tasks} \label{app:quantumleap-tasks}
+\section{Configure QuantumLeap} \label{app:quantumleap-tasks:tasks-config}
+\subsection{Initial State}
+The QuantumLeap framework is running in the background and its UI is opened on the ``Overview'' page.
+
+\subsection{Steps}
+\begin{enumerate}
+    \item Go to the ``Sensor(s)'' page and select the ``Leap Motion Controller'' module. Rename it as ``lmc'' and save the modifications.
+    \item Go to the ``Static dataset(s)'' page and select the ``Leap Motion Dataset Loader'' module. Select the ``Simple dataset (static)'' dataset and give it the ``lmc'' identifier. Select 100 templates per class. Save the modifications.
+    \item Go to the ``Static recognizer'' page and select the ``GPSDa'' module. Select all the points of the right hand. Save the modifications.
+    \item Go to the ``Segmenter'' page and select the ``Sliding window'' module. Configure it with one (1) window with a length of 20 frames. Select the right hand palm. Save the modifications.
+    \item Go to the ``Dynamic dataset(s)'' page and select the ``Leap Motion Dataset Loader'' module. Select the ``Simple dataset (dynamic)'' dataset and give it the ``lmc'' identifier. Select 8 templates per class. Save the modifications.
+    \item Go to the ``Dynamic recognizer'' page and select the ``Jackknife'' module. Configure it with the right hand palm. Save the modifications.
+    \item Restart QuantumLeap by toggling the play/pause button in the ``Overview'' page.
+\end{enumerate}
+
+\section{Add Gesture Recognition to a Small Application} \label{app:quantumleap-tasks:tasks-dev}
+\subsubsection{Initial State}
+Visual Studio Code is opened on the \textsf{App.js} file. Only this file will be modified. The application is running in development mode in a Google Chrome tab. The application refreshes automatically when the modifications to \textsf{App.js} are saved. The QuantumLeap framework is running in the background.
+
+\subsection{Steps}
+\begin{enumerate}
+    \item To be able use the QuantumLeap API, first import \custominlinecode{GestureHandler} from the quantumleapjs module.
+    \item Instantiate a new \custominlinecode{GestureHandler} object without any option in the constructor of the \custominlinecode{App} class. Assign it to a new instance variable of \custominlinecode{App} (\eg \custominlinecode{this.gestureHandler}). In the next steps, you will use the methods of \custominlinecode{GestureHandler} to implement gesture recognition.
+    \item In \custominlinecode{componentDidMount}, add a call to the \custominlinecode{connect} method of \custominlinecode{GestureHandler} in order to connect to the QuantumLeap framework after the page has loaded.
+    \item Make sure to disconnect from the QuantumLeap framework when the page is closed by adding a call to the \custominlinecode{disconnect} method of \custominlinecode{GestureHandler} in \custominlinecode{componentWillUnmount}.
+    \item Let's add the first gesture. The application will display the ``swipe left'' image each time a ``swipe left'' gesture is recognized. In \custominlinecode{componentDidMount}, add an event listener for the ``gesture'' event that calls \custominlinecode{this.onLeftSwipe} each time ``swipe left'' is recognized. You should use the \custominlinecode{addEventListener} method of \custominlinecode{GestureHandler}.
+    \item You may notice that nothing happens when performing a ``swipe left'' gesture. To fix this, register the gesture to QuantumLeap by adding a call to the \custominlinecode{registerGestures} method of \custominlinecode{GestureHandler} with the type (``dynamic'') and name (``swipe left'') of the gesture. This will notify QuantumLeap that you want it to recognize the ``swipe left'' gesture.
+    \item Now, modify the listener that you added at step 5 to display the ``swipe right'' image (by calling \custominlinecode{this.onRightSwipe}) each time the corresponding gesture is performed. Add the ``swipe right'' gesture to the call to \custominlinecode{registerGestures}.
+    \item Modify the listener again to display the ``point index'' image (by calling \custominlinecode{this.onPoint}) every time the user points his index.
+    \item The ``point index'' gesture is static. You should thus add a new call to the \custominlinecode{registerGestures} method of \custominlinecode{GestureHandler} with the type (``static'') and name (``point index'') of the gesture.
+    \item Now, modify the listener to display the ``thumb'' image (by calling \custominlinecode{this.onThumb}) each time the corresponding gesture is performed. Add the ``thumb'' gesture to the call to \custominlinecode{registerGestures} with the ``point index'' gesture.
+    \item Modify the listener one last time to display the name and type of each gesture when they are recognized. You can do it by adding a call to \custominlinecode{this.onGesture} (with the type and name of gesture as arguments) in the listener.
+    \item Let's now add a text at the bottom of the screen to show if the application is connected to QuantumLeap. In \custominlinecode{componentDidMount}, use the \custominlinecode{addEventListener} method of \custominlinecode{GestureHandler} to call \custominlinecode{this.setConnected} with ``true'' every time a ``connect'' event is emitted.
+    \item To reset the text when the application is disconnected from QuantumLeap, use the \custominlinecode{addEventListener} method of \custominlinecode{GestureHandler} to call \custominlinecode{this.setConnected} with ``false'' every time a ``disconnect'' event is emitted.
+\end{enumerate}
