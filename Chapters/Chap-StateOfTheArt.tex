@@ -75,7 +75,7 @@ In the same home context of use~\cite{Vogiatzidakis:2020}, they introduced a con
 \subsection{Challenges} \label{sec:state_of_the_art:overview:challenges}
 This section highlights the main challenges that developers and practitioners may face in the development of gesture-based applications and discusses potential workarounds.
 
-\subsubsection{Sensor limitations} \label{sec:state_of_the_art:overview:challenges:sensors-limitations}
+\subsubsection{Sensor Limitations} \label{sec:state_of_the_art:overview:challenges:sensors-limitations}
 Depending on their technology, sensors may be subject to a series of limitations. For example, vision-based sensors such as the LMC are sensitive to environmental conditions~\cite{Yeo:2017}, limited field of view~\cite{Hayashi:2021}, occlusion~\cite{Brandon:2014}, and may raise privacy concerns~\cite{Avrahami:2018}. On the other hand, radar-based systems preserve privacy and can function in darkness, but are sensitive to clutter, noise, and interference. Some wearable sensors (\eg smart rings, watches, data gloves) may provide more accurate data, but this higher accuracy comes at the cost of practicality. Besides the limitations intrinsic to their technology, most sensors result in a compromise between a series of factors, including cost, field of view, framerate, and resolution.
 
 Overall, practitioners should take all of these limitations into account in the design of their gesture-based user interfaces: gesture sets should be designed such that the sensor(s) can differentiate between each gesture and the selected sensor(s) should suit the context of use of the UI. If no single sensor suits the requirements of an application at a reasonable cost, a combination of multiple sensors (\eg the LMC and the MS Kinect~\cite{Marin:2014}) could be considered.
@@ -88,7 +88,7 @@ Depending on the sensors and recognition algorithms used, some filtering may alr
 
 Filters should be carefully selected and configured to provide reasonable smoothing while keeping latency low~\cite{Pavlovych:2009} and minimizing the risk of introducing inaccuracies. In \cite{Casiez:2012}, Casiez \etal propose the 1€ filter, a simple and fast filter based on double exponential smoothing that promises good smoothing and low latency for both fast and slow motion. They compare it to other filtering methods, namely, moving average, single and double exponential~\cite{LaViola:2003}, and Kalman, and show that it manages \textit{state-of-the-art} performance while being faster to execute.
 
-\subsubsection{Gesture production variability} \label{sec:state_of_the_art:overview:challenges:production-variability}
+\subsubsection{Gesture Production Variability} \label{sec:state_of_the_art:overview:challenges:production-variability}
 Some variability in gesture production is usually observed both in gestures performed by a single user (intra-user variability) and by several users (inter-user variability). This variability can originate from differences in execution (\eg speed, trajectory) or in anatomy (\eg hand size, posture). If ignored, it can reduce gesture recognition accuracy and thus negatively impact the usability of gesture-based applications.
 
 Several techniques exist to deal with gesture production variability. For instance, increasing the size of the training set by including more gesture samples produced by a greater range of users often results in higher recognition accuracy~\cite{Vatavu:2013}.
@@ -99,11 +99,11 @@ Coupled with synthetic data generation, one could achieve high accuracy with lit
 
 Finally, gesture recognition algorithms can be designed to accommodate some gesture production variability: for example, techniques such as Dynamic Time Warping (DTW) and spatial sampling can help deal with differences in gesture articulation speed~\cite{Taranta:2017, Vatavu:2013}.
 
-\subsubsection{Static vs. dynamic gestures} \label{sec:state_of_the_art:overview:challenges:static-vs-dynamic}
+\subsubsection{Static vs. Dynamic Gestures} \label{sec:state_of_the_art:overview:challenges:static-vs-dynamic}
 Two main gesture types emerge from popular taxonomies: static and dynamic gestures~\cite{Aigner:2012,Vatavu:2008,Piumsomboon:2013,Choi:2014}. Inspired by~\cite{Vatavu:2008}, we propose the following definitions: a \textit{static} gesture is a particular configuration of the body or body parts at one instant of time, whereas a \textit{dynamic} gesture corresponds to a particular motion of the body or body parts through time. 
 Different techniques may be leveraged to recognize each type of gesture. For instance, static gestures can be recognized at each frame to provide real-time recognition, while dynamic gestures are usually extracted from the raw stream of data (\ie gesture segmentation) before attempting to recognize them.
 
-\subsubsection{Gesture segmentation} \label{sec:state_of_the_art:overview:challenges:segmentation}
+\subsubsection{Gesture Segmentation} \label{sec:state_of_the_art:overview:challenges:segmentation}
 One of the greatest challenges in continuous gesture recognition is gesture segmentation, \ie extracting user gestures from a continuous stream of data. To maximize user satisfaction, a good gesture recognition pipeline should recognize all intentional gestures with minimal input from the user, while ignoring parasitic gestures (\eg transitions between gestures or unintentional motions)~\cite{Ashbrook:2010}. 
 
 There are many different approaches to segmentation. 
@@ -116,7 +116,7 @@ Finally, techniques such as Machete~\cite{Taranta:2021} rely on simple recognize
 
 As gesture segmentation techniques are still far from perfect, some measures should be taken to limit the number of false positives. Examples include training recognition algorithms to recognize parasitic gestures (\eg by generating synthetic ``noise'' gestures)~\cite{Taranta:2017} and rejecting recognized gestures if their score falls below a threshold. This threshold may be arbitrarily defined or automatically computed based on the training set~\cite{Caputo:2019}.
 
-\subsubsection{Overlapping gestures} \label{sec:state_of_the_art:overview:challenges:overlapping-gestures}
+\subsubsection{Overlapping Gestures} \label{sec:state_of_the_art:overview:challenges:overlapping-gestures}
 Two gestures are overlapping when part of one gesture is identical to part of the other gesture. While well-designed overlapping gestures may lead to increased memorability~\cite{Roy:2013}, they are challenging to recognize as they rely on near-perfect gesture segmentation. Overlapping may occur between two gestures of one gesture set or between a gesture from the gesture set and a parasitic gesture (\eg typing on a keyboard or reaching for an object). In the first case, one can design the gesture set in such a way that each gesture is easily distinguishable from all other gestures. In the second case, the designer should take into account as many potential parasitic gestures as possible to reduce the risk of false positives. Tools such as Ashbrook \etal's MAGIC~\cite{Ashbrook:2010} assist designers in the creation of gesture sets with as little overlap as possible. GEsture Clustering toolKit (GECKo)~\cite{Anthony:2013} also helps investigate how end users articulate stroke gestures in terms of stroke number, order, and direction, thus assisting the designer in keeping or discarding a particular gesture to avoid overlapping.
 
 
@@ -126,14 +126,15 @@ Two gestures are overlapping when part of one gesture is identical to part of th
 % However, the lack of a common framework for gesture recognition is making it increasingly harder to keep track of this evolution outside of the research community, resulting in only a handful of real-life applications. 
 % \ql aims at bridging the gap between researchers and developers by providing a common framework that helps researchers share the product of their research with the world and allows developers to write applications without spending time to solve the numerous challenges of gesture recognition.
 
-\subsubsection{Gorilla arm effect} \label{sec:state_of_the_art:overview:challenges:gorilla-arm}
+\subsubsection{User Fatigue} \label{sec:state_of_the_art:overview:challenges:gorilla-arm}
 \textbf{TODO}
+Gorilla arm effect
 cite "Consumed Endurance: A Metric to Quantify Arm Fatigue of Mid-Air Interactions", say how the compute the metric
 
-\subsubsection{Gesture discoverability and affordance} \label{sec:state_of_the_art:overview:challenges:gorilla-arm}
+\subsubsection{Gesture Discoverability and Affordance} \label{sec:state_of_the_art:overview:challenges:gorilla-arm}
 \textbf{TODO}
 
-\subsubsection{Communicating user errors} \label{sec:state_of_the_art:overview:challenges:TODO}
+\subsubsection{Communicating User Errors} \label{sec:state_of_the_art:overview:challenges:TODO}
 \textbf{TODO}
 
 
