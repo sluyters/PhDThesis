@@ -1,25 +1,24 @@
 # Summary of the changes applied to the manuscript
 ## Chapter 1 - Introduction
-- [ ] Better introduce key elements of gesture interaction for less-initiated readers. `Section 1.1`
-  - [ ] Mid-air gestures.
-  - [ ] Vision-based vs. radar-based sensors, LMC vs. radar.
-- [ ] Discuss applications of gesture recognition (healthcare, art, education). `Section 1.1`
+- [x] Better introduce key elements of gesture interaction for less-initiated readers. `Section 1.1`
+  - [x] Mid-air gestures.
+  - [x] Vision-based vs. radar-based sensors, LMC vs. radar.
+- [x] Discuss applications of gesture recognition (healthcare, art, education). `Section 1.1`
+  - [x] Where is gestural interaction appropriate?
+    - Intégration impossible/pas une bonne idée dans quels cas, quelles applications à part celles où on scroll, qui mobilisent un trop grand nombre de gestes : non-critical ; not for too long
 
 ## Chapter 2 - State of the Art
-- [ ] Discuss the question of using DTW for segmentation and link to dynamic recognition. `Section 2.1.2 / Gesture segmentation`
+- [ ] Discuss the problem of sensor fusion. `Section 2.1.2 / Sensor Limitations`
+- [ ] Discuss the question of using DTW for segmentation and link to dynamic recognition. `Section 2.1.2 / Gesture Segmentation`
 - [ ] Discuss UX challenges of gesture interaction. `Section 2.1.2`
   - [ ] Gesture discoverability and affordance
     - What solutions? pas les 20+ gestes at once, mais une sélection raisonnée (3-7); usually about 20 sec demonstrating a given gesture + a few minutes mastering the gesture; 
     - How about « ludification » of the learning process? Attention aux personnes plus âgées ou qui n’y arriveraient pas et qui pourraient se décourager
   - [ ] User fatigue (see "Consumed Endurance: A Metric to Quantify Arm Fatigue of Mid-Air Interactions"), mention how to compute the metric of "Gorilla-arm effect"
   - [ ] Gesture set customization
-  - [ ] Where is gestural interaction appropriate?
-    - Intégration impossible/pas une bonne idée dans quels cas, quelles applications à part celles où on scroll, qui mobilisent un trop grand nombre de gestes : non-critical ; not for too long
 - [ ] Provide a justification for limiting the SLR to the ACM DL (e.g., why not IEEE?). `Section 2.2`
 - [ ] Emphasize that the use of point clouds does not require convolutional layers and discuss the impact. `Section 2.3.2 / Algorithms`
   - About CNNs (+ LSTM) predominance: It largely depends on the radar features. For example, for point clouds we don't necessarily need CNNs.
-- [ ] Explicitly include, quote, and discuss the reference Leiva:2020. 
-
 
 ## Chapter 3 - Facilitating the Development of Gesture-based Applications
 - [x] Clarify that "removeGesture(name)" removes all samples from the same gesture in the gesture set. `Section 3.1.1`

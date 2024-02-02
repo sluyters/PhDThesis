@@ -8,32 +8,37 @@ In the mid-20th century, computers were still large, costly, and highly speciali
 %
 From the 1970s onward, the user base of computers gradually expanded to cover a broader segment of society. As they became accessible to more people, more intuitive methods of interaction were required, leading to the emergence of graphical user interfaces (GUIs).
 %
-Thanks to GUIs, various tasks became accessible to less tech-savvy users, such as writing text and manipulating images.
+Thanks to GUIs, many tasks became accessible to less tech-savvy users, such as writing text and manipulating images.
 %
-The early 21st century saw the use of computers and small portable electronic devices explode thanks in part to massive improvements in efficiency, performance, size, and cost. 
+The early 21st century saw an explosion in the use of computers and small portable electronic devices thanks in part to massive improvements in efficiency, performance, size, and cost. 
 %
-This rapid digitalization of our world could leave vulnerable people, such as the elderly, at risk of being shut out from the rest of society. Now more than ever, it is essential to design computer systems with accessibility in mind so that no one is left behind: technology can, and should, be at the service of everyone, regardless of their age, ethnicity, and whether they suffer from a disability or not. Only that way could society truly benefit from the new possibilities offered by the digitization of many of its facets, including healthcare, education, culture, and governance.
+This rapid digitalization of our world could leave vulnerable people, such as the elderly, at risk of being shut out from the rest of society. Now more than ever, it is essential to design computer systems with accessibility in mind so that no one is left behind: technology can, and should, be at the service of everyone, regardless of their age, ethnicity, and whether they suffer from a disability. Only that way could society truly benefit from the new opportunities offered by the digitization of many of its facets, including healthcare, education, culture, and governance.
 
 % 2) Gesture interfaces
 Fortunately, the increase in computing power and improvements in sensing devices opened up a wealth of new possibilities for human-computer interaction (HCI). 
-In particular, 3D gesture-based interfaces have been proposed as a natural and intuitive alternative to traditional input methods~\cite{Vatavu:2014b,Huang:2019}, typically relying on vision-based sensors, like the Leap Motion Controller (LMC) and Microsoft Kinect, or wearable devices, like smart rings~\cite{Gheran:2018}, smartwatches, and armbands, to capture user motion.
+In particular, mid-air gesture interaction, \ie relying on body postures and movements to control computer interfaces~\cite{Koutsabasis:2019}, was proposed as a natural and intuitive alternative to traditional input methods~\cite{Vatavu:2014b,Huang:2019}.
+%
+Mid-air gestures have applications in various domains, such as aiding patient rehabilitation in healthcare~\cite{Munroe:2016}, facilitating the teaching of complex subjects, assisting people with disabilities~\cite{Creed:2018,Munroe:2016}, and offering new ways for artists to express their creativity~\cite{Creed:2018,Krishnamurthy:2015}.
 % 
-Each sensor has some advantages and limitations regarding, \eg cost, performance, privacy, and practicality, which make them more suitable for different applications. 
+A myriad of sensors are currently available to capture user motion, each with distinct advantages and limitations in terms of cost, performance, privacy, and practicality. The characteristics of a sensor impact its suitability for different applications. 
 %
-For instance, vision-based sensors can accurately track user motion from a distance~\cite{Weichert:2013,DeSmedt:2017}, but are sensitive to occlusion and lighting conditions, have a limited field of view, and may raise some privacy concerns.  
+For instance, vision-based sensors like the UltraLeap Leap Motion Controller (LMC) and Microsoft Kinect combine cameras with computer vision to accurately track key points of the user's body (\eg full body skeleton, hand joints) from a distance~\cite{Weichert:2013,DeSmedt:2017} but often feature a limited field of view, potential privacy concerns, and a sensitivity to occlusion and lighting conditions.
 %
-Wearable devices, while exempted from these issues, are more intrusive as they must be worn by the user during interaction, thus making them less suitable for public spaces.
+Inertial Measurement Units (IMUs) combine gyroscopes and accelerometers to measure data about the object to which they are attached, such as its acceleration and angular rate. 
+They are often embedded in wearable devices like smart rings~\cite{Gheran:2018}, smartwatches, and armbands. IMU data can serve to compute positioning information and identify user gestures. 
+Despite being largely immune to the challenges faced by vision-based sensors, IMUs are susceptible to drift (\ie an increase in the difference between the system-estimated position and the actual position of the sensor over time), and are more intrusive as they must be worn by the user during the interaction, making them less suitable for public spaces.
 
 % 3) Radars for gesture recognition
-Radar sensors~\cite{Yeo:2016} have emerged as a promising alternative to these technologies. They combine a compact form factor and low power consumption with the ability to capture gestures through opaque surfaces and in challenging lighting conditions, all while preserving user privacy. These characteristics could make them well-suited for gestural interaction in public spaces.
+Radar sensors~\cite{Yeo:2016} have emerged as a promising alternative to these technologies for gesture interaction. 
+By emitting electromagnetic waves towards the user and capturing their reflections, they gather valuable information (\eg amplitude and frequency of the reflected signal) for identifying user gestures.
 %
-Radars have been successfully applied in various domains, including virtual reality~\cite{Huesser:2021}, activity recognition~\cite{Avrahami:2018,Avrahami:2020}, material recognition~\cite{Flintoff:2018, Yeo:2016}, and tangible interaction~\cite{Yeo:2019}. 
+Radars combine a compact form factor and low power consumption with the ability to capture gestures through opaque surfaces and in challenging lighting conditions, all while preserving user privacy. These characteristics could make them well-suited for gestural interaction in public spaces.
+%
+Radars were successfully applied in various domains, including virtual reality~\cite{Huesser:2021}, activity recognition~\cite{Avrahami:2018,Avrahami:2020}, material recognition~\cite{Flintoff:2018, Yeo:2016}, and tangible interaction~\cite{Yeo:2019}. 
 %
 However, research on radar-based gestural interfaces is still in its early stages and presents several challenges.
 %
-In particular, the lack of consensus on a few affordable and efficient off-the-shelf radar sensors has resulted in a plethora of (custom) radar systems, often incompatible with each other.
-%
-This is especially problematic, as existing works typically rely on sophisticated deep-learning algorithms for gesture recognition to cope with the complexity of radar signals. These algorithms are usually tailored to a specific sensor and gesture set, which complicates their (re)use in actual applications.
+In particular, the lack of consensus on a few affordable and efficient off-the-shelf radar sensors has resulted in plenty of (custom) radar systems, often incompatible with each other, which is especially problematic as existing works typically rely on sophisticated deep-learning algorithms for gesture recognition to cope with the complexity of radar signals. These algorithms are usually tailored to a specific sensor and gesture set, thus complicating their (re)use in actual applications.
 
 % 4) This research in 1 or 2 sentences
 In light of this context, this thesis aims to advance the state of radar-based gesture interaction by providing tools and methods that bridge the gap between researchers and practitioners to facilitate the development of highly usable radar-based gesture interfaces.
@@ -66,7 +71,6 @@ We further break down this objective into five research questions (RQs):
 \end{enumerate}
 
 %--------------------------------------------------------------------------------%
-\newpage
 \subsection{Scope}
 We define the scope of this thesis as follows:
 \begin{enumerate}[label=\textit{S\arabic*}]
