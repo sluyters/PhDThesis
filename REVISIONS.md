@@ -29,7 +29,7 @@ No modification.
 ## Chapter 5 - Designing Highly Usable Gesture-based Applications
 - [x] Fix formula 5.1: P_1 should be P in the denominator. `Formula 5.1`
 - [x] Explicit the modifications applied to Vatavu's $P+ recognizer in $P3+. `Section 5.2.2 / Static Gestures`
-- [ ] Consider the thinking aloud as a complementary method for evaluation. `Section 5.4.2`
+- [x] Consider the thinking aloud as a complementary method for evaluation. `Section 5.4.2`
   - Evaluation protocol is mostly quanti (LSM-EPL style), how about qualitative data? Cross-analyze 
 
 ## Chapter 6 - Addressing the Challenges of Radar-based Gesture Recognition

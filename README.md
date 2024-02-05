@@ -1,1 +1,3 @@
 I compiled the project using Visual Studio Code with the [LaTeX Workshop](https://github.com/James-Yu/LaTeX-Workshop?tab=readme-ov-file) extension and [MiKTeX](https://miktex.org/download). 
+[Perl](https://www.perl.org/get.html) must be installed manually for MiKTeX. 
+[Python](https://www.python.org/downloads/) must be installed manually, and the Pygments package must be installed with `pip install Pygments`. 

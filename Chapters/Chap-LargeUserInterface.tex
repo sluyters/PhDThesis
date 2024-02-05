@@ -593,7 +593,7 @@ This section reports the results of an experiment performed on the third \lui ve
 The experiment involved multiple devices, including a large TV screen for displaying the \lui application and tutorial videos (\fig~\ref{fig:lui:evaluation-apparatus}), an LMC for capturing the participants' gestures, and a laptop for running the \lui application and controlling the experiment with a custom software. A camera was positioned to record both the participants' hands and the TV screen. The \lui application was configured to record the logs of the gestures recognized by the system.
 Participants were installed at a desk and faced a large screen situated around two meters on the opposite side of the desk. The LMC was positioned in front of them.
 
-\begin{figure}[ht]
+\begin{figure}[h]
     \centering
     \begin{subfigure}{.495\textwidth}
         \centering
@@ -620,7 +620,7 @@ Participants were installed at a desk and faced a large screen situated around t
 \subsubsection{Participants}
 A stratified sampling of 17 participants (8 females and 9 males), aged between 22 and 65 years old ($M{=}37.5$, $SD{=}15.3$ years) was randomly selected from a list of volunteers to balance between genders, backgrounds, and ages (\tab~\ref{tab:lui:participants-distribution}). All participants were right-handed and all of them used smartphones daily. All but one participant ($\frac{16}{17}{=}94.1\%$) used computers at least once a week, and only two participants ($\frac{2}{17}{=}11.8\%$) frequently used gestural interaction. Occupations included student, researcher, employee, computer scientist, physiotherapist, and accountant.
 
-\begin{table*}[hbt]
+\begin{table*}[tb]
     \footnotesize
     \centering
 	\renewcommand{\arraystretch}{1.1}
@@ -633,9 +633,9 @@ A stratified sampling of 17 participants (8 females and 9 males), aged between 2
 	    \#participants & 2 \cellcolor{graybluebrighter} & 2 \cellcolor{graybluebrighterer} & 2 \cellcolor{graybluebrighter} & 2 \cellcolor{graybluebrighterer} & 2 \cellcolor{graybluebrighter} & 2 \cellcolor{graybluebrighterer} & 2 \cellcolor{graybluebrighter} & 3 \cellcolor{graybluebrighterer} \\
         \bottomrule
 	\end{tabular}
-	\vspace{-8pt}
+	\vspace{-4pt}
 	\caption{Distribution of the participants in our study.}
-	\vspace{-10pt}
+	% \vspace{-10pt}
 	\label{tab:lui:participants-distribution}
 \end{table*}
 
@@ -644,7 +644,7 @@ The experiment consisted of two sessions conducted on separate days. The interva
 
 \paragraph{Session 1 (Discovery and Short-term Memorability).} The first session was aimed at introducing \lui to participants and evaluating its user experience and the short-term memorability of its gesture set. It consisted of six phases:
 
-\begin{table*}[t]
+\begin{table*}[!tb]
     \footnotesize
     \centering
     \renewcommand{\arraystretch}{1.1}
@@ -672,13 +672,13 @@ The experiment consisted of two sessions conducted on separate days. The interva
         A17 & Pan & Map & Move hand while pointing index \\
         \bottomrule
     \end{tabular}
-    % \vspace{-8pt}
-    \caption{The 17 atomic tasks, potential target content, and associated gestures.}
+    \vspace{-4pt}
+    \caption{The 17 atomic tasks, target content, and associated gestures.}
     % \vspace{-10pt}
     \label{tab:lui:tasks-atomic}
 \end{table*}
 
-\begin{table*}[t]
+\begin{table*}[tb]
     \footnotesize
     \renewcommand{\arraystretch}{1.1}
     \captionsetup{justification=centering}
@@ -691,7 +691,7 @@ The experiment consisted of two sessions conducted on separate days. The interva
         C3 & Videos & In the Videos app, find the words pronounced halfway through the ``sea turtles'' video. Fast-forward through the video to get to the right part. & Enable fullscreen, next, play, fast-forward \\
         \bottomrule
     \end{tabular}
-    % \vspace{-10pt}
+    \vspace{-4pt}
     \caption{The three compound tasks and the minimum set of actions required to complete each task.}
     % \vspace{-10pt}
     \label{tab:lui:tasks-compound}
@@ -783,7 +783,7 @@ In addition to the metrics, demographic information, and questionnaires, we capt
 Only two atomic tasks have a success rate below 80\% in the learning phase: tasks A4 (disable full screen) and A9 (rotate clockwise). In the first testing phase, only task A9 has a success rate below 80\%, while in the second testing phase, the overall success rate decreases slightly, and three tasks have a success rate lower than 80\%: tasks A9, A10 (rotate anticlockwise), and A16 (rewind). 
 Overall, the lower success rate of the rotating (anti-)clockwise tasks may be explained by the high sensitivity of the system to the users' hand pose. For instance, if the users' fingers were too far apart when performing the ``grab'' gesture, it was not recognized by the system. To a lesser extent, this high sensitivity may have affected the recognition of other static gestures (see \tab~\ref{tab:lui:elicitation-to-recognition}), such as in the ``fast-forward'', ``rewind'', and ``pan'' tasks.
 
-\begin{table*}[!bt]
+\begin{table*}[!b]
     \renewcommand{\arraystretch}{1.1}
     \footnotesize
     \centering
@@ -812,6 +812,7 @@ Overall, the lower success rate of the rotating (anti-)clockwise tasks may be ex
         \bottomrule
     \end{tabular}
     % \vspace{-8pt}
+    \captionsetup{width=.99\linewidth}
     \caption{Number of trials for successful completion of each atomic task.}
 	\vspace{-10pt}
 	\label{tab:lui:trials}
@@ -820,7 +821,7 @@ Overall, the lower success rate of the rotating (anti-)clockwise tasks may be ex
 
 Regarding compound tasks, tasks C1 (photo) and C2 (video) had a higher success rate than task C3 (map) in both the first and second testing phases. The ``pan'' gesture used in the Maps application was not elicited, which may have impacted the usability of the application. In addition, this task required more precision than the other two, as it required participants to accurately manipulate the map so that two markers were situated on each side of the screen.
 
-\begin{figure}[t]
+\begin{figure}[bt]
     \centering
     \begin{subfigure}{.495\linewidth}
         \includegraphics[width=\linewidth]{Figures/LUI/Evaluation/ueq+_session_1_scale_means.pdf}
@@ -832,7 +833,7 @@ Regarding compound tasks, tasks C1 (photo) and C2 (video) had a higher success r
         \caption{Session 2.}
         \label{fig:lui:ueqplus-scales:session2}
     \end{subfigure}
-    \vspace{-8pt}
+    \vspace{-16pt}
     \caption{Mean score for each scale of the UEQ+ questionnaire.}
     \label{fig:lui:ueqplus-scales}
     \vspace{-8pt}
@@ -865,25 +866,28 @@ The main strengths of \lui lie in the three requirements defined in Section~\ref
     \item \textit{Customizability.} Thanks to \ql, the \lui application supports customizability by enabling users with no coding skills to include their own gestures in three steps (\fig~\ref{fig:lui:customization-steps}): (1) record new gesture samples with custom software, \eg our LeapGesturePlayback tool\footnote{The code of the tool is available on GitHub at \url{https://github.com/sluyters/LeapGesturePlayback}.} (\fig~\ref{fig:lui:customization-steps:record}), (2) overwrite the old gesture files with the new set of samples (\fig~\ref{fig:lui:customization-steps:files}), and (3) restart \ql to propagate the changes, which takes $\leq 10$ seconds on a modern computer.
 \end{enumerate}
 
-\begin{figure}[!t]
+\begin{figure}[p]
     \centering
     
-    \begin{subfigure}{.8\textwidth}
+    \begin{subfigure}{.90\textwidth}
         \centering
-        \fbox{\includegraphics[width=.96\linewidth]{Figures/LUI/Customization/recorder.pdf}} 
+        \fbox{\includegraphics[width=.97\linewidth]{Figures/LUI/Customization/recorder.pdf}} 
         \captionsetup{width=.99\linewidth}
+        \vspace{-2pt}
         \caption{Recording new gesture samples.}
         \label{fig:lui:customization-steps:record}
     \end{subfigure}
+    \vspace{2pt}
     
-    \begin{subfigure}{.8\textwidth}
+    \begin{subfigure}{.90\textwidth}
         \centering
         \includegraphics[width=.99\linewidth]{Figures/LUI/Customization/files.pdf}  
+        \vspace{-2pt}
         \captionsetup{width=.99\linewidth}
         \caption{Replacing old gesture files with new samples.}
         \label{fig:lui:customization-steps:files}
     \end{subfigure}
-    
+    \vspace{-6pt}
     \caption{Two main steps for customizing the \lui gesture set.}
     \label{fig:lui:customization-steps}
     % \vspace{-16pt}
@@ -903,17 +907,17 @@ Furthermore, gesture segmentation is not perfect, and parasitic motion may be mi
 % Multi-user
 Lastly, \lui does not support concurrent interaction from multiple users due to limitations of \ql. As a result, concurrent gestures from two users will interfere with each other.
 
-
-Other limitations of \lui are related to our development method, specifically, the design of the gesture set.
+Other limitations of \lui are related to our development method, specifically, the design of the gesture set and the proposed evaluation procedure.
 %
-First, user fatigue may become a problem during long interactions with \lui, as mid-air gestures can be more tiring than traditional interaction methods~\cite{Siddhpuria:2017, Jakobsen:2015}. 
+First, user fatigue may become a problem during long interactions with \lui, as mid-air gestures can be more tiring than traditional interaction methods~\cite{Siddhpuria:2017,Jakobsen:2015,Hansberger:2017} (Section~\ref{sec:state_of_the_art:overview:challenges:gorilla-arm}). Minimizing the physical effort of mid-air gestures is critical to supporting prolonged gesture interaction~\cite{Hansberger:2017}.
 %
-In addition, while user-elicited gesture sets have been shown to improve the immediate usability of an application~\cite{Wobbrock:2005}, the GES procedure followed in this chapter is not without flaws.
-%
-For instance, our choice of illustrations of the referents may have influenced participants' gesture propositions. 
-The small sample size of our study may also not accurately represent the majority of the population, as gesture propositions are affected by participants' cultural background~\cite{Archer:1997}. 
-Finally, GESs usually rely on subjective criteria for gesture clustering, which may further impact their findings~\cite{Vatavu:2019}. 
+Then, while user-elicited gesture sets have been shown to improve the immediate usability of an application~\cite{Wobbrock:2005}, the GES procedure followed in this chapter is not without flaws.
+Indeed, the small sample size of our study may also not accurately represent the majority of the population, as gesture propositions are affected by participants' cultural background~\cite{Archer:1997}. 
+Our choice of illustrations for the referents featured notable differences from the final LUI application and may have influenced participants' gesture propositions. 
+In addition, GESs usually rely on subjective criteria for gesture clustering, which may further impact the validity of their findings~\cite{Vatavu:2019}. 
 Fortunately, the customizability of \lui contributes to mitigating these issues by enabling end users to define their own set of gestures.
+%
+Finally, our evaluation procedure focused on collecting quantitative data. While this approach is a great way to evaluate the usability of an application, it provides little insight into the actual reasons behind user challenges and potential avenues for improvement. Collecting additional qualitative data, \eg by incorporating thinking-aloud techniques~\cite{vanSomeren:1994} into our evaluation procedure, would provide us with a more comprehensive understanding of users' thoughts and reasoning.
 
 
 %================================================================================%
@@ -926,9 +930,9 @@ We applied this process in the development of \lui, a gesture-based application 
 After evaluating \lui in an experiment with 17 participants, we noted an increase in its perceived usability between the two experimental sessions, despite a few participants having trouble remembering some of the gestures. We also observed some unpredictability in gesture recognition for certain gestures, attributed in part to slight variations in the way they were performed by the participants. This underscores the importance of supporting gesture set customization.
 
 % Software quality properties
-The \lui application inherits multiple ISO/IEC 25010 software quality properties~\cite{iso25010} from its use of \ql and its testing tool (Sections~\ref{chap:quantumleap} and~\ref{chap:quantumleap-testing}), including \textit{maintainability} and \textit{portability}.
+The \lui application inherits multiple ISO/IEC 25010 software quality properties~\cite{iso25010} from its use of \ql and its testing tool (Chapters~\ref{chap:quantumleap} and~\ref{chap:quantumleap-testing}), including \textit{maintainability} and \textit{portability}.
 %
-In addition, our methodology supports the \textit{usability} property, by encouraging developers to involve end users in the development process of their application, by conducting GESs to identify user preferences, and by evaluating their application among potential users.
+Our methodology also supports the \textit{usability} property, by encouraging developers to involve end users in the development process of their application, by conducting GESs to identify user preferences, and by evaluating their application among potential users.
 
 % Future works
 This chapter opens up promising avenues for future work.
