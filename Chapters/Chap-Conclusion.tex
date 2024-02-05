@@ -230,8 +230,12 @@ Future research could also focus on refining our pipeline for radar signal proce
 This includes adding some form of user normalization to account for anatomical differences between users, as well as modifying the full-wave inversion stage to take into account the finite size of the hand, thus improving gesture recognition accuracy when the distance between the user and the radar is not fixed.
 % 
 In addition, we could add a stage at the end of the pipeline to compute the 3D position of the hand with trilateration, which would enable applications to display a cursor on the screen, and could improve the recognition of 3D hand trajectories.
+%
+Similarly, \textbf{TODO - sensor fusion} apply sensor fusion with Kalman filters with multiple radars or with a radar and other sensors to combine the advantages of the different sensors and thus build a more robust system that works in different environmental conditions, more precision,..
 % 
-We could also investigate the possibility of recognizing gestures performed by more than one user concurrently with a single radar system, and look into gesture segmentation techniques for radar to facilitate real-time gesture interaction, \eg using the \ql framework.
+We could also investigate the possibility of recognizing gestures performed by more than one user concurrently with a single radar system and look into gesture segmentation techniques for radar to facilitate real-time gesture interaction, \eg using the \ql framework.
+
+
 
 %% Radar experiments
 Finally, future work could continue the exploration of radar-based gesture recognition through experimentation.

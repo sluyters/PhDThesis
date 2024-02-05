@@ -248,6 +248,7 @@
 
 \newcommand*{\supervisor}[1]{\def\supname{#1}}
 \newcommand*{\thesistitle}[1]{\def\@title{#1}\def\ttitle{#1}}
+\newcommand*{\thesissubtitle}[1]{\def\@title{#1}\def\tstitle{#1}}
 \newcommand*{\examiner}[1]{\def\examname{#1}}
 \newcommand*{\degree}[1]{\def\degreename{#1}}
 \renewcommand*{\author}[1]{\def\authorname{#1}}

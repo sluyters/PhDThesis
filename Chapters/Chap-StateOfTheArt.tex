@@ -221,11 +221,16 @@ Designing good gesture-based interfaces is a challenging endeavor in which user 
 
 %================================================================================%
 \section{Analysis of a Mature Sensing Technology} \label{sec:state_of_the_art:lmc}
-To better understand the challenges of radar-based gesture interaction, it is relevant to look at a more mature sensing technology. In this section, we focus on the Leap Motion Controller (LMC): an innovative, 3D motion-capturing device designed specifically to track two hands and their fingers~\cite{Togootogtokh:2018} with high precision and robustness~\cite{Weichert:2013}. Its API transforms the raw data from its two near-infrared cameras into a hand skeleton to be used in any application. The LMC reaches sub-millimeter (0.2 mm) accuracy for static gestures and falls to 1.2 mm for dynamic gestures~\cite{Weichert:2013}. It natively recognizes a handful of system-defined gestures but custom gesture recognition algorithms are often preferred as they enable the support of a wider range of gestures~\cite{Brandon:2014}.
+Looking at more mature sensing technologies, such as vision-based sensors, can help us better grasp the challenges of radar-based gesture interaction.
+%
+In this section, we chose to focus on the Leap Motion Controller (LMC): an innovative, 3D motion-capturing device designed to track two hands and their fingers~\cite{Togootogtokh:2018} with high precision and robustness~\cite{Weichert:2013}. Its API transforms the raw data from its two near-infrared cameras into a hand skeleton to be used in any application. The LMC reaches sub-millimeter (0.2 mm) accuracy for static gestures and falls to 1.2 mm for dynamic gestures~\cite{Weichert:2013}. It natively recognizes a handful of system-defined gestures but custom gesture recognition algorithms are often preferred as they enable the support of a wider range of gestures~\cite{Brandon:2014}.
 The affordability, off-the-shelf availability, and accuracy of the LMC make it relatively popular among researchers and practitioners.
 
-We undertook a Systematic Literature Review (SLR)~\cite{Kitchenham:2010} to determine the algorithms used for LMC-based gesture recognition (\fig~\ref{fig:state_of_the_art:lmc:prisma}). The query \texttt{RQ=``leap motion'' AND ``gesture recognition''} was run in the ACM Digital Library\footnote{See \url{https://dl.acm.org}} and resulted in 390 publications, from which $N{=}43$ were identified as relevant. \textbf{TODO} Compared to our SLR on radar-based gesture recognition (Section~\ref{sec:state_of_the_art:radar}), this SLR was more secondary and we thus limited its scope to a single relevant library. The ACM Digital Library was identified as a good option for computer science SLR~\cite{Gusenbauer:2020}. Its large database should provide a good overview of the literature on LMC-based gesture recognition while minimizing our effort.
-
+We undertook a Systematic Literature Review (SLR)~\cite{Kitchenham:2010} to explore the algorithms employed for LMC-based gesture recognition (\fig~\ref{fig:state_of_the_art:lmc:prisma}). 
+%
+The query \texttt{RQ=``leap motion'' AND ``gesture recognition''} was run in the ACM Digital Library\footnote{Accessible at \url{https://dl.acm.org}}, which was highlighted as a good option for computer science literature reviews by Gusenbauer and Haddaway~\cite{Gusenbauer:2020}. Leveraging only one extensive database of papers provided us with a good overview of the literature on LMC-based gesture recognition while allowing us to channel most of our efforts into our subsequent SLR on radar-based gesture recognition (Section~\ref{sec:state_of_the_art:radar}).
+%
+The query yielded 390 publications, from which $N{=}43$ were identified as relevant. 
 
 \begin{figure}[htb]
     \centering

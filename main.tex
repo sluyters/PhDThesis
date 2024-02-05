@@ -109,6 +109,7 @@
 \definecolor{graybluebright--}{RGB}{103, 126, 157}
 \definecolor{grayblue+}{RGB}{88, 109, 138}
 \definecolor{grayblue}{RGB}{68, 84, 106}
+\definecolor{customdarkgray}{RGB}{100, 100, 100}
 \definecolor{customlightgray}{RGB}{230, 230, 230}
 
 %================================================================================%
@@ -208,8 +209,9 @@
 %================================================================================%
 %   Thesis information
 %================================================================================%
-\thesistitle{An Integrated Development Environment for Gesture-based Interactive Applications:
-Instantiation to Radar Gestures} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\thesistitle{An Integrated Development Environment for Gesture-based Interactive Applications} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\thesissubtitle{Instantiation to Radar Gestures} % Your thesis title, this is used in the title and abstract, print it elsewhere with \tstitle
+
 
 \supervisor{Prof. Sébastien \textsc{Lambot}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
 \supervisor{Prof. Jean \textsc{Vanderdonckt}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
@@ -227,7 +229,7 @@ Instantiation to Radar Gestures} % Your thesis title, this is used in the title 
 \group{\href{https://uclouvain.be/en/research-institutes/lourim}{LouRIM}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
 \faculty{\href{http://faculty.university.com}{Faculty Name}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
 
-\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdftitle=\ttitle: \tstitle} % Set the PDF's title to your title
 \hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
 \hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
 
@@ -238,64 +240,131 @@ Instantiation to Radar Gestures} % Your thesis title, this is used in the title 
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
 \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
 
+% %================================================================================%
+% %   Title page (old)
+% %================================================================================%
+% \begin{titlepage}
+% \begin{center}
+
+% \begin{figure}
+%   \centering
+%   \includegraphics[scale = 0.30]{Figures/logo_joint.png}
+% \end{figure}
+
+
+% 	%\begin{center}
+% 	%\includegraphics[scale = 0.20]{UCL+mention-pantone282.eps}\\[0.5cm]
+% 	%\end{center}
+		
+% %\textsc{\large Doctoral Thesis}\\[0.5cm] % Thesis type
+
+% \HRule \\[0.4cm] % Horizontal line
+% {\LARGE \bfseries \ttitle}\\[0.1cm] % Thesis title
+% \HRule \\[1.0cm] % Horizontal line
+
+% \begin{minipage}{\textwidth}
+%     \centering
+%     \begin{tabular}{ll}
+%         \textbf{Author:} & \\
+%         Arthur Sluÿters &  UCLouvain, Belgium \\
+%     \end{tabular}
+% \end{minipage}
+ 
+% \vspace{1cm}
+	
+% %\large 
+% {Thesis submitted in fulfillment \\ of the requirements for the degree of \\[0.3cm] \large{Doctor of Computer Science}}\\[0.3cm] % University requirement text
+% {of the \univname}\\[1cm]
+ 
+% \begin{minipage}{\textwidth}
+%     \centering
+%     \begin{tabular}{ll}
+%         \textbf{Committee in charge:}  & \\
+%         Prof. Sébastien Lambot (co-advisor) &  UCLouvain, Belgium \\
+%         Prof. Jean Vanderdonckt (co-advisor) &  UCLouvain, Belgium \\
+%         Prof. Suzanne Kieffer (secretary) & UCLouvain, Belgium \\
+%         Prof. Peter Van Roy (president) & UCLouvain, Belgium \\
+%         Prof. Paolo Roselli & Università di Roma ``Tor Vergata'', Italy \\
+%         Prof. Luis A. Leiva & University of Luxembourg, Luxembourg \\
+%     \end{tabular}
+% \end{minipage}
+
+
+% %{%\large 
+% %\today}\\[4cm] % Date
+% %\includegraphics{Logo} % University/department logo - uncomment to place it
+ 
+% \vfill
+% \end{center}
+% \end{titlepage}
+
+% \thispagestyle{empty} 
+
 %================================================================================%
-%   Title page
+%   Title page (new)
 %================================================================================%
 \begin{titlepage}
-\begin{center}
+  \newlength{\oldparindent}%
+  \setlength{\oldparindent}{\parindent}% Save old indentation amount
+  \setlength{\parindent}{0em}% Zero out indentation
+  
+  % \HRule \\[0.4cm] % Horizontal line
+  % Thesis title
+  \begin{center}
+    \huge \bfseries \color{black} \ttitle
+  \end{center}
+  \vspace{-10pt}
+  % Thesis subtitle
+  \begin{center}
+    \Large \bfseries \color{customdarkgray} \tstitle
+  \end{center}
+  % {\Huge \bfseries \raggedright \ttitle}\\[0.1cm] % Thesis title
+  % {\LARGE \bfseries \tstitle}\\[0.1cm] % Thesis subtitle
+  % \HRule \\[1.0cm] % Horizontal line
+  
+  \vspace{.3cm}
 
-\begin{figure}
-  \centering
-  \includegraphics[scale = 0.30]{Figures/logo_joint.png}
-\end{figure}
-
-
-	%\begin{center}
-	%\includegraphics[scale = 0.20]{UCL+mention-pantone282.eps}\\[0.5cm]
-	%\end{center}
-		
-%\textsc{\large Doctoral Thesis}\\[0.5cm] % Thesis type
-
-\HRule \\[0.4cm] % Horizontal line
-{\LARGE \bfseries \ttitle}\\[0.1cm] % Thesis title
-\HRule \\[1.0cm] % Horizontal line
-
-\begin{minipage}{\textwidth}
-    \centering
+  \begin{center}
+    % \large {\bfseries Arthur Sluÿters}\hspace*{.3cm}\textit{UCLouvain, Belgium}
+    \large
     \begin{tabular}{ll}
-        \textbf{Author:} & \\
-        Arthur Sluÿters &  UCLouvain, Belgium \\
-    \end{tabular}
-\end{minipage}
- 
-\vspace{1cm}
-	
-%\large 
-{Thesis submitted in fulfillment \\ of the requirements for the degree of \\[0.3cm] \large{Doctor of Computer Science}}\\[0.3cm] % University requirement text
-{of the \univname}\\[1cm]
- 
-\begin{minipage}{\textwidth}
-    \centering
+      \textbf{Arthur Sluÿters} & \textit{UCLouvain, Belgium} \\
+    \end{tabular}  
+  \end{center}
+
+  \vspace{1.4cm}
+    
+  % University requirement text
+  \begin{center}
+    \small A thesis submitted in fulfillment of the requirements for the degree of\\[0.2cm] {\large Doctor of Computer Science}\\[0.2cm] of the\\[0.2cm] {\large \univname} 
+  \end{center}
+
+  \vspace{1.4cm}
+   
+  \begin{center}
+    \small \textbf{Committee in charge}\\[0.2cm]
     \begin{tabular}{ll}
-        \textbf{Committee in charge:}  & \\
-        Prof. Sébastien Lambot (co-advisor) &  UCLouvain, Belgium \\
-        Prof. Jean Vanderdonckt (co-advisor) &  UCLouvain, Belgium \\
-        Prof. Suzanne Kieffer (secretary) & UCLouvain, Belgium \\
-        Prof. Peter Van Roy (president) & UCLouvain, Belgium \\
-        Prof. Paolo Roselli & Università di Roma ``Tor Vergata'', Italy \\
-        Prof. Luis A. Leiva & University of Luxembourg, Luxembourg \\
-    \end{tabular}
-\end{minipage}
+      \textbf{Prof. Sébastien Lambot} (co-advisor) & \textit{UCLouvain, Belgium} \\
+      \textbf{Prof. Jean Vanderdonckt} (co-advisor) & \textit{UCLouvain, Belgium} \\
+      \textbf{Prof. Suzanne Kieffer} (secretary) & \textit{UCLouvain, Belgium} \\
+      \textbf{Prof. Peter Van Roy} (president) & \textit{UCLouvain, Belgium} \\
+      \textbf{Prof. Paolo Roselli} & \textit{Università di Roma ``Tor Vergata'', Italy} \\
+      \textbf{Prof. Luis A. Leiva} & \textit{University of Luxembourg, Luxembourg} \\
+    \end{tabular}  
+  \end{center}
+  
+  \vfill
+
+  % Logo
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.13]{Figures/UCLouvain+LouRIM Fused.png}
+  \end{figure}
 
 
-%{%\large 
-%\today}\\[4cm] % Date
-%\includegraphics{Logo} % University/department logo - uncomment to place it
- 
-\vfill
-\end{center}
+  \setlength{\parindent}{\oldparindent}% Return to old indent amount
 \end{titlepage}
-
+  
 \thispagestyle{empty} 
 
 %================================================================================%
