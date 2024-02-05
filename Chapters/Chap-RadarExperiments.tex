@@ -1081,6 +1081,7 @@ Radar sensing can penetrate non-conducting materials, such as glass, wood, and p
     \item Evaluate the performance of the Walabot for sensing gestures through wood, PVC, and glass.
     \item Evaluate the ability of our signal-processing pipeline to normalize radar data collected through different materials.
 \end{enumerate}
+The experiment described in this section is similar to a study conducted by Leiva \etal~\cite{Leiva:2020}, that analyzed the impact on gesture recognition accuracy of different fabrics covering a Google Soli radar. 
 
 %--------------------------------------------------------------------------------%
 \subsection{Protocol} \label{sec:radar-experiments:through-materials:protocol}
@@ -1418,6 +1419,7 @@ Similarly to the time gating stage, the low accuracy could be explained by the l
 %--------------------------------------------------------------------------------%
 \subsection{Summary} \label{sec:radar-experiments:through-materials:discussion}
 This experiment showed us that a relatively inexpensive radar like the Walabot could perform relatively well through some types of materials, including wood and PVC. In addition, our signal-processing pipeline managed to normalize the signals from the two materials, achieving a fairly high accuracy of around 71\% across these materials.
+\textbf{TODO} The results of Leiva \etal's study with fabrics~\cite{Leiva:2020} suggest that even better accuracy could be achieved by training the gesture recognition algorithm with a larger set of samples performed without any material in front of the radar. This could be worth investigating in future works, as the data normalization applied by our pipeline could further improve these results.
 %
 The higher relative permittivity of the glass compared to the other materials resulted in a lower accuracy. While the average accuracy still reached 71.6\% in the user-dependent scenario when using glass data for training and testing, it dropped to around 38\% when mixing glass with another material. This indicates that our processing pipeline could not properly normalize signals recorded through the glass, probably because of the lower signal-to-noise ratio. Other radar systems operating at a different power level and/or frequency range may alleviate this issue.
 %
