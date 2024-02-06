@@ -44,127 +44,221 @@ The LMC API~\cite{Spiegelmock:2013} enables to natively recognize a handful of s
 It is also widely used in many domains of applications such as augmented reality~\cite{Lopez:2015} and activity recognition~\cite{Marin:2016}. Several LMC-based gesture recognition algorithms exist~\cite{Bachmann:2018}. No study compares them on the same basis, apart from \cite{Filho:2018} with three classical machine learning algorithms, but without any recent recognizer such as  DeepGru~\cite{Maghoumi:2019}.
 
 \begin{table}
-    %    \vspace{-11pt}
-        \footnotesize
-        \centering
-        \begin{tabular}{lcccc}
-            \toprule
-            \multicolumn{1}{c}{\multirow{2}{*}{\textbf{Function}}} & \multicolumn{4}{c}{\textbf{Media type}} \\
-            & Photos & Videos & Documents & Maps \\
-            \midrule
-            Fullscreen on/off & \fullcirc & \fullcirc & \fullcirc & \fullcirc \\
-            Like/dislike & \fullcirc & \fullcirc & \fullcirc & \fullcirc \\
-            Previous/Next & \fullcirc & \fullcirc & \fullcirc & \emptycirc \\
-            Zoom in/out & \fullcirc & \emptycirc & \fullcirc & \fullcirc \\
-            Rotate & \fullcirc & \emptycirc & \fullcirc & \fullcirc \\
-            Pan & \fullcirc & \emptycirc & \fullcirc & \fullcirc \\
-            Change brightness & \fullcirc & \emptycirc & \emptycirc & \emptycirc \\
-            Change contrast & \fullcirc & \emptycirc & \emptycirc & \emptycirc \\
-            Play/pause & \emptycirc & \fullcirc & \emptycirc & \emptycirc \\
-            Show/hide subtitles & \emptycirc & \fullcirc & \emptycirc & \emptycirc \\
-            Volume up/down & \emptycirc & \fullcirc & \emptycirc & \emptycirc \\
-            Fast-forward/backward & \emptycirc & \fullcirc & \emptycirc & \emptycirc \\
-            Highlight text & \emptycirc & \emptycirc & \fullcirc & \emptycirc \\
-            Place marker & \emptycirc & \emptycirc & \emptycirc & \fullcirc \\
-            Change layer & \emptycirc & \emptycirc & \emptycirc & \fullcirc \\
-            \bottomrule
-        \end{tabular}
-        % \vspace{-8pt}
-        \caption{List of functions for each media type.}
-        % \vspace{-10pt}
-        \label{tab:lui:media-actions}
-    \end{table}
+%    \vspace{-11pt}
+    \footnotesize
+    \centering
+    \begin{tabular}{lcccc}
+        \toprule
+        \multicolumn{1}{c}{\multirow{2}{*}{\textbf{Function}}} & \multicolumn{4}{c}{\textbf{Media type}} \\
+        & Photos & Videos & Documents & Maps \\
+        \midrule
+        Fullscreen on/off & \fullcirc & \fullcirc & \fullcirc & \fullcirc \\
+        Like/dislike & \fullcirc & \fullcirc & \fullcirc & \fullcirc \\
+        Previous/Next & \fullcirc & \fullcirc & \fullcirc & \emptycirc \\
+        Zoom in/out & \fullcirc & \emptycirc & \fullcirc & \fullcirc \\
+        Rotate & \fullcirc & \emptycirc & \fullcirc & \fullcirc \\
+        Pan & \fullcirc & \emptycirc & \fullcirc & \fullcirc \\
+        Change brightness & \fullcirc & \emptycirc & \emptycirc & \emptycirc \\
+        Change contrast & \fullcirc & \emptycirc & \emptycirc & \emptycirc \\
+        Play/pause & \emptycirc & \fullcirc & \emptycirc & \emptycirc \\
+        Show/hide subtitles & \emptycirc & \fullcirc & \emptycirc & \emptycirc \\
+        Volume up/down & \emptycirc & \fullcirc & \emptycirc & \emptycirc \\
+        Fast-forward/backward & \emptycirc & \fullcirc & \emptycirc & \emptycirc \\
+        Highlight text & \emptycirc & \emptycirc & \fullcirc & \emptycirc \\
+        Place marker & \emptycirc & \emptycirc & \emptycirc & \fullcirc \\
+        Change layer & \emptycirc & \emptycirc & \emptycirc & \fullcirc \\
+        \bottomrule
+    \end{tabular}
+    \vspace{-4pt}
+    \caption{List of functions for each media type.}
+    % \vspace{-10pt}
+    \label{tab:lui:media-actions}
+\end{table}
     
-    \begin{figure}[ht]
+% \begin{figure}[ht]
+%     \centering
+%     \vspace{-10pt}
+%     \begin{subfigure}{.32\textwidth}
+%         \centering
+%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/welcome_screen_lui.pdf}  
+%         \vspace{-5pt}
+%         \captionsetup{width=.9\linewidth}
+%         \caption{Welcome screen.}
+%         \label{fig:lui:screenshots:welcome-screen}
+%     \end{subfigure}
+%     \begin{subfigure}{.32\textwidth}
+%         \centering
+%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/app_menu.pdf}  
+%         \vspace{-5pt}
+%         \captionsetup{width=.9\linewidth}
+%         \caption{Application menu.}
+%         \label{fig:lui:screenshots:app-menu}
+%     \end{subfigure}
+%     \begin{subfigure}{.32\textwidth}
+%         \centering
+%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/photos-list.pdf}  
+%         \vspace{-5pt}
+%         \captionsetup{width=.9\linewidth}
+%         \caption{Photos app (list).}
+%         \label{fig:lui:screenshots:photos-list}
+%     \end{subfigure}
+    
+%     \begin{subfigure}{.32\textwidth}
+%         \centering
+%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/photos-fullscreen.pdf}  
+%         \vspace{-5pt}
+%         \captionsetup{width=.9\linewidth}
+%         \caption{Photos app (item).}
+%         \label{fig:lui:screenshots:photos-fullscreen}
+%     \end{subfigure}
+%     \begin{subfigure}{.32\textwidth}
+%         \centering
+%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/videos-list.pdf} 
+%         \vspace{-5pt}
+%         \captionsetup{width=.9\linewidth}
+%         \caption{Videos app (list).}
+%         \label{fig:lui:screenshots:videos-list}
+%     \end{subfigure}
+%     \begin{subfigure}{.32\textwidth}
+%         \centering
+%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/videos-fullscreen.pdf}  
+%         \vspace{-5pt}
+%         \captionsetup{width=.9\linewidth}
+%         \caption{Videos app (item).}
+%         \label{fig:lui:screenshots:videos-fullscreen}
+%     \end{subfigure}
+%     \begin{subfigure}{.32\textwidth}
+%         \centering
+%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/documents-list.pdf} 
+%         \vspace{-5pt}
+%         \captionsetup{width=.9\linewidth}
+%         \caption{Documents app (list).}
+%         \label{fig:lui:screenshots:documents-list}
+%     \end{subfigure}
+%     \begin{subfigure}{.32\textwidth}
+%         \centering
+%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/documents-fullscreen.pdf}  
+%         \vspace{-5pt}
+%         \captionsetup{width=.9\linewidth}
+%         \caption{Documents app (item).}
+%         \label{fig:lui:screenshots:documents-fullscreen}
+%     \end{subfigure}
+%     \begin{subfigure}{.32\textwidth}
+%         \centering
+%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/maps.pdf} 
+%         \vspace{-5pt}
+%         \captionsetup{width=.9\linewidth}
+%         \caption{Maps app.}
+%         \label{fig:lui:screenshots:maps}
+%     \end{subfigure}
+%     \begin{subfigure}{.32\textwidth}
+%         \centering
+%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/fingers.pdf} 
+%         \vspace{-5pt}
+%         \captionsetup{width=.9\linewidth}
+%         \caption{User's hand.}
+%         \label{fig:lui:screenshots:hand}
+%     \end{subfigure}
+    
+%     % \vspace{-4pt}
+%     \caption{Screenshots of the third prototype of the \lui application.}
+%     % \vspace{-14pt}
+%     \label{fig:lui:screenshots}
+% \end{figure}
+
+\begin{figure}[p]
+    \centering
+    % \vspace{-10pt}
+    \begin{subfigure}{.47\textwidth}
         \centering
-        \vspace{-10pt}
-        \begin{subfigure}{.32\textwidth}
-            \centering
-            \includegraphics[width=.96\linewidth]{Figures/LUI/UI/welcome_screen_lui.pdf}  
-            \vspace{-5pt}
-            \captionsetup{width=.9\linewidth}
-            \caption{Welcome screen.}
-            \label{fig:lui:screenshots:welcome-screen}
-        \end{subfigure}
-        \begin{subfigure}{.32\textwidth}
-            \centering
-            \includegraphics[width=.96\linewidth]{Figures/LUI/UI/app_menu.pdf}  
-            \vspace{-5pt}
-            \captionsetup{width=.9\linewidth}
-            \caption{Application menu.}
-            \label{fig:lui:screenshots:app-menu}
-        \end{subfigure}
-        \begin{subfigure}{.32\textwidth}
-            \centering
-            \includegraphics[width=.96\linewidth]{Figures/LUI/UI/photos-list.pdf}  
-            \vspace{-5pt}
-            \captionsetup{width=.9\linewidth}
-            \caption{Photos app (list).}
-            \label{fig:lui:screenshots:photos-list}
-        \end{subfigure}
-        
-        \begin{subfigure}{.32\textwidth}
-            \centering
-            \includegraphics[width=.96\linewidth]{Figures/LUI/UI/photos-fullscreen.pdf}  
-            \vspace{-5pt}
-            \captionsetup{width=.9\linewidth}
-            \caption{Photos app (item).}
-            \label{fig:lui:screenshots:photos-fullscreen}
-        \end{subfigure}
-        \begin{subfigure}{.32\textwidth}
-            \centering
-            \includegraphics[width=.96\linewidth]{Figures/LUI/UI/videos-list.pdf} 
-            \vspace{-5pt}
-            \captionsetup{width=.9\linewidth}
-            \caption{Videos app (list).}
-            \label{fig:lui:screenshots:videos-list}
-        \end{subfigure}
-        \begin{subfigure}{.32\textwidth}
-            \centering
-            \includegraphics[width=.96\linewidth]{Figures/LUI/UI/videos-fullscreen.pdf}  
-            \vspace{-5pt}
-            \captionsetup{width=.9\linewidth}
-            \caption{Videos app (item).}
-            \label{fig:lui:screenshots:videos-fullscreen}
-        \end{subfigure}
-        \begin{subfigure}{.32\textwidth}
-            \centering
-            \includegraphics[width=.96\linewidth]{Figures/LUI/UI/documents-list.pdf} 
-            \vspace{-5pt}
-            \captionsetup{width=.9\linewidth}
-            \caption{Documents app (list).}
-            \label{fig:lui:screenshots:documents-list}
-        \end{subfigure}
-        \begin{subfigure}{.32\textwidth}
-            \centering
-            \includegraphics[width=.96\linewidth]{Figures/LUI/UI/documents-fullscreen.pdf}  
-            \vspace{-5pt}
-            \captionsetup{width=.9\linewidth}
-            \caption{Documents app (item).}
-            \label{fig:lui:screenshots:documents-fullscreen}
-        \end{subfigure}
-        \begin{subfigure}{.32\textwidth}
-            \centering
-            \includegraphics[width=.96\linewidth]{Figures/LUI/UI/maps.pdf} 
-            \vspace{-5pt}
-            \captionsetup{width=.9\linewidth}
-            \caption{Maps app.}
-            \label{fig:lui:screenshots:maps}
-        \end{subfigure}
-        \begin{subfigure}{.32\textwidth}
-            \centering
-            \includegraphics[width=.96\linewidth]{Figures/LUI/UI/fingers.pdf} 
-            \vspace{-5pt}
-            \captionsetup{width=.9\linewidth}
-            \caption{User's hand.}
-            \label{fig:lui:screenshots:hand}
-        \end{subfigure}
-        
-        % \vspace{-4pt}
-        \caption{Screenshots of the third prototype of the \lui application.}
-        % \vspace{-14pt}
-        \label{fig:lui:screenshots}
-    \end{figure}
+        \includegraphics[width=.96\linewidth]{Figures/LUI/UI/welcome_screen_lui.pdf}  
+        \vspace{-5pt}
+        \captionsetup{width=.9\linewidth}
+        \caption{Welcome screen.}
+        \label{fig:lui:screenshots:welcome-screen}
+    \end{subfigure}
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=.96\linewidth]{Figures/LUI/UI/app_menu.pdf}  
+        \vspace{-5pt}
+        \captionsetup{width=.9\linewidth}
+        \caption{Application menu.}
+        \label{fig:lui:screenshots:app-menu}
+    \end{subfigure}
+
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=.96\linewidth]{Figures/LUI/UI/photos-list.pdf}  
+        \vspace{-5pt}
+        \captionsetup{width=.9\linewidth}
+        \caption{Photos app (list).}
+        \label{fig:lui:screenshots:photos-list}
+    \end{subfigure}
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=.96\linewidth]{Figures/LUI/UI/photos-fullscreen.pdf}  
+        \vspace{-5pt}
+        \captionsetup{width=.9\linewidth}
+        \caption{Photos app (item).}
+        \label{fig:lui:screenshots:photos-fullscreen}
+    \end{subfigure}
+
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=.96\linewidth]{Figures/LUI/UI/videos-list.pdf} 
+        \vspace{-5pt}
+        \captionsetup{width=.9\linewidth}
+        \caption{Videos app (list).}
+        \label{fig:lui:screenshots:videos-list}
+    \end{subfigure}
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=.96\linewidth]{Figures/LUI/UI/videos-fullscreen.pdf}  
+        \vspace{-5pt}
+        \captionsetup{width=.9\linewidth}
+        \caption{Videos app (item).}
+        \label{fig:lui:screenshots:videos-fullscreen}
+    \end{subfigure}
+
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=.96\linewidth]{Figures/LUI/UI/documents-list.pdf} 
+        \vspace{-5pt}
+        \captionsetup{width=.9\linewidth}
+        \caption{Documents app (list).}
+        \label{fig:lui:screenshots:documents-list}
+    \end{subfigure}
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=.96\linewidth]{Figures/LUI/UI/documents-fullscreen.pdf}  
+        \vspace{-5pt}
+        \captionsetup{width=.9\linewidth}
+        \caption{Documents app (item).}
+        \label{fig:lui:screenshots:documents-fullscreen}
+    \end{subfigure}
+
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=.96\linewidth]{Figures/LUI/UI/maps.pdf} 
+        \vspace{-5pt}
+        \captionsetup{width=.9\linewidth}
+        \caption{Maps app.}
+        \label{fig:lui:screenshots:maps}
+    \end{subfigure}
+    \begin{subfigure}{.47\textwidth}
+        \centering
+        \includegraphics[width=.96\linewidth]{Figures/LUI/UI/fingers.pdf} 
+        \vspace{-5pt}
+        \captionsetup{width=.9\linewidth}
+        \caption{User's hand.}
+        \label{fig:lui:screenshots:hand}
+    \end{subfigure}
+    
+    \vspace{-4pt}
+    \caption{Screenshots of the third prototype of the \lui application.}
+    % \vspace{-14pt}
+    \label{fig:lui:screenshots}
+\end{figure}
 
 %--------------------------------------------------------------------------------%
 \subsection{Requirements} \label{sec:lui:description:requirements}
@@ -180,7 +274,7 @@ To address the quality of the gesture interaction, \lui should fulfill three req
 \subsection{Iterative Design} \label{sec:lui:description:iterative-design}
 The \lui application went through two iterations before the final one described in this chapter. This section summarizes the three iterations of \lui and its gesture set (\fig~\ref{fig:lui:gesture-set-evolution}).
 
-\begin{figure}[htb]
+\begin{figure}[!b]
     \centering
     % \vspace{-6pt}
     \includegraphics[width=\linewidth]{Figures/LUI/Overview/gesture-set-evolution.pdf}
@@ -372,7 +466,7 @@ For referents with a low to medium agreement rate, such as play and pause, alias
         \caption{Pan.}
         \label{fig:lui:gestures:pan}
     \end{subfigure}
-    \vspace{-8pt}
+    % \vspace{-4pt}
     \caption{Illustrations of gestures mapped to each function in the \lui application.}
     \label{fig:lui:gestures}
 %    \vspace{-6pt}
@@ -390,26 +484,76 @@ Together, these guidelines enabled us to build a conflict-free, highly guessable
 %Due to the low consensus among participants, the ``enable subtitles'' and ``disable subtitles'' referents were not implemented in this version of \lui. 
 
 
-\noindent
-\begin{minipage}{\textwidth}
-\vspace{6pt}
-  \begin{minipage}[c]{0.30\textwidth}
+% \noindent
+% \begin{minipage}{\textwidth}
+% \vspace{6pt}
+%   \begin{minipage}[c]{0.30\textwidth}
+%     \centering
+%     \vspace{3pt}
+%     \includegraphics[width=\linewidth]{Figures/LUI/aigner.pdf}
+%     \label{fig:lui:aigner-classification}
+%     \vspace{-16pt}
+%     \captionsetup{width=.99\linewidth}
+%     \captionof{figure}{Aigner \etal's taxonomy~\cite{Aigner:2012}.}
+%   \end{minipage}%
+%   \begin{minipage}[c]{0.70\textwidth}
+%     \centering
+%     \footnotesize
+%     \definecolor{semaphoric}{RGB}{68,84,106}
+%     \definecolor{pointing}{RGB}{34,42,53}
+%     \definecolor{manipulation}{RGB}{214,220,229}
+%     \resizebox{\linewidth}{!}{
+%     \renewcommand{\arraystretch}{1.1}
+%     \begin{tabular}{lll|ll}%[noitemsep]
+%     	\toprule
+%     	\multicolumn{3}{c|}{\textbf{Elicitation}} & \multicolumn{2}{c}{\textbf{Recognition}}\\
+%     	Action & Gesture & Category & Name & Type \\
+%     	\midrule
+%         Previous & Flick right & \cellcolor{semaphoric} \textcolor{white}{Stroke semaphoric} & Flick right & Dynamic \\
+%         Next & Flick left & \cellcolor{semaphoric} \textcolor{white}{Stroke semaphoric} & Flick left & Dynamic \\
+%         Enable fullscreen & Tap & \cellcolor{pointing} \textcolor{white}{Pointing} & Tap & Dynamic \\
+%         Disable fullscreen & Flick up & \cellcolor{semaphoric} \textcolor{white}{Stroke semaphoric} & Flick up & Dynamic \\
+%         Zoom in & Pinch out & \cellcolor{manipulation} Manipulation & Pinch & Static \\
+%         Zoom out & Pinch in & \cellcolor{manipulation} Manipulation & Pinch & Static \\
+%         Volume up & Swipe up & \cellcolor{manipulation} Manipulation & Point index & Static \\
+%         Volume down & Swipe down & \cellcolor{manipulation} Manipulation & Point index & Static \\
+%         Rotate clockwise &\shortstack[l]{Rotate a knob\\clockwise} & \cellcolor{manipulation} Manipulation & Grab & Static \\
+%         Rotate anti-clockwise &\shortstack[l]{Rotate a knob\\anti-clockwise} & \cellcolor{manipulation} Manipulation & Grab & Static \\
+%         Play & Tap & \cellcolor{semaphoric} \textcolor{white}{Stroke semaphoric} & Tap & Dynamic \\
+%         Pause & Tap & \cellcolor{semaphoric} \textcolor{white}{Stroke semaphoric} & Tap & Dynamic \\
+%         Like & Thumbs up & \cellcolor{semaphoric} \textcolor{white}{Static semaphoric} & Thumb & Static \\
+%         Dislike & Thumbs down & \cellcolor{semaphoric} \textcolor{white}{Static semaphoric} & Thumb & Static \\
+%         Fast-forward & Swipe left & \cellcolor{manipulation} Manipulation & Point index & Static \\
+%         Rewind & Swipe right & \cellcolor{manipulation} Manipulation & Point index & Static \\
+%         Pan & -- & -- & Point index & Static \\
+%         \bottomrule
+%     \end{tabular}
+%     }
+% %    \captionof{figure}{Aigner \etal' classification (left) used for classifying \lui gestures.}
+%     \vspace{-8pt}
+%     \captionsetup{width=.9\linewidth}
+%   \captionof{table}{Classification of \lui gestures.}
+%   \label{tab:lui:elicitation-to-recognition}
+% \end{minipage}
+% \vspace{-10pt}
+% \end{minipage}
+
+
+\begin{figure}[!b]
     \centering
-    \vspace{3pt}
-    \includegraphics[width=\linewidth]{Figures/LUI/aigner.pdf}
+    \includegraphics[width=.46\linewidth]{Figures/LUI/aigner.pdf}
+    % \vspace{-4pt}
+    \caption{Aigner \etal's taxonomy~\cite{Aigner:2012}.}
     \label{fig:lui:aigner-classification}
-    \vspace{-16pt}
-    \captionsetup{width=.99\linewidth}
-    \captionof{figure}{Aigner \etal's taxonomy~\cite{Aigner:2012}.}
-  \end{minipage}%
-  \begin{minipage}[c]{0.70\textwidth}
+\end{figure}
+
+\begin{table}[bt]
     \centering
     \footnotesize
+    \renewcommand{\arraystretch}{1.1}
     \definecolor{semaphoric}{RGB}{68,84,106}
     \definecolor{pointing}{RGB}{34,42,53}
     \definecolor{manipulation}{RGB}{214,220,229}
-    \resizebox{\linewidth}{!}{
-    \renewcommand{\arraystretch}{1.1}
     \begin{tabular}{lll|ll}%[noitemsep]
     	\toprule
     	\multicolumn{3}{c|}{\textbf{Elicitation}} & \multicolumn{2}{c}{\textbf{Recognition}}\\
@@ -434,16 +578,11 @@ Together, these guidelines enabled us to build a conflict-free, highly guessable
         Pan & -- & -- & Point index & Static \\
         \bottomrule
     \end{tabular}
-    }
-%    \captionof{figure}{Aigner \etal' classification (left) used for classifying \lui gestures.}
-    \vspace{-8pt}
-    \captionsetup{width=.9\linewidth}
-  \captionof{table}{Classification of \lui gestures.}
-  \label{tab:lui:elicitation-to-recognition}
-\end{minipage}
-\vspace{-10pt}
-\end{minipage}
-
+    \vspace{-4pt}
+    % \captionsetup{width=.9\linewidth}
+    \caption{Classification of \lui gestures according to Aigner \etal's taxonomy~\cite{Aigner:2012}.}
+    \label{tab:lui:elicitation-to-recognition}
+\end{table}
 
 \subsubsection{Gesture Classification} % classification of gestures towards gesture recognition
 After designing a consistent and memorable gesture set, the next step was to determine how to efficiently recognize these gestures. As such, we first attempted to classify each gesture according to Aigner \etal's HCI-oriented gesture taxonomy~\cite{Aigner:2012}. While several multidisciplinary taxonomies exist in general for classifying gestures, including Kendon's taxonomy~\cite{Kendon:1988} and McNeil's taxonomy~\cite{McNeill:1995}, we rely on Aigner's classification as it identifies gesture classes suitable to the specific field of HCI by empirically validating 5,500 collected gestures on interactive functions without accompanying them with speech. Indeed, \cite{Ekman:1969} characterize human gestures according to three fundamental considerations, \ie origin, usage, and coding, and structure them into idiosyncratic, interactive, informative, and communicative classes.
@@ -469,7 +608,7 @@ The use of \ql has multiple benefits. For instance, changes to the gesture set o
 %
 In the rest of this section, we motivate our choice of modules by conducting a comparative testing of static and dynamic gesture recognizers (see \cite{Magrofuoco:2021} for a survey in 2D) and discussing the use of a sliding window for gesture segmentation. 
 
-\begin{table*}[t]
+\begin{table*}[b]
     \resizebox{\linewidth}{!}{
 	\renewcommand{\arraystretch}{1.1}
 	\centering
@@ -486,10 +625,10 @@ In the rest of this section, we motivate our choice of modules by conducting a c
         \bottomrule
 	\end{tabular}
 	}
-	\vspace{-8pt}
+	\vspace{-4pt}
 	\caption{Recognition rate of each static recognizer, for $T{=}128$. Accuracy higher than 98\% is highlighted in blue.}
 	\label{tbl:results-static}
-	\vspace{-5pt}
+	% \vspace{-5pt}
 \end{table*}
 
 \subsubsection{Static Gestures}
@@ -501,7 +640,7 @@ Two static gesture recognizers were tested on a custom gesture set containing si
 \end{itemize}
 The testing was conducted using the \ql testing tool (Chapter~\ref{chap:quantumleap-testing}) following a train-test-split (TTS) procedure with 1000 repetitions in a user-dependent and single-dataset scenario (see \tab~\ref{tab:quantumleap-testing:testing-procedures} for a detailed description of the procedure).
 
-% The testing procedure is as follows: for each recognizer, for each value of $A$ and $T$, and for each gesture class, we repeat 1000 times: (1) select a random testing template from the gesture set; (2) train the recognizer using $T$ randomly selected templates, produced by the same user as the testing template (user-dependent testing); and (3) recognize the testing template. 
+% The testing procedure is as follows: for each recognizer, each value of $A$ and $T$, and each gesture class, we repeat 1000 times: (1) select a random testing template from the gesture set; (2) train the recognizer using $T$ randomly selected templates, produced by the same user as the testing template (user-dependent testing); and (3) recognize the testing template. 
 
 This experiment shows that GPSDa exhibits a different behavior than \$P\textsuperscript{3}+ (\tab~\ref{tbl:results-static}): GPSDa performs better with a larger number of articulations, while the opposite occurs for \$P\textsuperscript{3}+. GPSDa performs better than \$P\textsuperscript{3}+ with a small number of templates (\eg with 4 templates, GPSDa ($A{=}16$) reaches $91.0\%$ accuracy against $87.1\%$ for \$P\textsuperscript{3}+ ($A{=}6$)), but \$P\textsuperscript{3}+ starts performing better as the number of templates increases. Both recognizers achieved ${>}99\%$ accuracy with 128 training templates. Despite \$P\textsuperscript{3}+ being very slightly better in the benchmark, GPSDa was selected for the \lui application as its rotation invariance gives it an edge in real-world situations (\eg when the user's hand is rotated relative to the training samples).
 
@@ -515,8 +654,8 @@ Similarly to the static gesture recognizers, eight dynamic gesture recognizers w
 The testing procedure was similar to the one used for static recognizers, but each gesture template was resampled to 16 points.
 %The testing procedure is similar to the one used for static recognizers: for each recognizer, for each value of $A$ and $T$, and each gesture class, we repeat the three following steps 1000 times: (1) select a random testing template from the gesture set; (2) train the recognizer using $T$ randomly selected templates produced by different users than the testing template (user-independent testing); and (3) attempt to recognize the testing template. Each template was first resampled to 16 points.
 
-Because the dataset includes only four simple gestures, the recognition rates are very high for most recognizers even with very few training templates (\tab~\ref{tbl:results-dynamic}, $T{=}8$). Jackknife already reaches $100\%$ with one training template, and accuracy for all recognizers generally increases with the number of training templates. %Table \ref{tbl:results-dynamic} summarizes recognition rates for $T{=}8$.
-Jackknife ($A{=}1$) was selected as the dynamic recognizer for the \lui application, as it maximizes accuracy and minimizes the execution time on this dataset.
+Because the dataset includes only four simple gestures, the recognition rates are very high for most recognizers even with very few training templates (\tab~\ref{tbl:results-dynamic}, $T{=}8$). Jackknife already reaches $100\%$ with one training template and accuracy for all recognizers generally increases with the number of training templates. %Table \ref{tbl:results-dynamic} summarizes recognition rates for $T{=}8$.
+Jackknife ($A{=}1$) was selected as the dynamic recognizer for \lui, as it maximizes accuracy and minimizes the execution time on this dataset.
 
 \begin{table*}[t]
     \resizebox{\linewidth}{!}{
@@ -545,17 +684,27 @@ Jackknife ($A{=}1$) was selected as the dynamic recognizer for the \lui applicat
 	\end{tabular}
 	}
 	}
-	\vspace{-8pt}
+	\vspace{-4pt}
 	\caption{Recognition rate of each dynamic recognizer, for $T{=}8$. Recognizers with a global accuracy higher than 98\% are highlighted in blue.}
 	\vspace{-10pt}
 	\label{tbl:results-dynamic}
 \end{table*}
 
 \subsubsection{Gesture Segmentation}
-A simple sliding window was selected for gesture segmentation. To limit the number of false positives, it was combined with two other techniques: (1) a motion rejection threshold to reject small hand motions such as hand tremors, and (2) a rejection threshold based on the score returned by the recognizers, to reject gestures that are performed poorly. A sliding window is easy to implement, fast to execute, requires no specific user input, and has already been combined with recognizers such as Jackknife~\cite{Taranta:2017} and 3\textcent~\cite{Caputo:2019}. However, it is very sensitive to parasitic gestures, which may hinder the user experience. In the future, more advanced segmentation techniques \cite{Kratz:2015,Chen:2016,Taranta:2021} could be incorporated into a new module for \ql without requiring any code modification to the \lui application.
+A simple sliding window was selected for gesture segmentation. Sliding windows are easy to implement, fast to execute, require no specific user input, and have been combined with recognizers such as Jackknife~\cite{Taranta:2017} and 3\textcent~\cite{Caputo:2019}. However, they are sensitive to parasitic gestures, which may hinder the user experience. To address this issue, it was combined with two other techniques: (1) a motion rejection threshold to reject small hand motions such as hand tremors, and (2) a rejection threshold based on the score returned by the recognizers, to reject poorly performed gestures. In the future, more advanced segmentation techniques \cite{Kratz:2015,Chen:2016,Taranta:2021} could be incorporated into a new module for \ql without requiring any code modification to \lui.
 
 \subsubsection{Final Configuration}
 \fig~\ref{fig:lui:quantumleap} shows the final \ql pipeline configuration for the \lui application. The Window segmenter and Jackknife recognizer identify users' hand gestures from the continuous flow of data. The Basic analyzer and GPSDa recognizer identify static hand gestures and allow the manipulation of images, videos, and documents with continuous feedback.
+
+\begin{figure}[!b]
+    \centering
+    % \vspace{-6pt}
+    \includegraphics[width=\linewidth]{Figures/LUI/Architecture/quantumleap-lui.pdf}
+    \vspace{-16pt}
+    \caption{Instantiation of the \ql framework for \lui.}
+    \label{fig:lui:quantumleap}
+    % \vspace{-16pt}
+\end{figure}
 
 In addition to simplifying future modifications to the \lui gesture recognition pipeline, the use of \ql reduced the size of its source code by around 1280 lines of code (LOCs), distributed as follows: 
 \begin{itemize}[noitemsep]
@@ -568,16 +717,6 @@ In addition to simplifying future modifications to the \lui gesture recognition 
     \item 725 LOCs for the JackKnife dynamic gesture recognizer.
 \end{itemize}
 If we factor out the time required to conceive, design, and develop an adequate pipeline for gesture recognition from scratch, and to integrate it into a working environment, the benefits of \ql in terms of time-saving become more obvious than in terms of LOCs saving.
-
-\begin{figure}[tb]
-    \centering
-    % \vspace{-6pt}
-    \includegraphics[width=\linewidth]{Figures/LUI/Architecture/quantumleap-lui.pdf}
-    \vspace{-8pt}
-    \caption{Instantiation of the \ql framework for \lui.}
-    \label{fig:lui:quantumleap}
-    % \vspace{-16pt}
-\end{figure}
 
 % %--------------------------------------------------------------------------------%
 % \subsection{Gesture Recognition Pipeline}
@@ -593,7 +732,7 @@ This section reports the results of an experiment performed on the third \lui ve
 The experiment involved multiple devices, including a large TV screen for displaying the \lui application and tutorial videos (\fig~\ref{fig:lui:evaluation-apparatus}), an LMC for capturing the participants' gestures, and a laptop for running the \lui application and controlling the experiment with a custom software. A camera was positioned to record both the participants' hands and the TV screen. The \lui application was configured to record the logs of the gestures recognized by the system.
 Participants were installed at a desk and faced a large screen situated around two meters on the opposite side of the desk. The LMC was positioned in front of them.
 
-\begin{figure}[h]
+\begin{figure}[htb]
     \centering
     \begin{subfigure}{.495\textwidth}
         \centering
@@ -611,10 +750,10 @@ Participants were installed at a desk and faced a large screen situated around t
         \caption{Participant performing a gesture.}
         \label{fig:lui:evaluation-apparatus-gesture}
     \end{subfigure}
-    \vspace{-10pt}
+    \vspace{-18pt}
     \caption{The setup of the experiment.}
     \label{fig:lui:evaluation-apparatus}
-    \vspace{-8pt}
+    % \vspace{-8pt}
 \end{figure}
 
 \subsubsection{Participants}
@@ -770,7 +909,7 @@ In addition to the metrics, demographic information, and questionnaires, we capt
         C3 & Map & -- & 76\% & 65\% \\ 
         \bottomrule
     \end{tabular}
-    % \vspace{-8pt}
+    \vspace{-4pt}
     \caption{Success rate for the 17 atomic and 3 compound tasks.}
 	% \vspace{-10pt}
 	\label{tab:lui:success-rate}
@@ -811,7 +950,7 @@ Overall, the lower success rate of the rotating (anti-)clockwise tasks may be ex
         A17 & Pan & 1,3 & 1 & 1,3 & 1 & 1,5 & 1 \\
         \bottomrule
     \end{tabular}
-    % \vspace{-8pt}
+    \vspace{-4pt}
     \captionsetup{width=.99\linewidth}
     \caption{Number of trials for successful completion of each atomic task.}
 	\vspace{-10pt}
