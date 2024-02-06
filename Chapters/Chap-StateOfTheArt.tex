@@ -144,8 +144,10 @@ Siddhpuria \etal~\cite{Siddhpuria:2017} \textbf{TODO}
 Jakobsen \etal~\cite{Jakobsen:2015} \textbf{TODO}
 
 
-\subsubsection{Gesture Discoverability and Affordance} \label{sec:state_of_the_art:overview:challenges:discoverability}
+\subsubsection{Affordance and Discoverability} \label{sec:state_of_the_art:overview:challenges:discoverability}
 \textbf{TODO}
+The affordance of gesture-based interfaces (+ signifiers are ``the perceivable part
+of an affordance''~\cite{Norman:2008}, deliberate or incidental clues about how an object is supposed to be used. - Donald Norman), challenges for gestural UI, then implication for discoverability
 Especially crucial in public displays, where need to grasp user attention directly~\cite{Walter:2013}
 
 Many challenges for gesture explanation: simple to understand, avoid distracting users that already know how to interact, integrate nicely in the interface~\cite{Rovelo:2015}.
@@ -156,7 +158,7 @@ In~\cite{Walter:2013}, Walter \etal investigated three strategies to reveal an i
 Octopocus~\cite{Bau:2008} and \cite{Kristensson:2011} 2D gestures, suggestion of continuation of trajectory
 
 %
-Gestu-Wan~\cite{Rovelo:2015} applies the principles from Octopocus to mid-air gesture interaction. Compared with a printed guide of gestures
+Gestu-Wan~\cite{Rovelo:2015} applied the principles from Octopocus to mid-air gesture interaction. They compared their implementation with a printed guide of gestures and observed \textbf{TODO}
 %
 ShapelineGuide~\cite{Alt:2018} 3D
 %
@@ -164,21 +166,31 @@ White \etal~\cite{White:2007} 3D, compare different methods for showing how to i
 
 \textbf{TODO - Discuss how to communicate system limitations}
 
+
+
 % \subsubsection{Communicating User Errors} \label{sec:state_of_the_art:overview:challenges:user-errors}
 % \textbf{TODO}
 
 \subsubsection{Gesture Set Customization}
-
-Advantages over other gesture sets
-\cite{Oh:2013}
-\cite{Nacenta:2013}
-How to support them? Gesture recognizers,...
-How to  seamlessly into UI?
-How to represent gestures to users?
-
+Even a good gesture set might not satisfy everyone. Allowing users to customize gestures can result in higher memorability and usability over pre-designed gestures sets~\cite{Oh:2013,Nacenta:2013} and result in more inclusivity for users that suffer from some sort of disability.
+% 
+However, allowing customization comes with multiple challenges.
+The gesture recognition pipeline must support custom gestures. Template-matching algorithms work well for that~\cite{TODO}, + mention deep learning that can be quickly trained.
+Care should be given to design customization UI that is usable by everyone, in particular, people with a disability. Integrate this UI seamlessly into a gesture-based application.
+How to represent gestures to users? Rather trivial with 2D gestures, Ok with 3d gestures, but what about radars and other sensors?
+%
 \cite{Ouyang:2012} user-defined shortcuts (touch gestures). Allows to explore gestures from other users or even to identify potential meaning of the user gesture by comparing it with gestures from other users. Can reduce the time required to define custom gestures.
-
+%
 \cite{Xu:2022}
+
+% Advantages over other gesture sets
+% \cite{Oh:2013}
+% \cite{Nacenta:2013}
+% How to support them? Gesture recognizers,...
+% How to  seamlessly into UI?
+% How to represent gestures to users?
+
+
 
 %--------------------------------------------------------------------------------%
 \subsection{Applications} \label{sec:state_of_the_art:overview:applications}
