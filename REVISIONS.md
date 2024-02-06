@@ -50,6 +50,14 @@ No modification.
 ## Miscellaneous
 - [x] Fix academic name of Luis A. Leiva. `Title page`
 - [ ] Fix typos. `Everywhere`
+  - [x] Introduction
+  - [ ] State of the Art
+  - [x] Chapter 3
+  - [x] Chapter 4
+  - [x] Chapter 5
+  - [ ] Chapter 6
+  - [ ] Chapter 7
+  - [ ] Conclusion 
 
 ## Suggested modifications not applied to the revised thesis
 - 	Update Table 2.2 with more up-to-date references, since only 1 ref from 2021 was included.
