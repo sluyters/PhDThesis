@@ -14,7 +14,7 @@
   - [ ] Gesture discoverability and affordance
     - What solutions? pas les 20+ gestes at once, mais une sélection raisonnée (3-7); usually about 20 sec demonstrating a given gesture + a few minutes mastering the gesture; 
     - How about « ludification » of the learning process? Attention aux personnes plus âgées ou qui n’y arriveraient pas et qui pourraient se décourager
-  - [ ] User fatigue (see "Consumed Endurance: A Metric to Quantify Arm Fatigue of Mid-Air Interactions"), mention how to compute the metric of "Gorilla-arm effect"
+  - [x] User fatigue (see "Consumed Endurance: A Metric to Quantify Arm Fatigue of Mid-Air Interactions"), mention how to compute the metric of "Gorilla-arm effect"
   - [ ] Gesture set customization
 - [x] Provide a justification for limiting the SLR to the ACM DL (e.g., why not IEEE?). `Section 2.2`
 - [ ] Emphasize that the use of point clouds does not require convolutional layers and discuss the impact. `Section 2.3.2 / Algorithms`

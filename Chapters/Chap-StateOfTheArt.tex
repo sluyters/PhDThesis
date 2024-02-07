@@ -75,6 +75,7 @@ In the same home context of use~\cite{Vogiatzidakis:2020}, they introduced a con
 \subsection{Challenges} \label{sec:state_of_the_art:overview:challenges}
 This section highlights the main challenges that developers and practitioners may face in the development of gesture-based applications and discusses potential workarounds.
 
+
 \subsubsection{Sensor Limitations} \label{sec:state_of_the_art:overview:challenges:sensors-limitations}
 Depending on their technology, sensors may be subject to a series of limitations. For example, vision-based sensors such as the LMC are sensitive to environmental conditions~\cite{Yeo:2017}, limited field of view~\cite{Hayashi:2021}, occlusion~\cite{Brandon:2014}, and may raise privacy concerns~\cite{Avrahami:2018}. On the other hand, radar-based systems preserve privacy and can function in darkness, but are sensitive to clutter, noise, and interference. Some wearable sensors (\eg smart rings, watches, data gloves) may provide more accurate data, but this higher accuracy comes at the cost of practicality. Besides the limitations intrinsic to their technology, most sensors result in a compromise between a series of factors, including cost, field of view, framerate, and resolution.
 
@@ -83,6 +84,7 @@ Overall, practitioners should take all of these limitations into account in the 
 \textbf{TODO - expand discussion on sensor fusion} Data fusion can benefits from different sensors 
 Kalman filter (search for "data fusion kalman filter gesture recognition")
 
+
 \subsubsection{Jitter} \label{sec:state_of_the_art:overview:challenges:jitter}
 \label{sec:noise}
 Jitter can be caused by tracking errors, sensor noise, or even a slight tremor in the user's hands. Too much jitter can significantly hinder interactions with gesture-based applications~\cite{Pavlovych:2009}, as it may induce recognition errors, as well as a lack of precision when pointing and selecting, especially on larger screens. It is thus important to perform at least some filtering in a gesture recognition pipeline to increase the precision of pointing and provide cleaner data to the gesture recognizers.
@@ -90,6 +92,7 @@ Jitter can be caused by tracking errors, sensor noise, or even a slight tremor i
 Depending on the sensors and recognition algorithms used, some filtering may already occur at several points in the pipeline. For instance, the LMC applies some filtering on the data that it provides~\cite{Colgan:2017}, and the sampling performed by some recognizers such as 3 cent~\cite{Caputo:2017}, Jackknife~\cite{Taranta:2017}, or \$P+~\cite{Vatavu:2017a} can act as a low pass filter. However, additional filtering may be applied to further smoothen the data.
 
 Filters should be carefully selected and configured to provide reasonable smoothing while keeping latency low~\cite{Pavlovych:2009} and minimizing the risk of introducing inaccuracies. In \cite{Casiez:2012}, Casiez \etal propose the 1€ filter, a simple and fast filter based on double exponential smoothing that promises good smoothing and low latency for both fast and slow motion. They compare it to other filtering methods, namely, moving average, single and double exponential~\cite{LaViola:2003}, and Kalman, and show that it manages \textit{state-of-the-art} performance while being faster to execute.
+
 
 \subsubsection{Gesture Production Variability} \label{sec:state_of_the_art:overview:challenges:production-variability}
 Some variability in gesture production is usually observed both in gestures performed by a single user (intra-user variability) and by several users (inter-user variability). This variability can originate from differences in execution (\eg speed, trajectory) or in anatomy (\eg hand size, posture). If ignored, it can reduce gesture recognition accuracy and thus negatively impact the usability of gesture-based applications.
@@ -102,9 +105,11 @@ Coupled with synthetic data generation, one could achieve high accuracy with lit
 
 Finally, gesture recognition algorithms can be designed to accommodate some gesture production variability: for example, techniques such as Dynamic Time Warping (DTW) and spatial sampling can help deal with differences in gesture articulation speed~\cite{Taranta:2017, Vatavu:2013}.
 
+
 \subsubsection{Static vs. Dynamic Gestures} \label{sec:state_of_the_art:overview:challenges:static-vs-dynamic}
 Two main gesture types emerge from popular taxonomies: static and dynamic gestures~\cite{Aigner:2012,Vatavu:2008,Piumsomboon:2013,Choi:2014}. Inspired by~\cite{Vatavu:2008}, we propose the following definitions: a \textit{static} gesture is a particular configuration of the body or body parts at one instant of time, whereas a \textit{dynamic} gesture corresponds to a particular motion of the body or body parts through time. 
 Different techniques may be leveraged to recognize each type of gesture. For instance, static gestures can be recognized at each frame to provide real-time recognition, while dynamic gestures are usually extracted from the raw stream of data (\ie gesture segmentation) before attempting to recognize them.
+
 
 \subsubsection{Gesture Segmentation} \label{sec:state_of_the_art:overview:challenges:segmentation}
 One of the greatest challenges in continuous gesture recognition is gesture segmentation, \ie extracting user gestures from a continuous stream of data. To maximize user satisfaction, a good gesture recognition pipeline should recognize all intentional gestures with minimal input from the user, while ignoring parasitic gestures (\eg transitions between gestures or unintentional motions)~\cite{Ashbrook:2010}. 
@@ -120,6 +125,7 @@ Finally, techniques such as Machete~\cite{Taranta:2021} rely on simple recognize
 
 As gesture segmentation techniques are still far from perfect, some measures should be taken to limit the number of false positives. Examples include training recognition algorithms to recognize parasitic gestures (\eg by generating synthetic ``noise'' gestures)~\cite{Taranta:2017} and rejecting recognized gestures if their score falls below a threshold. This threshold may be arbitrarily defined or automatically computed based on the training set~\cite{Caputo:2019}.
 
+
 \subsubsection{Overlapping Gestures} \label{sec:state_of_the_art:overview:challenges:overlapping-gestures}
 Two gestures are overlapping when part of one gesture is identical to part of the other gesture. While well-designed overlapping gestures may lead to increased memorability~\cite{Roy:2013}, they are challenging to recognize as they rely on near-perfect gesture segmentation. Overlapping may occur between two gestures of one gesture set or between a gesture from the gesture set and a parasitic gesture (\eg typing on a keyboard or reaching for an object). In the first case, one can design the gesture set in such a way that each gesture is easily distinguishable from all other gestures. In the second case, the designer should take into account as many potential parasitic gestures as possible to reduce the risk of false positives. Tools such as Ashbrook \etal's MAGIC~\cite{Ashbrook:2010} assist designers in the creation of gesture sets with as little overlap as possible. GEsture Clustering toolKit (GECKo)~\cite{Anthony:2013} also helps investigate how end users articulate stroke gestures in terms of stroke number, order, and direction, thus assisting the designer in keeping or discarding a particular gesture to avoid overlapping.
 
@@ -130,8 +136,9 @@ Two gestures are overlapping when part of one gesture is identical to part of th
 % However, the lack of a common framework for gesture recognition is making it increasingly harder to keep track of this evolution outside of the research community, resulting in only a handful of real-life applications. 
 % \ql aims at bridging the gap between researchers and developers by providing a common framework that helps researchers share the product of their research with the world and allows developers to write applications without spending time to solve the numerous challenges of gesture recognition.
 
+
 \subsubsection{Arm Fatigue} \label{sec:state_of_the_art:overview:challenges:gorilla-arm}
-Arm fatigue poses a significant challenge for mid-air gesture interaction, as badly designed gesture sets can reduce the time users can interact with a system before needing to rest~\cite{Hansberger:2017}. This phenomenon, often dubbed the ``gorilla arm effect'', has led to various metrics being proposed to quantify user arm fatigue. 
+Arm fatigue poses a significant challenge for mid-air gesture interaction, as badly designed gesture sets may reduce the time users can interact with a system before needing to rest~\cite{Hansberger:2017} or even lead to systems going unused~\cite{Siddhpuria:2017}. This phenomenon, often dubbed the ``gorilla arm effect'', has led to various metrics being proposed to quantify user arm fatigue. 
 
 For instance, Hincapie \etal~\cite{Hincapie:2014} introduced the consumed endurance (CE) metric (Equation~\ref{eq:state-of-the-art:consumed-endurance}), calculated as the ratio between the interaction time and the endurance time of a participant (\ie the maximum duration they could sustain this type of interaction before having to rest their arm).
 % 
@@ -142,16 +149,13 @@ For instance, Hincapie \etal~\cite{Hincapie:2014} introduced the consumed endura
 The authors demonstrated the applicability of this metric for assessing various design alternatives for gesture-based interfaces in a series of experiments.
 For instance, they found that extending the arm and holding it higher consumed more endurance than holding it closer to the body and at a lower position. 
 %
-Jang \etal~\cite{Jang:2017} noted that the CE metric has several limitations: it does not take into account rest and its effect on cumulative fatigue, makes general assumptions about users' shoulder strength, and does not apply well to interaction with low exertion levels. 
-They proposed the three-compartment muscle (TCM) model, which addresses these challenges to accurately quantify cumulative muscle fatigue. \textbf{TODO}
-% Jang \etal expanded on this work
+Jang \etal~\cite{Jang:2017} identified several limitations of the CE metric, including its oversight of rest periods and their impact on cumulative fatigue, its reliance on general assumptions regarding users' shoulder strength, and not applying well to interaction with low exertion levels. In response, they devised the three-compartment muscle (TCM) model, a more sophisticated model of muscle fatigue that addresses the limitations of the CE metric to quantify cumulative muscle fatigue with greater accuracy.
 
-Hansberger \etal~\cite{Hansberger:2017} investigated a set of gestures that produce less discomfort and fatigue. Compared with keyboard and found similar results, with participants reporting low levels of exertion in both cases and being able to complete a 30 minutes game session, while badly designed gesture set max 12 minutes.
-They suggested that the type of sensor could impact fatigue. For instance, some vision-based sensors like the LMC require users' hands to be within the field of view of the sensor, which may result in less ideal hand position, and thus more fatigue. IMUs, while having other limitations, don't place constraints on the position of the hand. \textbf{TODO}
+Hansberger \etal~\cite{Hansberger:2017} illustrated that well-designed mid-air gestures could achieve fatigue levels comparable to those experimented with traditional interaction methods, like a keyboard. Conversely, they found that gestures designed without considering arm fatigue could lead to high exhaustion levels, with many users unable to complete a 30-minute game session in an experiment they conducted.
 %
-Siddhpuria \etal~\cite{Siddhpuria:2017} \textbf{TODO}
+Their study also suggested that the type of sensor used for gesture recognition could influence user fatigue. For instance, vision-based sensors like the LMC require users to place their hands within the field of view of the sensor, potentially leading to suboptimal hand position and thus increased fatigue. 
 %
-Jakobsen \etal~\cite{Jakobsen:2015} \textbf{TODO}
+Wrist-worn IMUs, on the other hand, allow users to perform gestures in any position. For example, Siddhpuria \etal~\cite{Siddhpuria:2017} demonstrated that ``at-your-side'' gestures recorded with a smartwatch enabled users to interact with public displays in a way that felt socially acceptable and natural while minimizing arm fatigue.
 
 
 \subsubsection{Affordance and Discoverability} \label{sec:state_of_the_art:overview:challenges:discoverability}
