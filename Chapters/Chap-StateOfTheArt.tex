@@ -131,13 +131,23 @@ Two gestures are overlapping when part of one gesture is identical to part of th
 % \ql aims at bridging the gap between researchers and developers by providing a common framework that helps researchers share the product of their research with the world and allows developers to write applications without spending time to solve the numerous challenges of gesture recognition.
 
 \subsubsection{Arm Fatigue} \label{sec:state_of_the_art:overview:challenges:gorilla-arm}
-\textbf{TODO}
-Arm fatigue in mid-air interaction, also known as ``gorilla arm effect'', can be a real problem for mid-air gesture interaction, as badly designed gesture sets can greatly reduce the time during which users are able to interact with a system before getting too tired~\cite{Hansberger:2017}. 
-This problem has been studied in multiple papers and different metrics have been proposed to quantify user arm fatigue. For instance, Hincapie \etal~\cite{Hincapie:2014} proposed a metric to \textbf{TODO}. Jang \etal studied cumulative arm fatigue.
-% \cite{Hincapie:2014} arm fatigue % say how the compute the metric
-% \cite{Jang:2017} cumulative arm fatigue
+Arm fatigue poses a significant challenge for mid-air gesture interaction, as badly designed gesture sets can reduce the time users can interact with a system before needing to rest~\cite{Hansberger:2017}. This phenomenon, often dubbed the ``gorilla arm effect'', has led to various metrics being proposed to quantify user arm fatigue. 
+
+For instance, Hincapie \etal~\cite{Hincapie:2014} introduced the consumed endurance (CE) metric (Equation~\ref{eq:state-of-the-art:consumed-endurance}), calculated as the ratio between the interaction time and the endurance time of a participant (\ie the maximum duration they could sustain this type of interaction before having to rest their arm).
+% 
+\begin{equation}\label{eq:state-of-the-art:consumed-endurance}
+    CE(T,TotalTime) = 100\frac{TotalTime}{E(T)}
+\end{equation}
+%
+The authors demonstrated the applicability of this metric for assessing various design alternatives for gesture-based interfaces in a series of experiments.
+For instance, they found that extending the arm and holding it higher consumed more endurance than holding it closer to the body and at a lower position. 
+%
+Jang \etal~\cite{Jang:2017} noted that the CE metric has several limitations: it does not take into account rest and its effect on cumulative fatigue, makes general assumptions about users' shoulder strength, and does not apply well to interaction with low exertion levels. 
+They proposed the three-compartment muscle (TCM) model, which addresses these challenges to accurately quantify cumulative muscle fatigue. \textbf{TODO}
+% Jang \etal expanded on this work
+
 Hansberger \etal~\cite{Hansberger:2017} investigated a set of gestures that produce less discomfort and fatigue. Compared with keyboard and found similar results, with participants reporting low levels of exertion in both cases and being able to complete a 30 minutes game session, while badly designed gesture set max 12 minutes.
-They suggested that the type of sensor could impact fatigue. For instance, some vision-based sensors like the LMC require users' hands to be within the field of view of the sensor, which may result in less ideal hand position, and thus more fatigue. IMUs, while having other limitations, don't place constraints on the position of the hand. 
+They suggested that the type of sensor could impact fatigue. For instance, some vision-based sensors like the LMC require users' hands to be within the field of view of the sensor, which may result in less ideal hand position, and thus more fatigue. IMUs, while having other limitations, don't place constraints on the position of the hand. \textbf{TODO}
 %
 Siddhpuria \etal~\cite{Siddhpuria:2017} \textbf{TODO}
 %
@@ -146,8 +156,22 @@ Jakobsen \etal~\cite{Jakobsen:2015} \textbf{TODO}
 
 \subsubsection{Affordance and Discoverability} \label{sec:state_of_the_art:overview:challenges:discoverability}
 \textbf{TODO}
-The affordance of gesture-based interfaces (+ signifiers are ``the perceivable part
-of an affordance''~\cite{Norman:2008}, deliberate or incidental clues about how an object is supposed to be used. - Donald Norman), challenges for gestural UI, then implication for discoverability
+``Affordances reflect the possible relationships among actors and objects''~\cite{Norman:1999}
+The concept of perceived affordance~\cite{Norman:1988,Norman:1999} of gesture-based interfaces (+ signifiers are ``the perceivable part
+of an affordance''~\cite{Norman:2008}, \ie deliberate or incidental clues about how an object is supposed to be used.), challenges for gestural UI, then implication for discoverability
+
+
+Physical constraints: how to communicate physical constraints of the system when they are not as straightforward to grasp as, \eg the limited dimensions of a screen? For instance, how to communicate limited field of view of the system? How to communicate if a system requires the user to be positioned precisely wrt the sensor?
+
+Logical constraints
+
+Cultural constraints, learned conventions. For instance, using a swipe gesture makes sense for many people that used touchscreens before, as they have adopted this convention for 2D gestures. Leveraging these existing conventions may lower the entry barrier, but should be cautious, as not everyone shares the same conventions (\eg, like with a thumb or like by drawing a check mark). But also avoid to violate existing ones, as to not create more confusion. GESs can help.
+
+Add signifiers, clues for what is possible and what is not
+Social signifiers: could show a new user the actions from a previous user, or encourage new users to watch other users interact
+
+Feedback to understand the result of our action
+
 Especially crucial in public displays, where need to grasp user attention directly~\cite{Walter:2013}
 
 Many challenges for gesture explanation: simple to understand, avoid distracting users that already know how to interact, integrate nicely in the interface~\cite{Rovelo:2015}.
