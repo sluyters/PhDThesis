@@ -161,38 +161,40 @@ Jang \etal~\cite{Jang:2017} identified several limitations of the CE metric, inc
 
 Hansberger \etal~\cite{Hansberger:2017} illustrated that well-designed mid-air gestures could achieve fatigue levels comparable to those experimented with traditional interaction methods, like a keyboard. Conversely, they found that gestures designed without considering arm fatigue could lead to high exhaustion levels, with many users unable to complete a 30-minute game session in an experiment they conducted.
 %
-Their study also suggested that the type of sensor used for gesture recognition could influence user fatigue. For instance, vision-based sensors like the LMC require users to place their hands within the field of view of the sensor, potentially leading to suboptimal hand position and thus increased fatigue. 
+Their study also suggested that the type of sensor used for gesture recognition could influence user fatigue. For instance, vision-based sensors like the LMC require users to place their hands within the field of view of the sensor, potentially leading to suboptimal hand position and thus increased fatigue, depending on the sensor placement. 
 %
-Wrist-worn IMUs, on the other hand, allow users to perform gestures in any position. For example, Siddhpuria \etal~\cite{Siddhpuria:2017} demonstrated that ``at-your-side'' gestures recorded with a smartwatch enabled users to interact with public displays in a way that felt socially acceptable and natural while minimizing arm fatigue.
-
-https://dl.acm.org/doi/10.1145/2807442.2807489 \textbf{TODO Gunslinger}
+Wrist-worn IMUs, on the other hand, give users more flexibility in performing gestures. For example, Siddhpuria \etal~\cite{Siddhpuria:2017} demonstrated that ``at-your-side'' gestures recorded with a smartwatch enabled users to interact with public displays in a way that felt socially acceptable and natural while minimizing arm fatigue. 
+Similarly, Liu \etal's Gunslinger~\cite{Liu:2015} relied on two LMCs mounted on users' tights, enabling them to adopt a more relaxed posture during interaction.
 
 
 \subsubsection{Discoverability} \label{sec:state_of_the_art:overview:challenges:discoverability}
-Due to their novelty, mid-air gesture interfaces are yet to become standardized~\cite{Norman:2010}. Differences between users, be it personal or cultural, make it difficult to create gesture-based UIs that will feel natural to every user, that they will be able to get into without any introduction. 
+Due to their novelty, mid-air gesture interfaces are yet to be standardized~\cite{Norman:2010}. Variations among users, whether personal or cultural, pose challenges in creating gesture-based UIs that feel natural and can be used seamlessly without prior introduction.
 
-Mid-air gesture interfaces should thus be handled as any other interface. Discoverability, introducing new conventions when needed, but also relying on already learned conventions (\eg from touch-based UIs)~\cite{Norman:1999}. For instance, using a swipe gesture makes sense for many people that used touchscreens before, as they have adopted this convention for 2D gestures. Leveraging these existing conventions may lower the entry barrier, but should be cautious, as not everyone shares the same conventions (\eg, like with a thumb or like by drawing a check mark). But also avoid to violate existing ones, as to not create more confusion. GESs can help.
+Given the considerable freedom afforded by gestures, it is imperative for designers to establish a clear conceptual model of the application, perhaps even more so than with traditional interfaces~\cite{Norman:2010}.
 %
-Because of the immense freedom allowed by gestures, proper tutorials and feedback should be carefully designed so that users can quickly understand the physical constraints of the system (\eg limited field of view)~\cite{Norman:1999} and learn the proper gestures without feeling overwhelmed or frustrated~\cite{Norman:2010}. 
+Possible actions should be easily discoverable, and clear tutorials and feedback mechanisms should be implemented to ensure that users can understand the physical constraints of the system (\eg limited field of view)~\cite{Norman:1999} and learn the proper gestures without feeling overwhelmed or frustrated~\cite{Norman:2010}. 
 %
-Especially crucial in public displays, where need to grasp user attention directly as patience can be low~\cite{Walter:2013}.
+This is particularly important in public displays, where capturing and retaining user attention is challenging given that user patience can be low in such scenarios~\cite{Walter:2013}.
 %
+\textbf{TODO - start (improve, shorten, and fuse with previous paragraphs)}
 Signifiers (\ie deliberate or incidental cues about how an object is supposed to be used)~\cite{Norman:2008} should be placed by application designers in the UI to inform users about the potential actions available, and how to perform them.
 %
-Thes cues should be subtle and integrate nicely in the interface, to avoid distracting users that already know how to interact, while simple to understand for new users~\cite{Rovelo:2015,Walter:2013}.
+These cues should be subtle and integrate nicely in the interface, to avoid distracting users that already know how to interact, while simple to understand for new users~\cite{Rovelo:2015,Walter:2013}.
+%
+Designers of gesture-based UI should also rely on already learned conventions (\eg from touch-based UIs)~\cite{Norman:1999}. For instance, using a swipe gesture makes sense for many people that used touchscreens before, as they have adopted this convention for 2D gestures. Leveraging these existing conventions may lower the entry barrier, but should be cautious, as not everyone shares the same conventions (\eg, like with a thumb or like by drawing a check mark). 
+New conventions may be introduced when needed, but care should be taken to avoid introducing too many and violating existing ones, as to not create more confusion. GESs can help in this process.
+\textbf{TODO - end}
 
-% Possible solutions
-Bau and Mackay~\cite{Bau:2008}, and Kristensson and Denby~\cite{Kristensson:2011} looked into teaching 2D gestures by recognizing incomplete trajectories drawn by the users and suggesting possible continuations by displaying them on the screen.
+Researchers have explored various techniques for teaching gestures to users.
 %
-Rovelo \etal~\cite{Rovelo:2015} later applied the same strategy to mid-air gesture interaction. After comparing their implementation with a printed guide of gestures, they observed that \textbf{TODO} + Octopipe ou Octopocus 3D? Laurence Nigay
+For example, Bau and Mackay~\cite{Bau:2008} and Kristensson and Denby~\cite{Kristensson:2011} investigated teaching 2D gestures on touchscreens by recognizing incomplete trajectories drawn by users and displaying possible continuations on the screen.
 %
-ShapelineGuide~\cite{Alt:2018} 3D \textbf{TODO}
+These systems were later extended to 3D mid-air interaction, covering simple 3D trajectories~\cite{Fennedy:2021} and gestures involving multiple body parts~\cite{Rovelo:2015, Alt:2018}. 
 %
-Other stretegies for introducing 3D gestures have been studied and compared in the literature.
+Walter \etal~\cite{Walter:2013} explored three strategies for revealing initial gestures on interactive public displays: spatial division (\ie displaying an explanation of the gesture on part of the screen), temporal division (interrupting the application to show the gesture in full screen), and integration (integrating visual cues in the application). They found that spatial division worked well, whereas temporal division caused users to leave while the cue was being shown because it interrupted their interaction with the application.
 %
-White \etal~\cite{White:2007} compared text, diagram, and ghosting to show how to interact with objects in AR.%3D, compare different methods for showing how to interact with objects in AR (text, diagram, and ghosting)
+White \etal~\cite{White:2007} compared different methods for demonstrating to users how to interact with objects in AR. These methods included text (\ie a description of the gesture), diagrams (\ie an image of the gesture), and ghosting (\ie ghost images representing the action of the gesture). They found that combining two methods, such as text and ghosting, was preferred by users over using a single method.
 %
-Walter \etal~\cite{Walter:2013} investigated three strategies to reveal an initial gesture on interactive public displays: spatial division (an explanation of the gesture is displayed on part of the screen), temporal division (the application is interrupted to reveal the gesture in full screen), and integration (visual cues are integrated in the application). Spatial division worked well while temporal division triggered users to leave while the cue was shown, as it interrupted their interaction with the application. \textbf{TODO make shorter}
 
 \textbf{TODO - citer article IJHCS discoverability scale}
 
@@ -235,8 +237,7 @@ The gesture recognition pipeline must support custom gestures. Template-matching
 Care should be given to design customization UI that is usable by everyone, in particular, people with a disability. Integrate this UI seamlessly into a gesture-based application.
 How to represent gestures to users? Rather trivial with 2D gestures, Ok with 3d gestures, but what about radars and other sensors?
 
-
-Template mùatching intrinsically supports customization. Some deeplearning can support that without complete retraining, but issues (catastrophic forgetting -> désapprendre des trucs pour apprendre ce qu'on lui ajoute) https://www.researchgate.net/publication/335698970_A_Study_on_Catastrophic_Forgetting_in_Deep_LSTM_Networks
+\textbf{TODO} %Template mùatching intrinsically supports customization. Some deeplearning can support that without complete retraining, but issues (catastrophic forgetting -> désapprendre des trucs pour apprendre ce qu'on lui ajoute) https://www.researchgate.net/publication/335698970_A_Study_on_Catastrophic_Forgetting_in_Deep_LSTM_Networks
 %
 \cite{Ouyang:2012} user-defined shortcuts (touch gestures). Allows to explore gestures from other users or even to identify potential meaning of the user gesture by comparing it with gestures from other users. Can reduce the time required to define custom gestures.
 %
@@ -447,12 +448,14 @@ Classical machine learning algorithms were still used, as follows: K Nearest Nei
 %    \vspace{-6pt}
 \end{figure}
 
-\textbf{TODO - Emphasize that the use of point clouds does not require convolutional layers and discuss the impact}
 
 From the above analysis, we make the following observations
 \begin{enumerate}
     \item \textit{Predominance of CNN algorithms}: CNNs, often combined with another model like LSTM, are predominant for recognizing radar-based signals. They are particularly appropriate for image processing, but also they benefit from their intrinsic capability to select the discriminant radar features without any human supervision, in particular when dealing with gesture sets that are very large in size and complexity (radar images are very challenging to discriminate by a non-expert).
-    \item \textit{Dependence of CNN with respect to the radar}: since CNNs automatically select features directly from radar images, these key features are not pre-trained and only learned when the gesture set is examined, thereby making the CNN very appropriate, but also very specific to the radar images produced. The CNNs therefore suffer from a high dependence on radar type and possibly radar unit for a given model.
+    %
+    \textbf{TODO - Emphasize that the use of point clouds does not require convolutional layers and discuss the impact} 
+    It is important to note that CNNs are not the only solution. Instead of relying on CNNs for feature selection, point clouds can be extracted from raw radar signal and directly fed to other algorithms (\eg an LSTM) for gesture recognition\cite{Palipana:2021}. Advantages: \textbf{TODO}
+    \item \textit{Dependence of CNN with respect to the radar}: since CNNs automatically select features directly from radar images, these key features are not pre-trained and only learned when the gesture set is examined, thereby making the CNN very appropriate, but also very specific to the radar images produced. The CNNs therefore suffer from a high dependence on radar type and possibly radar unit for a given model. 
     \item \textit{No modeling of the radar functioning}: since CNNs ensure most of the work for a specific radar, we did not identify any work in gesture recognition aimed at modeling the radar functioning in some way to ensure some radar independence or some mechanism to reason about its processing. 
 \end{enumerate}
 
