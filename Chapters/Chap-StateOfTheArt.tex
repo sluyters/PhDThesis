@@ -159,41 +159,55 @@ Their study also suggested that the type of sensor used for gesture recognition 
 Wrist-worn IMUs, on the other hand, allow users to perform gestures in any position. For example, Siddhpuria \etal~\cite{Siddhpuria:2017} demonstrated that ``at-your-side'' gestures recorded with a smartwatch enabled users to interact with public displays in a way that felt socially acceptable and natural while minimizing arm fatigue.
 
 
-\subsubsection{Affordance and Discoverability} \label{sec:state_of_the_art:overview:challenges:discoverability}
-\textbf{TODO}
-``Affordances reflect the possible relationships among actors and objects''~\cite{Norman:1999}
-The concept of perceived affordance~\cite{Norman:1988,Norman:1999} of gesture-based interfaces (+ signifiers are ``the perceivable part
-of an affordance''~\cite{Norman:2008}, \ie deliberate or incidental clues about how an object is supposed to be used.), challenges for gestural UI, then implication for discoverability
+\subsubsection{Discoverability} \label{sec:state_of_the_art:overview:challenges:discoverability}
+Due to their novelty, mid-air gesture interfaces are yet to become standardized~\cite{Norman:2010}. Differences between users, be it personal or cultural, make it difficult to create gesture-based UIs that will feel natural to every user, that they will be able to get into without any introduction. 
 
-
-Physical constraints: how to communicate physical constraints of the system when they are not as straightforward to grasp as, \eg the limited dimensions of a screen? For instance, how to communicate limited field of view of the system? How to communicate if a system requires the user to be positioned precisely wrt the sensor?
-
-Logical constraints
-
-Cultural constraints, learned conventions. For instance, using a swipe gesture makes sense for many people that used touchscreens before, as they have adopted this convention for 2D gestures. Leveraging these existing conventions may lower the entry barrier, but should be cautious, as not everyone shares the same conventions (\eg, like with a thumb or like by drawing a check mark). But also avoid to violate existing ones, as to not create more confusion. GESs can help.
-
-Add signifiers, clues for what is possible and what is not
-Social signifiers: could show a new user the actions from a previous user, or encourage new users to watch other users interact
-
-Feedback to understand the result of our action
-
-Especially crucial in public displays, where need to grasp user attention directly~\cite{Walter:2013}
-
-Many challenges for gesture explanation: simple to understand, avoid distracting users that already know how to interact, integrate nicely in the interface~\cite{Rovelo:2015}.
-
-In~\cite{Walter:2013}, Walter \etal investigated three strategies to reveal an initial gesture on interactive public displays: spatial division (an explanation of the gesture is displayed on part of the screen), temporal division (the application is interrupted to reveal the gesture in full screen), and integration (visual cues are integrated in the application). They showed that spatial division worked well. Temporal division triggered users to leave while the cue was shown, as it interrupted their interaction with the application.
+Mid-air gesture interfaces should thus be handled as any other interface. Discoverability, introducing new conventions when needed, but also relying on already learned conventions (\eg from touch-based UIs)~\cite{Norman:1999}. For instance, using a swipe gesture makes sense for many people that used touchscreens before, as they have adopted this convention for 2D gestures. Leveraging these existing conventions may lower the entry barrier, but should be cautious, as not everyone shares the same conventions (\eg, like with a thumb or like by drawing a check mark). But also avoid to violate existing ones, as to not create more confusion. GESs can help.
+%
+Because of the immense freedom allowed by gestures, proper tutorials and feedback should be carefully designed so that users can quickly understand the physical constraints of the system (\eg limited field of view)~\cite{Norman:1999} and learn the proper gestures without feeling overwhelmed or frustrated~\cite{Norman:2010}. 
+%
+Especially crucial in public displays, where need to grasp user attention directly as patience can be low~\cite{Walter:2013}.
+%
+Signifiers (\ie deliberate or incidental cues about how an object is supposed to be used)~\cite{Norman:2008} should be placed by application designers in the UI to inform users about the potential actions available, and how to perform them.
+%
+Thes cues should be subtle and integrate nicely in the interface, to avoid distracting users that already know how to interact, while simple to understand for new users~\cite{Rovelo:2015,Walter:2013}.
 
 % Possible solutions
 Octopocus~\cite{Bau:2008} and \cite{Kristensson:2011} 2D gestures, suggestion of continuation of trajectory
-
 %
 Gestu-Wan~\cite{Rovelo:2015} applied the principles from Octopocus to mid-air gesture interaction. They compared their implementation with a printed guide of gestures and observed \textbf{TODO}
 %
 ShapelineGuide~\cite{Alt:2018} 3D
 %
 White \etal~\cite{White:2007} 3D, compare different methods for showing how to interact with objects in AR (text, diagram, and ghosting)
+%
+In~\cite{Walter:2013}, Walter \etal investigated three strategies to reveal an initial gesture on interactive public displays: spatial division (an explanation of the gesture is displayed on part of the screen), temporal division (the application is interrupted to reveal the gesture in full screen), and integration (visual cues are integrated in the application). They showed that spatial division worked well. Temporal division triggered users to leave while the cue was shown, as it interrupted their interaction with the application. \textbf{TODO make shorter}
 
-\textbf{TODO - Discuss how to communicate system limitations}
+% \textbf{TODO}
+% ``Affordances reflect the possible relationships among actors and objects''~\cite{Norman:1999}
+% The concept of perceived affordance~\cite{Norman:1988,Norman:1999} of gesture-based interfaces (+ signifiers are ``the perceivable part
+% of an affordance''~\cite{Norman:2008}, \ie deliberate or incidental clues about how an object is supposed to be used.), challenges for gestural UI, then implication for discoverability
+
+
+% Physical constraints: how to communicate physical constraints of the system when they are not as straightforward to grasp as, \eg the limited dimensions of a screen? For instance, how to communicate limited field of view of the system? How to communicate if a system requires the user to be positioned precisely wrt the sensor?
+
+% Logical constraints:
+
+% Cultural constraints, learned conventions. For instance, using a swipe gesture makes sense for many people that used touchscreens before, as they have adopted this convention for 2D gestures. Leveraging these existing conventions may lower the entry barrier, but should be cautious, as not everyone shares the same conventions (\eg, like with a thumb or like by drawing a check mark). But also avoid to violate existing ones, as to not create more confusion. GESs can help.
+
+% Add signifiers, clues for what is possible and what is not
+% Social signifiers: could show a new user the actions from a previous user, or encourage new users to watch other users interact
+
+% Feedback to understand the result of our action
+
+% Especially crucial in public displays, where need to grasp user attention directly~\cite{Walter:2013}
+
+% Many challenges for gesture explanation: simple to understand, avoid distracting users that already know how to interact, integrate nicely in the interface~\cite{Rovelo:2015}.
+
+
+
+
+% \textbf{TODO - Discuss how to communicate system limitations}
 
 
 
