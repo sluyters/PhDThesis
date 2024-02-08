@@ -18,7 +18,7 @@
   - [ ] Gesture set customization
 - [x] Provide a justification for limiting the SLR to the ACM DL (e.g., why not IEEE?). `Section 2.2`
 - [ ] Emphasize that the use of point clouds does not require convolutional layers and discuss the impact. `Section 2.3.2 / Algorithms`
-  - About CNNs (+ LSTM) predominance: It largely depends on the radar features. For example, for point clouds we don't necessarily need CNNs.
+  - About CNNs (+ LSTM) predominance: It largely depends on the radar features. For example, for point clouds we don't necessarily need CNNs. -> Pantomime 3D point clouds (citer ça maybe?) comme ça on doit plus faire de CNN et on peut utiliser des algorithmes deep learning existants
 
 ## Chapter 3 - Facilitating the Development of Gesture-based Applications
 - [x] Clarify that "removeGesture(name)" removes all samples from the same gesture in the gesture set. `Section 3.1.1`

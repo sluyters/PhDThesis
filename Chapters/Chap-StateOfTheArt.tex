@@ -165,6 +165,8 @@ Their study also suggested that the type of sensor used for gesture recognition 
 %
 Wrist-worn IMUs, on the other hand, allow users to perform gestures in any position. For example, Siddhpuria \etal~\cite{Siddhpuria:2017} demonstrated that ``at-your-side'' gestures recorded with a smartwatch enabled users to interact with public displays in a way that felt socially acceptable and natural while minimizing arm fatigue.
 
+https://dl.acm.org/doi/10.1145/2807442.2807489 \textbf{TODO Gunslinger}
+
 
 \subsubsection{Discoverability} \label{sec:state_of_the_art:overview:challenges:discoverability}
 Due to their novelty, mid-air gesture interfaces are yet to become standardized~\cite{Norman:2010}. Differences between users, be it personal or cultural, make it difficult to create gesture-based UIs that will feel natural to every user, that they will be able to get into without any introduction. 
@@ -182,7 +184,7 @@ Thes cues should be subtle and integrate nicely in the interface, to avoid distr
 % Possible solutions
 Bau and Mackay~\cite{Bau:2008}, and Kristensson and Denby~\cite{Kristensson:2011} looked into teaching 2D gestures by recognizing incomplete trajectories drawn by the users and suggesting possible continuations by displaying them on the screen.
 %
-Rovelo \etal~\cite{Rovelo:2015} later applied the same strategy to mid-air gesture interaction. After comparing their implementation with a printed guide of gestures, they observed that \textbf{TODO}
+Rovelo \etal~\cite{Rovelo:2015} later applied the same strategy to mid-air gesture interaction. After comparing their implementation with a printed guide of gestures, they observed that \textbf{TODO} + Octopipe ou Octopocus 3D? Laurence Nigay
 %
 ShapelineGuide~\cite{Alt:2018} 3D \textbf{TODO}
 %
@@ -191,6 +193,8 @@ Other stretegies for introducing 3D gestures have been studied and compared in t
 White \etal~\cite{White:2007} compared text, diagram, and ghosting to show how to interact with objects in AR.%3D, compare different methods for showing how to interact with objects in AR (text, diagram, and ghosting)
 %
 Walter \etal~\cite{Walter:2013} investigated three strategies to reveal an initial gesture on interactive public displays: spatial division (an explanation of the gesture is displayed on part of the screen), temporal division (the application is interrupted to reveal the gesture in full screen), and integration (visual cues are integrated in the application). Spatial division worked well while temporal division triggered users to leave while the cue was shown, as it interrupted their interaction with the application. \textbf{TODO make shorter}
+
+\textbf{TODO - citer article IJHCS discoverability scale}
 
 % \textbf{TODO}
 % ``Affordances reflect the possible relationships among actors and objects''~\cite{Norman:1999}
@@ -230,6 +234,9 @@ However, allowing customization comes with multiple challenges.
 The gesture recognition pipeline must support custom gestures. Template-matching algorithms work well for that~\cite{TODO}, + mention deep learning that can be quickly trained.
 Care should be given to design customization UI that is usable by everyone, in particular, people with a disability. Integrate this UI seamlessly into a gesture-based application.
 How to represent gestures to users? Rather trivial with 2D gestures, Ok with 3d gestures, but what about radars and other sensors?
+
+
+Template mùatching intrinsically supports customization. Some deeplearning can support that without complete retraining, but issues (catastrophic forgetting -> désapprendre des trucs pour apprendre ce qu'on lui ajoute) https://www.researchgate.net/publication/335698970_A_Study_on_Catastrophic_Forgetting_in_Deep_LSTM_Networks
 %
 \cite{Ouyang:2012} user-defined shortcuts (touch gestures). Allows to explore gestures from other users or even to identify potential meaning of the user gesture by comparing it with gestures from other users. Can reduce the time required to define custom gestures.
 %
