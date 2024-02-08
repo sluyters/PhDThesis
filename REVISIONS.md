@@ -9,7 +9,7 @@
 
 ## Chapter 2 - State of the Art
 - [ ] Discuss the problem of sensor fusion. `Section 2.1.2 / Sensor Limitations`
-- [ ] Discuss the question of using DTW for segmentation and link to dynamic recognition. `Section 2.1.2 / Gesture Segmentation`
+- [x] Discuss the question of using DTW for segmentation and link to dynamic recognition. `Section 2.1.2 / Gesture Segmentation`
 - [ ] Discuss UX challenges of gesture interaction. `Section 2.1.2`
   - [ ] Gesture discoverability and affordance
     - What solutions? pas les 20+ gestes at once, mais une sélection raisonnée (3-7); usually about 20 sec demonstrating a given gesture + a few minutes mastering the gesture; 

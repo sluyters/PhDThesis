@@ -114,14 +114,21 @@ Different techniques may be leveraged to recognize each type of gesture. For ins
 \subsubsection{Gesture Segmentation} \label{sec:state_of_the_art:overview:challenges:segmentation}
 One of the greatest challenges in continuous gesture recognition is gesture segmentation, \ie extracting user gestures from a continuous stream of data. To maximize user satisfaction, a good gesture recognition pipeline should recognize all intentional gestures with minimal input from the user, while ignoring parasitic gestures (\eg transitions between gestures or unintentional motions)~\cite{Ashbrook:2010}. 
 
-There are many different approaches to segmentation. 
+There are many different approaches to segmentation.
+% 
 A sliding window segmenter feeds the input data into a fixed-length buffer. The content of the buffer is continuously sent to the recognizer for evaluation. While this technique does not require input from the user, it makes assumptions about the length of gestures and relies on the recognizer to distinguish gestures from noise. Sliding windows have been used in combination with the 3 cent and Jackknife recognizers~\cite{Caputo:2019, Taranta:2017}. They have also been ML-augmented to distinguish intentional gestures from parasitic movements~\cite{Kratz:2016}. 
-Segmentation may also be triggered by user input, \eg pressing a button performing a simple motion or hand pose to delimit gesture boundaries, or performing the gesture in a specific ``active'' zone in space. While accurate, these techniques require active input from the user and are thus likely to feel less natural to the user. 
-Other publications have focused on using some properties of input data to trigger segmentation, such as speed and acceleration. For instance, in~\cite{Chen:2016}, Chen \etal used the energy and root mean square (RMS) of raw EMG signals to properly segment gestures (energy-based segmentation). 
-Finally, techniques such as Machete~\cite{Taranta:2021} rely on simple recognizers that continuously evaluate input data to determine the possible boundaries of gestures.
+%
+Segmentation may also be triggered by user input, \eg pressing a button performing a simple motion or hand pose to delimit gesture boundaries, or performing the gesture in a specific ``active'' zone in space. While accurate, these techniques require active input from the user and are thus likely to feel less natural to the user.
+% 
+Some publications have focused on using some properties of input data to trigger segmentation, such as speed and acceleration. For instance, in~\cite{Chen:2016}, Chen \etal used the energy and root mean square (RMS) of raw EMG signals to properly segment gestures (energy-based segmentation). 
+%
+Other techniques such as Machete~\cite{Taranta:2021} rely on simple recognizers that continuously evaluate input data to determine the possible boundaries of gestures.
 
-\textbf{TODO - Discuss DTW for segmentation and link to dynamic recognition} see https://doi.org/10.1016/j.patcog.2018.02.011 and https://doi.org/10.1016/j.patrec.2013.09.009 
-
+The variability in gesture production discussed previously also impacts gesture segmentation. Consequently, DTW has been employed to accommodate differences in gesture articulation speed. 
+%
+For example, Hernández-Vela \etal~\cite{HernandezVela:2014} assumed that two consecutive motions were always separated by an idle gesture. They utilized DTW to detect this idle gesture, making it possible to extract user gestures from the continuous stream of data.
+%
+Instead of relying on idle gestures, Tang \etal~\cite{Tang:2018} opted for a different approach combining an SVM classifier with DTW for gesture segmentation. The SVM uses velocity information to detect ``slow-down zones'' occuring after a gesture has been performed and the DTW algorithm then backtracks to find the starting point of the gesture.
 
 As gesture segmentation techniques are still far from perfect, some measures should be taken to limit the number of false positives. Examples include training recognition algorithms to recognize parasitic gestures (\eg by generating synthetic ``noise'' gestures)~\cite{Taranta:2017} and rejecting recognized gestures if their score falls below a threshold. This threshold may be arbitrarily defined or automatically computed based on the training set~\cite{Caputo:2019}.
 
@@ -173,15 +180,17 @@ Signifiers (\ie deliberate or incidental cues about how an object is supposed to
 Thes cues should be subtle and integrate nicely in the interface, to avoid distracting users that already know how to interact, while simple to understand for new users~\cite{Rovelo:2015,Walter:2013}.
 
 % Possible solutions
-Octopocus~\cite{Bau:2008} and \cite{Kristensson:2011} 2D gestures, suggestion of continuation of trajectory
+Bau and Mackay~\cite{Bau:2008}, and Kristensson and Denby~\cite{Kristensson:2011} looked into teaching 2D gestures by recognizing incomplete trajectories drawn by the users and suggesting possible continuations by displaying them on the screen.
 %
-Gestu-Wan~\cite{Rovelo:2015} applied the principles from Octopocus to mid-air gesture interaction. They compared their implementation with a printed guide of gestures and observed \textbf{TODO}
+Rovelo \etal~\cite{Rovelo:2015} later applied the same strategy to mid-air gesture interaction. After comparing their implementation with a printed guide of gestures, they observed that \textbf{TODO}
 %
-ShapelineGuide~\cite{Alt:2018} 3D
+ShapelineGuide~\cite{Alt:2018} 3D \textbf{TODO}
 %
-White \etal~\cite{White:2007} 3D, compare different methods for showing how to interact with objects in AR (text, diagram, and ghosting)
+Other stretegies for introducing 3D gestures have been studied and compared in the literature.
 %
-In~\cite{Walter:2013}, Walter \etal investigated three strategies to reveal an initial gesture on interactive public displays: spatial division (an explanation of the gesture is displayed on part of the screen), temporal division (the application is interrupted to reveal the gesture in full screen), and integration (visual cues are integrated in the application). They showed that spatial division worked well. Temporal division triggered users to leave while the cue was shown, as it interrupted their interaction with the application. \textbf{TODO make shorter}
+White \etal~\cite{White:2007} compared text, diagram, and ghosting to show how to interact with objects in AR.%3D, compare different methods for showing how to interact with objects in AR (text, diagram, and ghosting)
+%
+Walter \etal~\cite{Walter:2013} investigated three strategies to reveal an initial gesture on interactive public displays: spatial division (an explanation of the gesture is displayed on part of the screen), temporal division (the application is interrupted to reveal the gesture in full screen), and integration (visual cues are integrated in the application). Spatial division worked well while temporal division triggered users to leave while the cue was shown, as it interrupted their interaction with the application. \textbf{TODO make shorter}
 
 % \textbf{TODO}
 % ``Affordances reflect the possible relationships among actors and objects''~\cite{Norman:1999}
