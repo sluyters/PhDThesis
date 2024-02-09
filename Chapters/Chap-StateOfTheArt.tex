@@ -168,24 +168,23 @@ Similarly, Liu \etal's Gunslinger~\cite{Liu:2015} relied on two LMCs mounted on 
 
 
 \subsubsection{Discoverability} \label{sec:state_of_the_art:overview:challenges:discoverability}
-Due to their novelty, mid-air gesture interfaces are yet to be standardized~\cite{Norman:2010}. Variations among users, whether personal or cultural, pose challenges in creating gesture-based UIs that feel natural and can be used seamlessly without prior introduction.
+Due to their novelty, mid-air gesture interfaces have yet to be standardized \cite{Norman:2010}. Variations among users, whether personal or cultural, pose challenges in creating gesture-based UIs that feel natural and can be used seamlessly without prior introduction.
 
-Given the considerable freedom afforded by gestures, it is imperative for designers to establish a clear conceptual model of the application, perhaps even more so than with traditional interfaces~\cite{Norman:2010}.
+Given the considerable freedom afforded by gestures, designers must establish a clear conceptual model of the application, perhaps even more so than with traditional interfaces~\cite{Norman:2010}.
 %
 Possible actions should be easily discoverable, and clear tutorials and feedback mechanisms should be implemented to ensure that users can understand the physical constraints of the system (\eg limited field of view)~\cite{Norman:1999} and learn the proper gestures without feeling overwhelmed or frustrated~\cite{Norman:2010}. 
 %
-This is particularly important in public displays, where capturing and retaining user attention is challenging given that user patience can be low in such scenarios~\cite{Walter:2013}.
+Signifiers, \ie deliberate or incidental cues about how an object is supposed to be used~\cite{Norman:2008}, should be placed by application designers in the UI to inform users about the potential actions available, and how to perform them. These cues should be subtle and seamlessly integrated into the interface to avoid distracting experienced users while remaining easy to notice and simple to understand for new users~\cite{Rovelo:2015,Walter:2013}.
 %
-\textbf{TODO - start (improve, shorten, and fuse with previous paragraphs)}
-Signifiers (\ie deliberate or incidental cues about how an object is supposed to be used)~\cite{Norman:2008} should be placed by application designers in the UI to inform users about the potential actions available, and how to perform them.
+Designers of gesture-based UI should also rely on existing conventions, such as those learned from touch-based UIs~\cite{Norman:1999}. For instance, swiping left to display the next page of a document may resonate with users familiar with touchscreens, as they have already adopted this convention for 2D gestures. 
 %
-These cues should be subtle and integrate nicely in the interface, to avoid distracting users that already know how to interact, while simple to understand for new users~\cite{Rovelo:2015,Walter:2013}.
-%
-Designers of gesture-based UI should also rely on already learned conventions (\eg from touch-based UIs)~\cite{Norman:1999}. For instance, using a swipe gesture makes sense for many people that used touchscreens before, as they have adopted this convention for 2D gestures. Leveraging these existing conventions may lower the entry barrier, but should be cautious, as not everyone shares the same conventions (\eg, like with a thumb or like by drawing a check mark). 
-New conventions may be introduced when needed, but care should be taken to avoid introducing too many and violating existing ones, as to not create more confusion. GESs can help in this process.
-\textbf{TODO - end}
+While leveraging existing conventions may lower the entry barrier of mid-air gesture interfaces, designers must be cautious, as not all users share the same conventions (\eg liking content with a thumbs-up gesture \vs by drawing a checkmark). 
+Similarly, designers should be careful when introducing new conventions to avoid overwhelming users with many unfamiliar gestures or violating existing conventions, which could lead to confusion. 
+GESs can be a useful tool to identify existing conventions and define new conventions.
 
-Researchers have explored various techniques for teaching gestures to users.
+Discoverability is particularly important in public displays, where capturing and retaining user attention is challenging given that user patience can be low in such scenarios~\cite{Walter:2013}.
+%
+As such, researchers have explored various techniques for teaching gestures to users.
 %
 For example, Bau and Mackay~\cite{Bau:2008} and Kristensson and Denby~\cite{Kristensson:2011} investigated teaching 2D gestures on touchscreens by recognizing incomplete trajectories drawn by users and displaying possible continuations on the screen.
 %
@@ -194,40 +193,8 @@ These systems were later extended to 3D mid-air interaction, covering simple 3D 
 Walter \etal~\cite{Walter:2013} explored three strategies for revealing initial gestures on interactive public displays: spatial division (\ie displaying an explanation of the gesture on part of the screen), temporal division (interrupting the application to show the gesture in full screen), and integration (integrating visual cues in the application). They found that spatial division worked well, whereas temporal division caused users to leave while the cue was being shown because it interrupted their interaction with the application.
 %
 White \etal~\cite{White:2007} compared different methods for demonstrating to users how to interact with objects in AR. These methods included text (\ie a description of the gesture), diagrams (\ie an image of the gesture), and ghosting (\ie ghost images representing the action of the gesture). They found that combining two methods, such as text and ghosting, was preferred by users over using a single method.
-%
 
-\textbf{TODO - citer article IJHCS discoverability scale}
-
-% \textbf{TODO}
-% ``Affordances reflect the possible relationships among actors and objects''~\cite{Norman:1999}
-% The concept of perceived affordance~\cite{Norman:1988,Norman:1999} of gesture-based interfaces (+ signifiers are ``the perceivable part
-% of an affordance''~\cite{Norman:2008}, \ie deliberate or incidental clues about how an object is supposed to be used.), challenges for gestural UI, then implication for discoverability
-
-
-% Physical constraints: how to communicate physical constraints of the system when they are not as straightforward to grasp as, \eg the limited dimensions of a screen? For instance, how to communicate limited field of view of the system? How to communicate if a system requires the user to be positioned precisely wrt the sensor?
-
-% Logical constraints:
-
-% Cultural constraints, learned conventions. For instance, using a swipe gesture makes sense for many people that used touchscreens before, as they have adopted this convention for 2D gestures. Leveraging these existing conventions may lower the entry barrier, but should be cautious, as not everyone shares the same conventions (\eg, like with a thumb or like by drawing a check mark). But also avoid to violate existing ones, as to not create more confusion. GESs can help.
-
-% Add signifiers, clues for what is possible and what is not
-% Social signifiers: could show a new user the actions from a previous user, or encourage new users to watch other users interact
-
-% Feedback to understand the result of our action
-
-% Especially crucial in public displays, where need to grasp user attention directly~\cite{Walter:2013}
-
-% Many challenges for gesture explanation: simple to understand, avoid distracting users that already know how to interact, integrate nicely in the interface~\cite{Rovelo:2015}.
-
-
-
-
-% \textbf{TODO - Discuss how to communicate system limitations}
-
-
-
-% \subsubsection{Communicating User Errors} \label{sec:state_of_the_art:overview:challenges:user-errors}
-% \textbf{TODO}
+% \textbf{TODO - citer article IJHCS discoverability scale}
 
 \subsubsection{Gesture Set Customization}
 Even a good gesture set might not satisfy everyone. Allowing users to customize gestures can result in higher memorability and usability over pre-designed gestures sets~\cite{Oh:2013,Nacenta:2013} and result in more inclusivity for users that suffer from some sort of disability.
