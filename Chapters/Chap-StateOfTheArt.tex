@@ -197,20 +197,22 @@ White \etal~\cite{White:2007} compared different methods for demonstrating to us
 % \textbf{TODO - citer article IJHCS discoverability scale}
 
 \subsubsection{Gesture Set Customization}
-Even a good gesture set might not satisfy every user, due to different preferences, disabilities, etc.. Allowing users to customize gestures can result in higher memorability and usability over pre-designed gestures sets~\cite{Oh:2013,Nacenta:2013} and result in more inclusivity for users that suffer from some sort of disability. Beside changing the gesture set, customization enables users to provide their own gesture samples to improve the accuracy of the system for them in particular.
+Even a well-designed gesture set may not cater to the needs and preferences of every user, as factors such as motricity and personal preferences vary between individuals. Allowing users to customize the gesture set of an application can lead to higher memorability and usability compared to pre-designed gestures~\cite{Oh:2013,Nacenta:2013}, better accuracy, as users can submit their own gesture samples to train the system, and better inclusion of users with disabilities.
 % 
-However, allowing customization comes with multiple challenges.
+However, enabling gesture set customization presents several challenges.
 
-First, the gesture recognition pipeline must support custom gestures.
-Some techniques for gesture recognition, template matching algorithms like \$P+~\cite{Vatavu:2017a}, Jackknife~\cite{Taranta:2017}, or 3 cent~\cite{Caputo:2017}, intrinsically support customization ``in real time''. Deep learning can also support customization quickly without complete retraining, but issues may arise and should be alleviated, such as catastrophic forgetting, where neural networks ``forget'' their previously acquired knowledge when trained with new classes~\cite{Schak:2019}.
+First, the gesture recognition pipeline must be able to adapt to changes to the gesture set. 
+Some techniques for gesture recognition, such as template matching algorithms like \$P+~\cite{Vatavu:2017a}, Jackknife~\cite{Taranta:2017}, or 3 cent~\cite{Caputo:2017}, inherently support changes to their training set, making them particularly suitable for customizable gesture-based interfaces. Similarly, some approaches based on deep learning can accommodate new gestures without requiring time-consuming retraining~\cite{TODO} \textbf{TODO}. However, issues such as catastrophic forgetting, where neural networks lose previously acquired knowledge when trained with new classes~\cite{Schak:2019, Li:2022}, should be properly addressed.
 
-Then, care should be given to design customization UIs that are usable by everyone, in particular, people with a disability who may not be happy with the pre-designed gestures. This UI should ideally integrate seamlessly into a gesture-based application.
+Second, the gesture customization UI should be designed to be accessible to all users, including those with a disability who may not be able to perform the pre-designed gestures. Ideally, this UI should seamlessly integrate into the gesture-based application.
 %
-\cite{Ouyang:2012} user-defined shortcuts (touch gestures). Allows to explore gestures from other users or even to identify potential meaning of the user gesture by comparing it with gestures from other users. Can reduce the time required to define custom gestures.
+Researchers have explored various methods for gesture customizations.
 %
-Xu \etal~\cite{Xu:2022} looked into implementing gesture recognition with a smartwatch in a way that allows users to record new gestures. The tool checks if gestures are not too similar to existing gestures or to daily activities (\eg cooking or walking), if the samples produced are consistent, and if the accuracy is not too low, and provides feedback accordingly. While it allows users to name the gestures, it does not provide a visual representation of the samples performed by the user, bringing us to our last point.
+For instance, Ouyang and Li~\cite{Ouyang:2012} introduced a way to define custom shortcuts on touchscreens quickly and efficiently. Besides supporting arbitrary user-defined shortcuts, the system allows users to explore gestures proposed by others and can even identify the potential intent of a user's shortcut by comparing it with gestures from other users.
+%
+Xu \etal~\cite{Xu:2022} implemented gesture recognition into a smartwatch in a way that allowed users to record new gestures. The tool can assess whether a new gesture is sufficiently different from other gestures and activities (\eg cooking or walking) known by the system, whether the produced samples are consistent, and whether the gesture can be recognized accurately, providing feedback accordingly. While users can name their new gestures, the tool lacks a visual representation of the samples performed by the user.
 
-How to represent gestures to users? While this is rather trivial with 2D gestures, this gets more complicated with 3d gestures. For instance, while vision-based sensors can record videos, or extract skeleton data from the images, the data provided by other sensors, like radars or IMUs, may be more difficult to visualize.\textbf{TODO}
+Lastly, representing gesture samples to users, while rather straightforward for 2D trajectories, becomes more complex for 3D mid-air gestures. For instance, while vision-based sensors can record videos or extract skeleton data from the images~\cite{DeSmedt:2017,Li:2017b}, visualizing data from other sensors, such as radars or IMUs, can be more challenging.
 
 
 %--------------------------------------------------------------------------------%
