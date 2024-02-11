@@ -79,10 +79,18 @@ This section highlights the main challenges that developers and practitioners ma
 \subsubsection{Sensor Limitations} \label{sec:state_of_the_art:overview:challenges:sensors-limitations}
 Depending on their technology, sensors may be subject to a series of limitations. For example, vision-based sensors such as the LMC are sensitive to environmental conditions~\cite{Yeo:2017}, limited field of view~\cite{Hayashi:2021}, occlusion~\cite{Brandon:2014}, and may raise privacy concerns~\cite{Avrahami:2018}. On the other hand, radar-based systems preserve privacy and can function in darkness, but are sensitive to clutter, noise, and interference. Some wearable sensors (\eg smart rings, watches, data gloves) may provide more accurate data, but this higher accuracy comes at the cost of practicality. Besides the limitations intrinsic to their technology, most sensors result in a compromise between a series of factors, including cost, field of view, framerate, and resolution.
 
-Overall, practitioners should take all of these limitations into account in the design of their gesture-based user interfaces: gesture sets should be designed such that the sensor(s) can differentiate between each gesture and the selected sensor(s) should suit the context of use of the UI. If no single sensor suits the requirements of an application, a combination of two or more sensors (\eg the LMC and the MS Kinect~\cite{Marin:2014}) could be considered. 
+Overall, practitioners should take all of these limitations into account in the design of their gesture-based user interfaces: gesture sets should be designed such that the sensor(s) can differentiate between each gesture and the selected sensor(s) should suit the context of use of the UI. 
+%If no single sensor suits the requirements of an application, a combination of two or more sensors (\eg the LMC and the MS Kinect~\cite{Marin:2014}) could be considered. 
+If no single sensor suits the requirements of an application, sensor fusion should be considered, as it allows to combine the advantages of two or more sensors. 
 %
-\textbf{TODO - expand discussion on sensor fusion} Data fusion can benefits from different sensors 
-Kalman filter (search for "data fusion kalman filter gesture recognition")
+For instance, Marin \etal~\cite{Marin:2014} combined features extracted from an LMC and a Microsoft Kinect to improve gesture recognition accuracy. 
+%
+Kalman filters build a model of the system that can be updated as new data is provided by the sensors. This can make the system more robust in different conditions (\eg lighting). Ovur \etal~\cite{Ovur:2021} used them to combine two LMCs placed at different angles to avoid occlusion, while Ponraj and Ren~\cite{Ponraj:2018} an LMC with flex sensors to better recognize some hand positions. \textbf{TODO}
+%
+% \textbf{TODO - expand discussion on sensor fusion} Data fusion can benefits from different sensors 
+% Kalman filter (search for "data fusion kalman filter gesture recognition")
+% Ponraj and Ren~\cite{Ponraj:2018} fuse LMC with flex sensors
+% Ovur \etal~\cite{Ovur:2021} fuse LMCs
 
 
 \subsubsection{Jitter} \label{sec:state_of_the_art:overview:challenges:jitter}
