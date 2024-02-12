@@ -8,7 +8,7 @@
     - Intégration impossible/pas une bonne idée dans quels cas, quelles applications à part celles où on scroll, qui mobilisent un trop grand nombre de gestes : non-critical ; not for too long
 
 ## Chapter 2 - State of the Art
-- [ ] Discuss the problem of sensor fusion. `Section 2.1.2 / Sensor Limitations`
+- [x] Discuss the problem of sensor fusion. `Section 2.1.2 / Sensor Limitations`
 - [x] Discuss the question of using DTW for segmentation and link to dynamic recognition. `Section 2.1.2 / Gesture Segmentation`
 - [ ] Discuss UX challenges of gesture interaction. `Section 2.1.2`
   - [x] Gesture discoverability and affordance

@@ -79,13 +79,17 @@ This section highlights the main challenges that developers and practitioners ma
 \subsubsection{Sensor Limitations} \label{sec:state_of_the_art:overview:challenges:sensors-limitations}
 Depending on their technology, sensors may be subject to a series of limitations. For example, vision-based sensors such as the LMC are sensitive to environmental conditions~\cite{Yeo:2017}, limited field of view~\cite{Hayashi:2021}, occlusion~\cite{Brandon:2014}, and may raise privacy concerns~\cite{Avrahami:2018}. On the other hand, radar-based systems preserve privacy and can function in darkness, but are sensitive to clutter, noise, and interference. Some wearable sensors (\eg smart rings, watches, data gloves) may provide more accurate data, but this higher accuracy comes at the cost of practicality. Besides the limitations intrinsic to their technology, most sensors result in a compromise between a series of factors, including cost, field of view, framerate, and resolution.
 
-Overall, practitioners should take all of these limitations into account in the design of their gesture-based user interfaces: gesture sets should be designed such that the sensor(s) can differentiate between each gesture and the selected sensor(s) should suit the context of use of the UI. 
-%If no single sensor suits the requirements of an application, a combination of two or more sensors (\eg the LMC and the MS Kinect~\cite{Marin:2014}) could be considered. 
-If no single sensor suits the requirements of an application, sensor fusion should be considered, as it allows to combine the advantages of two or more sensors. 
+Practitioners should consider these limitations into account in the design of their gesture-based user interfaces. Gesture sets should be designed such that the sensor(s) can differentiate between each gesture and the selected sensor(s) should suit the context of use of the UI. 
 %
-For instance, Marin \etal~\cite{Marin:2014} combined features extracted from an LMC and a Microsoft Kinect to improve gesture recognition accuracy. 
+When no single sensor adequately fulfills the requirements of an application, integrating multiple sensors through sensor fusion should be considered to combine their strengths and enhance overall system performance. 
 %
-Kalman filters build a model of the system that can be updated as new data is provided by the sensors. This can make the system more robust in different conditions (\eg lighting). Ovur \etal~\cite{Ovur:2021} used them to combine two LMCs placed at different angles to avoid occlusion, while Ponraj and Ren~\cite{Ponraj:2018} an LMC with flex sensors to better recognize some hand positions. \textbf{TODO}
+For instance, Marin \etal~\cite{Marin:2014} fed features extracted from two vision-based sensors, an LMC and a Microsoft Kinect, into a Support Vector Machine (SVM) classifier to improve gesture recognition accuracy. 
+%
+Kalman filters are a powerful tool for sensor fusion, thanks to their ability to estimate the state of a system (\eg the position of individual hand joints) in real time from a series of noisy measurements from one or more sensors. They can help improve the reliability of gesture recognition in challenging conditions, like occlusion or varying lighting conditions.
+%
+For example, Ovur \etal~\cite{Ovur:2021} used Kalman filters to merge data from two LMCs positioned at different angles. This approach enabled reliable hand pose tracking, even when one part of the hand obscured another from the viewpoint of one sensor (\ie self-occlusion).
+%
+Similarly, Ponraj and Ren~\cite{Ponraj:2018} leveraged Kalman filters to combine LMC data with two flex sensors integrated into a glove. The addition of flex sensors enabled more accurate hand pose recognition, particularly when parts of the hand were not visible to the LMC.
 %
 % \textbf{TODO - expand discussion on sensor fusion} Data fusion can benefits from different sensors 
 % Kalman filter (search for "data fusion kalman filter gesture recognition")
@@ -333,7 +337,7 @@ A major part of the analyzed publications ($\frac{16}{43}{=}37\%$) implemented g
 
 Found in nine references ($\frac{9}{43}{=}21\%$), K-Nearest Neighbors (KNN) classifiers~\cite{Duda:2000} were also a popular choice for gesture recognition. These algorithms are a simple yet powerful alternative to the opportunistic approach as they are easy to implement and train while being reasonably fast and accurate. Some are presented as all-purpose recognizers \cite{Caputo:2017,Taranta:2017} while others target more specific applications such as handwritten numerals recognition \cite{Chiang:2017} and Sign Language recognition, which remains a key topic for any language: American~\cite{Ferreira:2019,Kumar:2017b,Mapari:2016,Schioppo:2019}, Greek~\cite{Simos:2016}, and Thai~\cite{Thaweesitthichat:2018}.
 
-The remainder of the papers featured more advanced ML techniques such as Neural Networks (NNs), Support Vector Machines (SVMs), Hidden Markov Models (HMMs), or Ensemble Learning. These techniques were used in all kinds of applications. For instance, Simos and Nikolaos~\cite{Simos:2016} used an SVM to classify the 24 letters of the Greek Sign Language alphabet with high accuracy, and Kumar \etal~\cite{Kumar:2017a} trained an HMM to recognize words from single-stroke Latin sentences.
+The remainder of the papers featured more advanced ML techniques such as Neural Networks (NN), SVMs, Hidden Markov Models (HMM), or Ensemble Learning. These techniques were used in all kinds of applications. For instance, Simos and Nikolaos~\cite{Simos:2016} used an SVM to classify the 24 letters of the Greek Sign Language alphabet with high accuracy, and Kumar \etal~\cite{Kumar:2017a} trained an HMM to recognize words from single-stroke Latin sentences.
 
 Among the 27 publications relying exclusively on non-opportunistic algorithms for gesture recognition, only four ($\frac{4}{27}{=}14.8\%$) targeted both static and dynamic gestures, while the rest focused exclusively on one type of gesture.
 
@@ -406,8 +410,8 @@ Other applications included air-writing recognition~\cite{Wang:2020a}, user auth
 \subsection{Algorithms} \label{sec:state_of_the_art:radar:algorithms}
 
 \fig~\ref{fig:state_of_the_art:radar:algorithms} presents the algorithms used in our corpus.
-151 algorithms for radar-based gesture recognition were identified, the majority representing deep learning approaches ($\frac{81}{151}=54\%$), of which Convolutional Neural Networks (CNNs) were the most frequently used.
-CNNs were often combined with other models, such as Long Short-Term Memory (LSTM) or Support Vector Machines (SVM), in $\frac{23}{158}=15\%$ of the cases.
+151 algorithms for radar-based gesture recognition were identified, the majority representing deep learning approaches ($\frac{81}{151}=54\%$), of which Convolutional Neural Networks (CNN) were the most frequently used.
+CNNs were often combined with other models, such as Long Short-Term Memory (LSTM) or SVMs, in $\frac{23}{158}=15\%$ of the cases.
 Classical machine learning algorithms were still used, as follows: K Nearest Neighbors ($\frac{23}{151}=15\%$), Support Vector Machines ($\frac{16}{151}=11\%$), ensemble learning ($\frac{8}{151}=5\%$), Decision Trees ($\frac{6}{151}=4\%$), Hidden Markov Models ($\frac{3}{151}=2\%$), and Bayesian networks ($\frac{2}{151}=1\%$). 
 
 \begin{figure}[t]
