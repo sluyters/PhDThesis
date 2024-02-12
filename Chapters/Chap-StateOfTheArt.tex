@@ -409,11 +409,9 @@ Classical machine learning algorithms were still used, as follows: K Nearest Nei
 
 From the above analysis, we make the following observations
 \begin{enumerate}
-    \item \textit{Predominance of CNN algorithms}: CNNs, often coupled with another model like LSTM, are predominant for recognizing radar-based signals. They are particularly appropriate for image processing, but also they benefit from their intrinsic capability to select the discriminant radar features without any human supervision. This ability proves particularly useful when dealing with gesture sets that are very large in size and complexity, as radar images are very challenging to discriminate by a non-expert.
+    \item \textit{Predominance of CNN algorithms}: CNNs, often coupled with other models like LSTMs, are predominant for recognizing radar-based signals. They are particularly appropriate for image processing, but also they benefit from their intrinsic capability to select the discriminant radar features without any human supervision. This ability proves particularly useful when dealing with gesture sets that are very large in size and complexity, as radar images are very challenging to discriminate by a non-expert.
     %
     An alternative to relying on CNNs for feature selection involves extracting point clouds from raw radar signals and directly inputting them into a classification algorithm, such as an LSTM~\cite{Palipana:2021}. This approach can be more efficient thanks to the smaller size of point clouds compared to raw radar data.
-    % \textbf{TODO - Emphasize that the use of point clouds does not require convolutional layers and discuss the impact} 
-    
     \item \textit{Dependence of CNN with respect to the radar}: since CNNs automatically select features directly from radar images, these key features are not pre-trained and only learned when the gesture set is examined, thereby making the CNN very appropriate, but also very specific to the radar images produced. The CNNs therefore suffer from a high dependence on radar type and possibly radar unit for a given model. 
     \item \textit{No modeling of the radar functioning}: since CNNs ensure most of the work for a specific radar, we did not identify any work in gesture recognition aimed at modeling the radar functioning in some way to ensure some radar independence or some mechanism to reason about its processing. 
 \end{enumerate}
