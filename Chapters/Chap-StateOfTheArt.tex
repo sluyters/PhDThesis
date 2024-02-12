@@ -90,11 +90,6 @@ Kalman filters are a powerful tool for sensor fusion, thanks to their ability to
 For example, Ovur \etal~\cite{Ovur:2021} used Kalman filters to merge data from two LMCs positioned at different angles. This approach enabled reliable hand pose tracking, even when one part of the hand obscured another from the viewpoint of one sensor (\ie self-occlusion).
 %
 Similarly, Ponraj and Ren~\cite{Ponraj:2018} leveraged Kalman filters to combine LMC data with two flex sensors integrated into a glove. The addition of flex sensors enabled more accurate hand pose recognition, particularly when parts of the hand were not visible to the LMC.
-%
-% \textbf{TODO - expand discussion on sensor fusion} Data fusion can benefits from different sensors 
-% Kalman filter (search for "data fusion kalman filter gesture recognition")
-% Ponraj and Ren~\cite{Ponraj:2018} fuse LMC with flex sensors
-% Ovur \etal~\cite{Ovur:2021} fuse LMCs
 
 
 \subsubsection{Jitter} \label{sec:state_of_the_art:overview:challenges:jitter}
@@ -213,8 +208,11 @@ Even a well-designed gesture set may not cater to the needs and preferences of e
 % 
 However, enabling gesture set customization presents several challenges.
 
-First, the gesture recognition pipeline must be able to adapt to changes to the gesture set. 
-Some techniques for gesture recognition, such as template matching algorithms like \$P+~\cite{Vatavu:2017a}, Jackknife~\cite{Taranta:2017}, or 3 cent~\cite{Caputo:2017}, inherently support changes to their training set, making them particularly suitable for customizable gesture-based interfaces. Similarly, some approaches based on deep learning can accommodate new gestures without requiring time-consuming retraining~\cite{TODO} \textbf{TODO}. However, issues such as catastrophic forgetting, where neural networks lose previously acquired knowledge when trained with new classes~\cite{Schak:2019, Li:2022}, should be properly addressed.
+First, the gesture recognition pipeline must be able to incorporate changes to the gesture set with minimal inconvenience to the end user. The synthetic data generation techniques discussed previously may be leveraged to reduce the time required for end-users to record new gesture samples.
+%
+Some techniques for gesture recognition, such as template matching algorithms like \$P+~\cite{Vatavu:2017a}, Jackknife~\cite{Taranta:2017}, or 3 cent~\cite{Caputo:2017}, inherently support changes to their training set, making them particularly suitable for customizable gesture-based interfaces. 
+%
+Approaches based on deep learning can also accommodate new user-defined gestures~\cite{Aich:2023} but come with their own challenges, such as catastrophic forgetting, a phenomenon where neural networks lose previously acquired knowledge when trained with new classes~\cite{Schak:2019, Li:2022}.
 
 Second, the gesture customization UI should be designed to be accessible to all users, including those with a disability who may not be able to perform the pre-designed gestures. Ideally, this UI should seamlessly integrate into the gesture-based application.
 %

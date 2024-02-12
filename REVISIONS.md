@@ -10,12 +10,12 @@
 ## Chapter 2 - State of the Art
 - [x] Discuss the problem of sensor fusion. `Section 2.1.2 / Sensor Limitations`
 - [x] Discuss the question of using DTW for segmentation and link to dynamic recognition. `Section 2.1.2 / Gesture Segmentation`
-- [ ] Discuss UX challenges of gesture interaction. `Section 2.1.2`
+- [x] Discuss UX challenges of gesture interaction. `Section 2.1.2`
   - [x] Gesture discoverability and affordance
     - What solutions? pas les 20+ gestes at once, mais une sélection raisonnée (3-7); usually about 20 sec demonstrating a given gesture + a few minutes mastering the gesture; 
     - How about « ludification » of the learning process? Attention aux personnes plus âgées ou qui n’y arriveraient pas et qui pourraient se décourager
   - [x] User fatigue (see "Consumed Endurance: A Metric to Quantify Arm Fatigue of Mid-Air Interactions"), mention how to compute the metric of "Gorilla-arm effect"
-  - [ ] Gesture set customization
+- [x] Gesture set customization
 - [x] Provide a justification for limiting the SLR to the ACM DL (e.g., why not IEEE?). `Section 2.2`
 - [ ] Emphasize that the use of point clouds does not require convolutional layers and discuss the impact. `Section 2.3.2 / Algorithms`
   - About CNNs (+ LSTM) predominance: It largely depends on the radar features. For example, for point clouds we don't necessarily need CNNs. -> Pantomime 3D point clouds (citer ça maybe?) comme ça on doit plus faire de CNN et on peut utiliser des algorithmes deep learning existants
