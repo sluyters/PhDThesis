@@ -22,7 +22,7 @@ Finally, Section~\ref{sec:state_of_the_art:this_work} positions this work within
 
 \paragraph{Publications.} This chapter is based on three papers published in the EICS 2022 conference proceedings~\cite{Sluyters:2022:EICS}, Taylor and Francis IJHCI journal~\cite{Sluyters:2022:LUI} and ACM TiiS journal~\cite{Sluyters:2023}.
 
-\paragraph{Resources.} The list of references from the two SLRs conducted in this chapter are available in an OSF repository at \url{https://osf.io/q43j8/?view_only=20b39a8a3d994ae4bd9ce52bfa2ded28}.
+\paragraph{Resources.} The list of references from the two SLRs conducted in this chapter is available in an OSF repository at \url{https://osf.io/q43j8/?view_only=20b39a8a3d994ae4bd9ce52bfa2ded28}.
 
 
 
@@ -33,22 +33,6 @@ We conducted a Targeted Literature Review (TLR) to provide a summary of the lite
 Section~\ref{sec:state_of_the_art:overview:ges} first looks into gesture elicitation studies (GES)~\cite{Wobbrock:2009}, which are a great way to involve end users in the development process of gesture-based applications. 
 Section~\ref{sec:state_of_the_art:overview:challenges} then discusses the main challenges faced when building gesture interaction and Section~\ref{sec:state_of_the_art:overview:applications} provides examples of gesture-based interfaces in the literature.
 Finally, Section~\ref{sec:state_of_the_art:overview:summary} summarizes our findings.
-
-% %--------------------------------------------------------------------------------%
-% \subsection{Applications} \label{sec:state_of_the_art:overview:applications}
-
-% %--------------------------------------------------------------------------------%
-% \subsection{Tools} \label{sec:state_of_the_art:overview:tools}
-% % Frameworks, recognizers
-
-% %--------------------------------------------------------------------------------%
-% \subsection{Sensing Technologies} \label{sec:state_of_the_art:overview:sensors}
-% IMUs
-% Vision-based sensors (image vs. skeleton), google mediapipe hands, openpose
-% Radars (fuse with next section?)
-% Touch
-% Smart gloves
-
 
 %--------------------------------------------------------------------------------%
 \subsection{Gesture Elicitation} \label{sec:state_of_the_art:overview:ges}
@@ -271,25 +255,26 @@ Looking at more mature sensing technologies, such as vision-based sensors, can h
 In this section, we chose to focus on the Leap Motion Controller (LMC): an innovative, 3D motion-capturing device designed to track two hands and their fingers~\cite{Togootogtokh:2018} with high precision and robustness~\cite{Weichert:2013}. Its API transforms the raw data from its two near-infrared cameras into a hand skeleton to be used in any application. The LMC reaches sub-millimeter (0.2 mm) accuracy for static gestures and falls to 1.2 mm for dynamic gestures~\cite{Weichert:2013}. It natively recognizes a handful of system-defined gestures but custom gesture recognition algorithms are often preferred as they enable the support of a wider range of gestures~\cite{Brandon:2014}.
 The affordability, off-the-shelf availability, and accuracy of the LMC make it relatively popular among researchers and practitioners.
 
-We undertook a Systematic Literature Review (SLR)~\cite{Kitchenham:2010} to explore the algorithms employed for LMC-based gesture recognition (\fig~\ref{fig:state_of_the_art:lmc:prisma}). 
-%
-The query \texttt{RQ=``leap motion'' AND ``gesture recognition''} was run in the ACM Digital Library\footnote{Accessible at \url{https://dl.acm.org}}, which was highlighted as a good option for computer science literature reviews by Gusenbauer and Haddaway~\cite{Gusenbauer:2020}. Leveraging only one extensive database of papers provided us with a good overview of the literature on LMC-based gesture recognition while allowing us to channel most of our efforts into our subsequent SLR on radar-based gesture recognition (Section~\ref{sec:state_of_the_art:radar}).
-%
-The query yielded 390 publications, from which $N{=}43$ were identified as relevant. 
-
-\begin{figure}[htb]
+\begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth]{Figures/StateOfTheArt/LMC/PRISMA-LMC.pdf}
     \vspace{-18pt}
+    \captionsetup{width=.9\linewidth}
     \caption{PRISMA diagram~\cite{Page:2021} of our SLR on LMC gesture recognition.}
     \label{fig:state_of_the_art:lmc:prisma}
-    \vspace{-8pt}
+    % \vspace{-8pt}
 \end{figure}
+
+We undertook a Systematic Literature Review (SLR)~\cite{Kitchenham:2010} to explore the algorithms employed for LMC-based gesture recognition (\fig~\ref{fig:state_of_the_art:lmc:prisma}). 
+%
+The query \texttt{RQ=``leap motion'' AND ``gesture recognition''} was run in the ACM Digital Library\footnote{Accessible at \url{https://dl.acm.org}}, which was highlighted as a good option for computer science literature reviews by Gusenbauer and Haddaway~\cite{Gusenbauer:2020}. Focusing on one extensive database of papers provided us with a good overview of the literature on LMC-based gesture recognition while allowing us to channel most of our efforts into our subsequent SLR on radar-based gesture recognition (Section~\ref{sec:state_of_the_art:radar}).
+%
+The query yielded 390 publications, from which $N{=}43$ were identified as relevant. 
 
 \subsection{Algorithms} \label{sec:state_of_the_art:lmc:algorithms}
 22 types of algorithms for gesture recognition were identified in the papers, spanning across seven categories (\tab~\ref{tbl:state_of_the_art:lmc:algorithms}).
 
-\begin{table}[hbt]
+\begin{table}[!b]
     \resizebox{\columnwidth}{!}{
     \begin{tabular}{lll}
         \toprule
@@ -412,7 +397,7 @@ Other applications included air-writing recognition~\cite{Wang:2020a}, user auth
 CNNs were often combined with other models, such as Long Short-Term Memory (LSTM) or SVMs, in $\frac{23}{158}=15\%$ of the cases.
 Classical machine learning algorithms were still used, as follows: K Nearest Neighbors ($\frac{23}{151}=15\%$), Support Vector Machines ($\frac{16}{151}=11\%$), ensemble learning ($\frac{8}{151}=5\%$), Decision Trees ($\frac{6}{151}=4\%$), Hidden Markov Models ($\frac{3}{151}=2\%$), and Bayesian networks ($\frac{2}{151}=1\%$). 
 
-\begin{figure}[t]
+\begin{figure}[!b]
     \centering
     \includegraphics[width=\linewidth]{Figures/StateOfTheArt/Radar/treemap-algorithms.pdf}
     \vspace{-10pt}
@@ -424,10 +409,11 @@ Classical machine learning algorithms were still used, as follows: K Nearest Nei
 
 From the above analysis, we make the following observations
 \begin{enumerate}
-    \item \textit{Predominance of CNN algorithms}: CNNs, often combined with another model like LSTM, are predominant for recognizing radar-based signals. They are particularly appropriate for image processing, but also they benefit from their intrinsic capability to select the discriminant radar features without any human supervision, in particular when dealing with gesture sets that are very large in size and complexity (radar images are very challenging to discriminate by a non-expert).
+    \item \textit{Predominance of CNN algorithms}: CNNs, often coupled with another model like LSTM, are predominant for recognizing radar-based signals. They are particularly appropriate for image processing, but also they benefit from their intrinsic capability to select the discriminant radar features without any human supervision. This ability proves particularly useful when dealing with gesture sets that are very large in size and complexity, as radar images are very challenging to discriminate by a non-expert.
     %
-    \textbf{TODO - Emphasize that the use of point clouds does not require convolutional layers and discuss the impact} 
-    It is important to note that CNNs are not the only solution. Instead of relying on CNNs for feature selection, point clouds can be extracted from raw radar signal and directly fed to other algorithms (\eg an LSTM) for gesture recognition\cite{Palipana:2021}. Advantages: \textbf{TODO}
+    An alternative to relying on CNNs for feature selection involves extracting point clouds from raw radar signals and directly inputting them into a classification algorithm, such as an LSTM~\cite{Palipana:2021}. This approach can be more efficient thanks to the smaller size of point clouds compared to raw radar data.
+    % \textbf{TODO - Emphasize that the use of point clouds does not require convolutional layers and discuss the impact} 
+    
     \item \textit{Dependence of CNN with respect to the radar}: since CNNs automatically select features directly from radar images, these key features are not pre-trained and only learned when the gesture set is examined, thereby making the CNN very appropriate, but also very specific to the radar images produced. The CNNs therefore suffer from a high dependence on radar type and possibly radar unit for a given model. 
     \item \textit{No modeling of the radar functioning}: since CNNs ensure most of the work for a specific radar, we did not identify any work in gesture recognition aimed at modeling the radar functioning in some way to ensure some radar independence or some mechanism to reason about its processing. 
 \end{enumerate}
@@ -437,7 +423,7 @@ From the above analysis, we make the following observations
 %--------------------------------------------------------------------------------%
 \subsection{Gestures} \label{sec:state_of_the_art:radar:gestures}
 
-\begin{figure}[hbt]
+\begin{figure}[!b]
     \centering
     \includegraphics[width=\linewidth]{Figures/StateOfTheArt/Radar/gestures-type.pdf}
     % \vspace{-10pt}
@@ -486,7 +472,7 @@ Deep-soli is a dataset introduced by \cite{Wang:2016} that comprises 11 hand ges
 %
 \cite{Ritchie:2020} introduce Dop-net, a dataset of four gestures recorded with two different radar sensors (CW and FMCW). Only the FMCW dataset was released in the form of a challenge. Dop-net was used in another paper to compare the performance of CW and FMCW radars for gesture recognition~\cite{Bannon:2020}.
 %
-Finally, HARrad consists of two datasets of six gestures of arm and hand gestures collected from nine participants with a 77GHz radar~\cite{Vandersmissen:2020}: drumming, shaking, swiping left/right, and thumb up/down. HARrad events contain six different actions, including entering or leaving a room, sitting down, standing up, clothe, and unclothe.
+Finally, HARrad consists of two datasets of six gestures of arm and hand gestures collected from nine participants with a 77GHz radar~\cite{Vandersmissen:2020}: drumming, shaking, swiping left/right, and thumb up/down. HARrad events contain six different actions, including entering or leaving a room, sitting down, standing up, getting dressed, and undressing.
 
 From the above analysis, we make the following observations:
 \begin{enumerate}
@@ -623,8 +609,3 @@ Regarding \textit{usability}, we noticed that very few papers demonstrated poten
 In conclusion, most of the papers that we analyzed in this chapter did not properly address four of the ISO/IEC 25010 software quality properties~\cite{iso25010}, namely compatibility, maintainability, portability, and usability. 
 %
 Having identified the main challenges of (radar-based) gesture recognition, the rest of this thesis will focus on the development of tools and methods that streamline the development of highly usable gesture interfaces.
-
-
-
-
-

@@ -17,7 +17,7 @@
   - [x] User fatigue (see "Consumed Endurance: A Metric to Quantify Arm Fatigue of Mid-Air Interactions"), mention how to compute the metric of "Gorilla-arm effect"
 - [x] Gesture set customization
 - [x] Provide a justification for limiting the SLR to the ACM DL (e.g., why not IEEE?). `Section 2.2`
-- [ ] Emphasize that the use of point clouds does not require convolutional layers and discuss the impact. `Section 2.3.2 / Algorithms`
+- [x] Emphasize that the use of point clouds does not require convolutional layers and discuss the impact. `Section 2.3.2 / Algorithms`
   - About CNNs (+ LSTM) predominance: It largely depends on the radar features. For example, for point clouds we don't necessarily need CNNs. -> Pantomime 3D point clouds (citer ça maybe?) comme ça on doit plus faire de CNN et on peut utiliser des algorithmes deep learning existants
 
 ## Chapter 3 - Facilitating the Development of Gesture-based Applications
@@ -51,7 +51,7 @@ No modification.
 - [x] Fix academic name of Luis A. Leiva. `Title page`
 - [ ] Fix typos. `Everywhere`
   - [x] Introduction
-  - [ ] State of the Art
+  - [x] State of the Art
   - [x] Chapter 3
   - [x] Chapter 4
   - [x] Chapter 5
