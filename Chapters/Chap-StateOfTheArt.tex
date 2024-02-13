@@ -24,7 +24,7 @@ Finally, Section~\ref{sec:state_of_the_art:this_work} positions this work within
 
 \paragraph{Resources.} The list of references from the two SLRs conducted in this chapter is available in an OSF repository at \url{https://osf.io/q43j8/?view_only=20b39a8a3d994ae4bd9ce52bfa2ded28}.
 
-
+\newpage
 
 %================================================================================%
 \section{Overview of Gesture-based Interaction} \label{sec:state_of_the_art:overview}
@@ -275,8 +275,10 @@ The query yielded 390 publications, from which $N{=}43$ were identified as relev
 22 types of algorithms for gesture recognition were identified in the papers, spanning across seven categories (\tab~\ref{tbl:state_of_the_art:lmc:algorithms}).
 
 \begin{table}[!b]
-    \resizebox{\columnwidth}{!}{
-    \begin{tabular}{lll}
+    % \resizebox{\columnwidth}{!}{
+    \centering
+    \footnotesize
+    \begin{tabular}{llp{3.1cm}}
         \toprule
         \textbf{Type} & \textbf{Algorithm} & \textbf{References} \\
         \midrule
@@ -310,7 +312,7 @@ The query yielded 390 publications, from which $N{=}43$ were identified as relev
          & Naive Bayes & \cite{Preventis:2014} \\
         \bottomrule
     \end{tabular}
-    }
+    % }
     \caption{Summary of the gesture recognition algorithms identified in the SLR.}
     % \vspace{-20pt}
     \label{tbl:state_of_the_art:lmc:algorithms}
@@ -345,7 +347,8 @@ To get a comprehensive look at the state of the research on radar-based gesture 
     % \vspace{-8pt}
 \end{figure}
 
-\begin{table}[hbt]
+\begin{table}[t]
+    \centering
     \footnotesize
     \begin{tabular}{crp{.78\textwidth}}
         \toprule
@@ -371,7 +374,7 @@ To get a comprehensive look at the state of the research on radar-based gesture 
 \subsection{Applications} \label{sec:state_of_the_art:radar:applications}
 While all papers provided some evaluation of the system performance (see \fig~\ref{fig:state_of_the_art:radar:validation-type}), only 14 papers ($\frac{14}{118}{=}12\%$) demonstrated potential use cases of their system with a prototype and one paper ($\frac{1}{118}{=}1\%$) evaluated the user experience of the proposed system.
 
-\begin{figure}[hbt]
+\begin{figure}[t]
     \centering
     \includegraphics[height=2.6cm]{Figures/StateOfTheArt/Radar/evaluation-type.pdf}
     % \vspace{-10pt}
@@ -397,7 +400,7 @@ Other applications included air-writing recognition~\cite{Wang:2020a}, user auth
 CNNs were often combined with other models, such as Long Short-Term Memory (LSTM) or SVMs, in $\frac{23}{158}=15\%$ of the cases.
 Classical machine learning algorithms were still used, as follows: K Nearest Neighbors ($\frac{23}{151}=15\%$), Support Vector Machines ($\frac{16}{151}=11\%$), ensemble learning ($\frac{8}{151}=5\%$), Decision Trees ($\frac{6}{151}=4\%$), Hidden Markov Models ($\frac{3}{151}=2\%$), and Bayesian networks ($\frac{2}{151}=1\%$). 
 
-\begin{figure}[!b]
+\begin{figure}[t]
     \centering
     \includegraphics[width=\linewidth]{Figures/StateOfTheArt/Radar/treemap-algorithms.pdf}
     \vspace{-10pt}
@@ -421,7 +424,7 @@ From the above analysis, we make the following observations
 %--------------------------------------------------------------------------------%
 \subsection{Gestures} \label{sec:state_of_the_art:radar:gestures}
 
-\begin{figure}[!b]
+\begin{figure}[t]
     \centering
     \includegraphics[width=\linewidth]{Figures/StateOfTheArt/Radar/gestures-type.pdf}
     % \vspace{-10pt}
@@ -431,7 +434,29 @@ From the above analysis, we make the following observations
 \end{figure}
 
 
-\begin{table}[hbt]
+\fig~\ref{fig:state_of_the_art:radar:gestures-type} gives an overview of the types of gestures used in the identified papers. Most papers ($\frac{107}{118}=91\%$) featured mid-air arm and hand gestures, which are relatively easy to recognize thanks to their scale that is neither too small, thus not requiring extremely fine range resolution, nor too large, which makes it possible for the radar to focus exclusively on the current user, thus simplifying signal processing. Almost half of the papers ($\frac{54}{118}=46\%$) featured mid-air finger gestures, which require higher frequency radars (capable of finer range resolution) to accurately capture the fine-grained finger motion. Other papers featured whole body gestures~\cite{Li:2009,Li:2020b,Vandersmissen:2020}, touch input~\cite{Copic:2019,Wu:2020}, or even head gestures~\cite{Wan:2014}.
+%
+We identified only seven publicly available datasets out of the 118 papers from our SLR; see \tab~\ref{tab:state_of_the_art:radar-slr-datasets}. 
+The mHomeGes dataset~\cite{Liu:2020b} comprises 10 types of arm gestures collected from 25 participants: arm up/down, push, pull, draw a circle, draw a zigzag, clap hands, mimic knocking on a table, yawn, and lift both arms. Each gesture was recorded in seven environments, including a bedroom and a parlor.
+\cite{Santhalingam:2020b} collected 50 different ASL signs from 15 participants in three environments (classroom, laboratory, and conference room) and five different scenarios for single and multiple users. Data were recorded simultaneously with a radar, a Kinect, and an RGB camera.
+%
+Deep-soli is a dataset introduced by \cite{Wang:2016} that comprises 11 hand gestures performed by 10 users above Google Soli: pinch index/pinky, finger slide, finger rub, slow/fast swipe, push, pull, palm tilt, circle, and palm hold. Deep-Soli was also used by \cite{Berenguer:2019} to evaluate GestureVLAD, their proposed framework for radar gesture recognition.
+%
+\cite{Ritchie:2020} introduce Dop-net, a dataset of four gestures recorded with two different radar sensors (CW and FMCW). Only the FMCW dataset was released in the form of a challenge. Dop-net was used in another paper to compare the performance of CW and FMCW radars for gesture recognition~\cite{Bannon:2020}.
+%
+Finally, HARrad consists of two datasets of six gestures of arm and hand gestures collected from nine participants with a 77GHz radar~\cite{Vandersmissen:2020}: drumming, shaking, swiping left/right, and thumb up/down. HARrad events contain six different actions, including entering or leaving a room, sitting down, standing up, getting dressed, and undressing.
+
+From the above analysis, we make the following observations:
+\begin{enumerate}
+\setcounter{enumi}{3}
+    \item \textit{Limited availability of datasets}: very little datasets are available for benchmarking.
+    \item \textit{Huge size of datasets}: the size of the raw data captured for a single gesture is very high, making the entire dataset huge in size and challenging to process. Little or no dimension reduction has been observed.
+\end{enumerate}
+
+%--------------------------------------------------------------------------------%
+\subsection{Radars} \label{sec:state_of_the_art:radar:sensors}
+
+\begin{table}[!b]
     \centering
     %\vspace{-8pt}
     \footnotesize
@@ -458,29 +483,6 @@ From the above analysis, we make the following observations
     \label{tab:state_of_the_art:radar-slr-datasets}
 %   \vspace{-14pt}
 \end{table}
-
-
-\fig~\ref{fig:state_of_the_art:radar:gestures-type} gives an overview of the types of gestures used in the identified papers. Most papers ($\frac{107}{118}=91\%$) featured mid-air arm and hand gestures, which are relatively easy to recognize thanks to their scale that is neither too small, thus not requiring extremely fine range resolution, nor too large, which makes it possible for the radar to focus exclusively on the current user, thus simplifying signal processing. Almost half of the papers ($\frac{54}{118}=46\%$) featured mid-air finger gestures, which require higher frequency radars (capable of finer range resolution) to accurately capture the fine-grained finger motion. Other papers featured whole body gestures~\cite{Li:2009,Li:2020b,Vandersmissen:2020}, touch input~\cite{Copic:2019,Wu:2020}, or even head gestures~\cite{Wan:2014}.
-%
-We identified only seven publicly available datasets out of the 118 papers from our SLR; see \tab~\ref{tab:state_of_the_art:radar-slr-datasets}. 
-The mHomeGes dataset~\cite{Liu:2020b} comprises 10 types of arm gestures collected from 25 participants: arm up/down, push, pull, draw a circle, draw a zigzag, clap hands, mimic knocking on a table, yawn, and lift both arms. Each gesture was recorded in seven environments, including a bedroom and a parlor.
-\cite{Santhalingam:2020b} collected 50 different ASL signs from 15 participants in three environments (classroom, laboratory, and conference room) and five different scenarios for single and multiple users. Data were recorded simultaneously with a radar, a Kinect, and an RGB camera.
-%
-Deep-soli is a dataset introduced by \cite{Wang:2016} that comprises 11 hand gestures performed by 10 users above Google Soli: pinch index/pinky, finger slide, finger rub, slow/fast swipe, push, pull, palm tilt, circle, and palm hold. Deep-Soli was also used by \cite{Berenguer:2019} to evaluate GestureVLAD, their proposed framework for radar gesture recognition.
-%
-\cite{Ritchie:2020} introduce Dop-net, a dataset of four gestures recorded with two different radar sensors (CW and FMCW). Only the FMCW dataset was released in the form of a challenge. Dop-net was used in another paper to compare the performance of CW and FMCW radars for gesture recognition~\cite{Bannon:2020}.
-%
-Finally, HARrad consists of two datasets of six gestures of arm and hand gestures collected from nine participants with a 77GHz radar~\cite{Vandersmissen:2020}: drumming, shaking, swiping left/right, and thumb up/down. HARrad events contain six different actions, including entering or leaving a room, sitting down, standing up, getting dressed, and undressing.
-
-From the above analysis, we make the following observations:
-\begin{enumerate}
-\setcounter{enumi}{3}
-    \item \textit{Limited availability of datasets}: very little datasets are available for benchmarking.
-    \item \textit{Huge size of datasets}: the size of the raw data captured for a single gesture is very high, making the entire dataset huge in size and challenging to process. Little or no dimension reduction has been observed.
-\end{enumerate}
-
-%--------------------------------------------------------------------------------%
-\subsection{Radars} \label{sec:state_of_the_art:radar:sensors}
 
 We identified 123 radar systems and extracted their parameters, including the radar type, the frequency band in which they operate, the model, and their position. We identified four types of radars (\fig~\ref{fig:state_of_the_art:radar:types}): 
 \begin{itemize}

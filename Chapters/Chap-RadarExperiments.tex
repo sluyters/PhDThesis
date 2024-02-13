@@ -90,7 +90,7 @@ The walabot is effective and efficient in various application domains, including
 \end{figure*}
 
 \subsubsection{Custom Radar}
-The ``horn'' (\fig~\ref{fig:radar-experiments:horn}) is a custom radar equipped with an antenna system consisting of a linearly polarized, double-ridged broadband horn antenna (BBHA 9120 A, Schwarzbeck Mess-Elektronik, Germany). The antenna dimensions are 22 cm (8.66 in.) long and 14$\times$24 cm$^2$ (5.51$\times$9.45 in.$^2$) aperture area. The antenna's nominal frequency range is 0.8 to 5 GHz, and its isotropic gain ranges from 6 to 18 dBi. The high directivity of the antenna (45° 3 dB beamwidth in the E-plane and 30° in the H-plane at 1 GHz) makes it suitable for gesture recognition.
+The ``horn'' (\fig~\ref{fig:radar-experiments:horn}) is a custom radar equipped with an antenna system consisting of a linearly polarized, double-ridged broadband horn antenna (BBHA 9120 A, Schwarzbeck Mess-Elektronik, Germany). The antenna dimensions are 22 cm (8.66 in.) long and 14$\times$24 cm$^2$ (5.51$\times$9.45 in.$^2$) aperture area. The antenna's nominal frequency range is 0.8 to 5 GHz, and its isotropic gain ranges from 6 to 18 dBi. The high directivity of the antenna (45\textdegree 3 dB beamwidth in the E-plane and 30\textdegree in the H-plane at 1 GHz) makes it suitable for gesture recognition.
 This radar system provides very high range resolution, but low angular resolution as it features only one antenna.
 
 \begin{figure*}[tb]
@@ -426,7 +426,7 @@ In general, average accuracy dropped sharply with $N{<}7$ and plateaued around 9
 \end{figure}
 
 
-\fig~\ref{fig:radar-experiments:sensors:lmc-confusion} shows the confusion matrices for the best configurations of Jackknife on data from the two sessions. 
+\fig~\ref{fig:radar-experiments:sensors:lmc-confusion} shows the confusion matrices for the best configurations of Jackknife on data from the LMC+Horn and LMC+Walabot sessions. 
 %
 In general, smaller-scale hand gestures, including ``extend one/two/three/four fingers'' (gestures d, e, f, g) were less accurately identified by the LMC, which could have been caused by self-occlusion, where some part of the hand (\eg the fingers) was occluded by another part of the hand (\eg the hand palm). The placement of the LMC on a desk under the participant's hands meant that it could not always correctly identify the exact position of the fingers, thus causing confusion between these gestures.
 %
@@ -1102,12 +1102,14 @@ The total number of training templates per trial is 44 (four to five per gesture
 
 \subsubsection{Inter-material} \label{sec:radar-experiments:through-materials:protocol:inter-material}
 This second study evaluates the accuracy of Jackknife when tested on data recorded through a different type of material than its training data, at two stages of the radar data processing pipeline in a user-dependent and cross-dataset scenario. The study is within-factors with four independent variables:
+{\sloppy
 \begin{enumerate}
     \item \custominlinehighlight{Processing Stage}: same as the first study.
-    \item \custominlinehighlight{Materials}: nominal variable with six conditions, representing the materials used for training and testing the recognizer (\textit{training}+\textit{testing}): wood+PVC, wood+glass, PVC+wood, PVC+glass, glass+wood, and glass +PVC.
+    \item \custominlinehighlight{Materials}: nominal variable with six conditions, representing the combination of materials used for training and testing the recognizer (\textit{training}+\textit{testing}): wood+PVC, wood+glass, PVC+wood, PVC+glass, glass+wood, and glass+PVC.
     \item \custominlinehighlight{Number of Sampling Points}: same as the first study.
     \item \custominlinehighlight{Antenna Pairs}: same as the first study.
 \end{enumerate}
+}
 The total number of training templates per trial is 45 (five per gesture class).
 
 %--------------------------------------------------------------------------------%

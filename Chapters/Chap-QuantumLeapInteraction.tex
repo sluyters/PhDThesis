@@ -101,7 +101,7 @@ These modules transform a gesture dataset into a \custominlinecode{GestureSet} o
     \label{fig:quantumleap:dataset-uml}
     % \vspace{-12pt}
 \end{figure*}
-\fig~\ref{fig:quantumleap:dataset-uml} depicts the UML V2.5 \cite{Bush:2011} Class diagram of the modular data structure used in the framework. The \custominlinecode{GestureSet} object can contain samples of two types: (1) \custominlinecode{PoseData}, for static gestures consisting of a single frame that represents a hand pose; and (2) \custominlinecode{StrokeData}, for dynamic gestures, which comprise multiple paths, where a path corresponds to the trajectory~\cite{Caputo:2018} of a specific articulation (\eg the tip of the right index). Paths are in turn decomposed into a series of strokes. Only one method is required:
+\fig~\ref{fig:quantumleap:dataset-uml} depicts the UML V2.5 \cite{Bush:2011} Class diagram of the modular data structure used in the framework. The \custominlinecode{GestureSet} object can contain samples of two types: (1) \custominlinecode{PoseData}, for static gestures consisting of a single frame that represents a hand pose; and (2) \custominlinecode{StrokeData}, for dynamic gestures, which comprise multiple paths, where a path corresponds to the trajectory~\cite{Caputo:2018} of a specific joint (\eg the tip of the right index). Paths are in turn decomposed into a series of strokes. Only one method is required:
 \begin{itemize}[noitemsep]
     \item \custominlinecode{loadDataset(name, path, identifier)}: load a gesture dataset into memory as a \custominlinecode{GestureSet} object.
 \end{itemize}
@@ -197,7 +197,7 @@ However, resources like the comparative studies of Magrofuoco \etal~\cite{Magrof
 %--------------------------------------------------------------------------------%
 \subsection{Application Programming Interface} \label{sec:quantumleap:description:api}
 
-The \ql API exposes the \custominlinecode{GestureHandler} class, which is a member of the \custominlinecode{EventEmitter} class of the Node.js core API. A \custominlinecode{GestureHandler} object attempts to connect to a running instance of the \ql framework. It then emits events based on the data received from \ql. %(\eg ``frame'' events are emitted for each frame received and ``gesture'' events are emitted for each recognized gesture). 
+The \ql API exposes the \custominlinecode{GestureHandler} class, a member of the \custominlinecode{EventEmitter} class of the Node.js core API. A \custominlinecode{GestureHandler} object attempts to connect to a running instance of the \ql framework. It then emits events based on the data received from \ql. %(\eg ``frame'' events are emitted for each frame received and ``gesture'' events are emitted for each recognized gesture). 
 The reliance on a standard event-driven architecture should flatten the learning curve for front-end developers and facilitate the transition to gestural UIs, as events are already an integral part of modern UIs. The methods provided by the \custominlinecode{GestureHandler} class include:
 \begin{itemize}[noitemsep]
     \item \custominlinecode{connect([address])}: connect to a running instance of \ql.

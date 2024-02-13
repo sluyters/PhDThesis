@@ -3,7 +3,7 @@ This appendix provides a short description of the modules provided with the \ql 
 
 \section{Sensors} \label{app:quantumleap-modules:sensors}
 \subsection{Leap Motion Controller}
-A module that connects to the LMC and fetches frames using its JavaScript API. It returns the position of a set of articulations of the hand at one instant in time.
+A module that connects to the LMC and fetches frames using its JavaScript API. It returns the position of a set of hand joints at one instant in time.
 
 \section{Filters} \label{app:quantumleap-modules:filters}
 \subsection{1\euro}
@@ -110,10 +110,10 @@ A more accurate version of \textit{\$P\textsuperscript{3}}, adapted from Vatavu'
 A variant of \textit{\$P\textsuperscript{3}+}, which supports partial direction-invariance by keeping track of conflicting templates (\ie templates that represent the same gesture but drawn in different directions). If a gesture matches a conflicting template, its direction is compared with the direction of each conflicting template and the closest one is returned.
 
 \subsection{3 cent}
-An optimized 3D port of Wobbrock \etal's \textit{\$1} \cite{Wobbrock:2007} by Caputo \etal~\cite{Caputo:2017}, which recognizes uni-stroke gestures in two phases: the gesture is first normalized (similarly to \textit{\$P}) and its distance to each template is then computed as the sum of the squared distances of corresponding points. The template with the shortest distance is returned. \textit{3\textcent} is position- and scale-invariant, but neither rotation- nor direction-invariant. 
+An optimized 3D port of Wobbrock \etal's \textit{\$1} \cite{Wobbrock:2007} by Caputo \etal~\cite{Caputo:2017}, which recognizes uni-stroke gestures in two phases: the gesture is first normalized (similarly to \textit{\$P}) and its distance to each template is then computed as the sum of the squared distances of corresponding points. The template with the shortest distance is returned. \textit{3 cent} is position- and scale-invariant, but neither rotation- nor direction-invariant. 
 
 \subsection{Jackknife}
-A general-purpose 3D gesture recognizer \cite{Taranta:2017} that supports any number of articulations. Unlike most \$-family recognizers, it represents gestures as time-series. It uses the nearest neighbor approach, where it compares a gesture to each template and returns the closest one. It uses \textit{Dynamic Time Warping} as a distance measure but applies a series of correction factors to take into account differences in gesture scale and span. As a result, this recognizer is both position- and scale-invariant, but neither direction- nor rotation-invariant.
+A general-purpose 3D gesture recognizer \cite{Taranta:2017} that supports any number of joints. Unlike most \$-family recognizers, it represents gestures as time-series. It uses the nearest neighbor approach, where it compares a gesture to each template and returns the closest one. It uses \textit{Dynamic Time Warping} as a distance measure but applies a series of correction factors to take into account differences in gesture scale and span. As a result, this recognizer is both position- and scale-invariant, but neither direction- nor rotation-invariant.
 
 \subsection{\$F}    
 A new recognizer that adds \textit{\$P+}'s flexible cloud matching \cite{Vatavu:2017a} to \textit{\$P\textsuperscript{3}}. As for most \$-recognizers, the points of the candidate and the templates are resampled to equidistantly-spaced points, scaled within a unit box (isometric~\cite{Vanderdonckt:2018}), and translated so their centroid is at the origin $(0,0,0)$. The template with the lowest dissimilarity score is considered as the best matching template for the candidate. As opposed to \textit{\$P\textsuperscript{3}}, \textit{\$F}'s cloud matching is flexible, as points can be matched to more than one point. It consists of matching the points from the first cloud with their closest point from the second cloud, then matching the points from the second cloud that have not been matched yet with their closest point in the first cloud. 

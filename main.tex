@@ -53,6 +53,8 @@
 % Bibliography
 \usepackage[style=numeric,natbib=true]{biblatex}
 \addbibresource{main.bib}
+% \usepackage{breakurl}
+\def\UrlBreaks{\do\/\do-\do.\do_}
 
 % Mathematics
 \usepackage{amsmath}
@@ -408,7 +410,10 @@
 %================================================================================%
 \fancyhead[LO,RE]{}%\slshape Bibliography}
 \fancyhead[LE,RO]{\textsl{BIBLIOGRAPHY}}%Bibliography}}
+{\sloppy
 \printbibliography
+}
+
 
 %================================================================================%
 %   Appendices
