@@ -542,7 +542,7 @@ Most of the papers ($\frac{98}{118}{=}83\%$) relied on a single radar sensor to 
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=.6\linewidth]{Figures/StateOfTheArt/Radar/diagram-radar-types-frequencies.pdf}
+    \includegraphics[width=.8\linewidth]{Figures/StateOfTheArt/Radar/diagram-radar-types-frequencies.pdf}
     \vspace{-4pt}
     \caption{Sunburst chart of the radars identified in the SLR. The inner ring and color show the proportion of each radar type, while the outer ring indicates the proportion of each frequency band for each radar type according to the IEEE standard~\cite{IEEE:2020}.}
     \label{fig:state_of_the_art:radar:radars-types-frequencies}
@@ -560,6 +560,15 @@ Finally, we extracted the radar models used in the papers that provided this inf
 More than a third of the papers ($\frac{46}{123} = 37\%$) did not provide enough information to identify the exact models. Of the 77 remaining publications, we identified 29 unique models %, which depict a rather fragmented landscape. 
 with the most popular being the Texas Instruments AWR1642 ($\frac{13}{123} = 11\%$) and IWR1443 ($\frac{5}{123} = 4\%$), the Novelda XeThru X4 ($\frac{9}{123} = 7\%$), the RFBeam K-LC2 ($\frac{8}{123} = 7\%$), and Google Soli ($\frac{6}{123} = 5\%$), respectively. Except for Google Soli, which was designed for integration into smartphones and smart speakers, most of the radar systems from the SLR were not meant for everyday use. However, some of the papers introduce prototypes of radars that could be integrated into furniture~\cite{Mcintosh:2017} or even stitched into clothing~\cite{Wu:2020}.
 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/StateOfTheArt/Radar/IEEE-bands.pdf}
+    \vspace{-12pt}
+    \caption{Number of radar systems according to their frequency band~\cite{IEEE:2020} distributed along the electromagnetic continuum (Bottom image of waves and frequency ranges used by radar used with permission from Christian Wolff~\cite{Wolff:2022}), from a total of 118 radars. Five radars did not mention their frequency band.}
+    \label{fig:state_of_the_art:IEEE}
+    % \vspace{10pt}
+\end{figure}
+
 From the above analysis, we make the following observations:
 \begin{enumerate}
 \setcounter{enumi}{5}
@@ -567,14 +576,6 @@ From the above analysis, we make the following observations:
     \item \textit{Limited coverage of very low/high-frequency bands} (\fig~\ref{fig:state_of_the_art:IEEE}): lower frequencies result in worse range resolution, making it more difficult for the radar to distinguish between two targets. Such radars are thus less interesting for smaller-scale gestures, such as hand and finger gestures, which explains the lower number of works covering these systems. On the contrary, higher frequencies enable better range resolution and thus are better suited for small-scale hand and finger gestures (\eg Google Soli~\cite{Lien:2016,Wang:2016}), at the cost of higher complexity and lower range as the frequency increases. Most systems operate at frequencies between 4 GHz and 100 GHz, which can provide sufficient range resolution with relatively low complexity and power consumption. In addition, some off-the-shelf radar systems used in HCI research were originally developed for other applications and operate specific frequencies, such as collision avoidance systems in cars, which often operate in the K-band. 
 \end{enumerate}
 
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=\textwidth]{Figures/StateOfTheArt/Radar/IEEE-bands.pdf}
-    \vspace{-12pt}
-    \caption{Number of radar systems according to their frequency band~\cite{IEEE:2020} distributed along the electromagnetic continuum (Bottom image of waves and frequency ranges used by radar used with permission from Christian Wolff~\cite{Wolff:2022}), from a total of 118 radars. Five radars did not mention their frequency band.}
-    \label{fig:state_of_the_art:IEEE}
-    \vspace{10pt}
-\end{figure}
 
 %--------------------------------------------------------------------------------%
 \subsection{Summary} \label{sec:state_of_the_art:radar:summary}
