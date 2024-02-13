@@ -287,10 +287,10 @@ The experiment consisted of one session taking around 80 minutes per participant
 \begin{figure}[t]
     \centering
     \includegraphics[width=.8\linewidth]{Figures/QuantumLeap/Evaluation/NASA-TLX.pdf}
-    \vspace{-8pt}
+    % \vspace{-8pt}
     \caption{NASA-TLX software~\cite{Pandian:2020} screenshot showing results of a participant: the overall weighted rating, the rating per subscale, and the individual weights for each subscale.}
     \label{fig:quantumleap:nasa-tlx-app}
-    \vspace{-8pt}
+    % \vspace{-8pt}
 \end{figure}
 
 \subsubsection{Metrics and Data Collection}
@@ -311,20 +311,20 @@ Despite their differences in terms of years of experience and level of expertise
 \subsubsection{Task and Step Completion Times}
 As a potential optimal performance, the first author of this paper (23 years, 6 years of experience, level 8)  completed the \textit{Configuration} and \textit{Development} tasks of the experiment in 2.1 minutes and 10.2 minutes, respectively. On average, participants took 6.6 minutes to complete the first task ($SD{=}1.2$), with the slowest participant completing it in 9.1 minutes and the fastest in 5.2 minutes. For the second task, the completion time was between 22.2 and 65.1 minutes ($M{=}37.4$, $SD{=}18.2$). \fig~\ref{fig:quantumleap:task2-time} shows that participants spent a more significant amount of time on the fifth step of this task (\ie adding an event listener that reacts to the ``swipe left'' gesture), which is normal since this is the most complex step.
 
-\begin{figure}[ht]
+\begin{figure}[!b]
     \centering
-    \includegraphics[width=.85\linewidth]{Figures/QuantumLeap/Evaluation/Task 1 (time).pdf}
-    \vspace{-12pt}
+    \includegraphics[width=\linewidth]{Figures/QuantumLeap/Evaluation/Task 1 (time).pdf}
+    % \vspace{-14pt}
     \caption{Average time for each step of the \textit{Configuration} task. Error bars show a confidence interval with $\alpha{=}0.5$.}
     \label{fig:quantumleap:task1-time}
-    \vspace{-8pt}
+    % \vspace{-8pt}
 \end{figure}
 
 
 While steps five and eight are similar, participants took seven times longer to perform the former than the latter. A plausible explanation could be that the first time they encountered the problem of reacting to a gesture, participants took some time to check the API before modifying the source code of the application. When they mastered the API, participants could then quickly complete the remaining steps.
 
 
-\begin{figure}[ht]
+\begin{figure}[t]
     \centering
     \includegraphics[width=\linewidth]{Figures/QuantumLeap/Evaluation/Task 2 (time).pdf}
     \vspace{-18pt}
@@ -348,14 +348,14 @@ Workload scores range from 8.7 to 65.3 out of 100 ($M{=}34.0$, $SD{=}19.5$). Acc
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=.8\linewidth]{Figures/QuantumLeap/Evaluation/NASA-TLX-scores.pdf}
-    \vspace{-12pt}
-    \caption{Average weighted score for each subscale of the NASA-TLX questionnaire. Error bars show a confidence interval with $\alpha{=}0.5$.}
+    \includegraphics[width=\linewidth]{Figures/QuantumLeap/Evaluation/NASA-TLX-scores.pdf}
     \vspace{-8pt}
+    \caption{Average weighted score for each subscale of the NASA-TLX questionnaire. Error bars show a confidence interval with $\alpha{=}0.5$.}
+    % \vspace{-8pt}
     \label{fig:quantumleap:nasa-tlx-scores}
 \end{figure}
 
-\begin{table}[ht]
+\begin{table}[t]
     \footnotesize
     \centering
     \begin{tabular}{lrr}
@@ -442,15 +442,7 @@ In this thesis, we used \ql to build an LMC-based multimedia application called 
 %
 With the help of my friends and colleagues Quentin Sellier, Victor Sluÿters, and Jean-Martin Vlaeminck, we also used \ql during the Citizens of Wallonia hackathon in March 2023 to create Wall'ON (\fig~\ref{fig:quantumleap:apps:wallon}), an interactive kiosk that provides information about works in the city in a fun and intuitive way~\cite{Rawart:2023}.
 
-Nothomb \etal~\cite{Nothomb:2020} introduced a gesture-based DICOM image viewer (\fig~\ref{fig:quantumleap:apps:dicom}) that allowed surgeons to navigate patient images in the operating room more hygienically and efficiently.
-%
-Chauvaux and Steeman~\cite{Steeman:2022} integrated the Kinemic sensor, an armband that uses Inertial Measurement Units (IMUs) to track arm gestures, into \ql and built a gesture-based presentation application in which users could change slides with simple hand gestures (\fig~\ref{fig:quantumleap:apps:slides}).
-%
-Gosselin and Moinnet~\cite{Moinnet:2022} used \ql to build a touch-based application that enabled users to record and assign (combinations of) stroke gestures to actions in a smart house, such as turning the lights on (\fig~\ref{fig:quantumleap:apps:smart-home}).
-
-Finally, Neuville~\cite{Neuville:2021}, Lahousse~\cite{Lahousse:2022}, and Cornet~\cite{Cornet:2023} integrated three additional sensors into \ql: (1) the 3D Touchpad, a device that supports touch and 3D gestures performed above its surface, (2) the Phidget ring, which captures 3D hand motion with an accelerometer, and (3) the Myo Armband, an EMG sensor that fits around the arm. They did not develop any application but used \ql to compare various recognizer modules on their gesture set.
-
-\begin{table}
+\begin{table}[!b]
     \renewcommand{\arraystretch}{1.2}
     \footnotesize
     \centering
@@ -472,7 +464,15 @@ Finally, Neuville~\cite{Neuville:2021}, Lahousse~\cite{Lahousse:2022}, and Corne
     \label{tab:quantumleap:integration}
 \end{table}
 
-\begin{figure}[ht]
+Nothomb \etal~\cite{Nothomb:2020} introduced a gesture-based DICOM image viewer (\fig~\ref{fig:quantumleap:apps:dicom}) that allowed surgeons to navigate patient images in the operating room more hygienically and efficiently.
+%
+Chauvaux and Steeman~\cite{Steeman:2022} integrated the Kinemic sensor, an armband that uses Inertial Measurement Units (IMUs) to track arm gestures, into \ql and built a gesture-based presentation application in which users could change slides with simple hand gestures (\fig~\ref{fig:quantumleap:apps:slides}).
+%
+Gosselin and Moinnet~\cite{Moinnet:2022} used \ql to build a touch-based application that enabled users to record and assign (combinations of) stroke gestures to actions in a smart house, such as turning the lights on (\fig~\ref{fig:quantumleap:apps:smart-home}).
+
+Finally, Neuville~\cite{Neuville:2021}, Lahousse~\cite{Lahousse:2022}, and Cornet~\cite{Cornet:2023} integrated three additional sensors into \ql: (1) the 3D Touchpad, a device that supports touch and 3D gestures performed above its surface, (2) the Phidget ring, which captures 3D hand motion with an accelerometer, and (3) the Myo Armband, an EMG sensor that fits around the arm. They did not develop any application but used \ql to compare various recognizer modules on their gesture set.
+
+\begin{figure}[t]
     \centering
     \begin{subfigure}{.259\textwidth}
         \centering
