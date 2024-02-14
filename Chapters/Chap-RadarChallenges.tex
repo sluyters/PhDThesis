@@ -29,11 +29,7 @@ Section~\ref{sec:radar-challenges:processing-strategy} then describes how we app
 Section~\ref{sec:radar-challenges:implementation} discusses the implementation of the pipeline and applies it to a simple application.
 Finally, Section~\ref{sec:radar-challenges:conclusion} summarizes this section.
 
-\paragraph{Publications.} This chapter is based on two papers published in the IUI 2022 conference proceedings (Best paper award)~\cite{Sluyters:2022:IUI}, and ACM TiiS journal~\cite{Sluyters:2023}.
-% Not yet published:
-% IEEE Sensors (2024?)
-% IUI2024
-% Book chapter
+\paragraph{Publications.} This chapter is based on two papers published in the IUI 2022 conference proceedings (Best paper award)~\cite{Sluyters:2022:IUI} and ACM TiiS journal~\cite{Sluyters:2023}, and a book chapter~\cite{Lambot:2024}.
 
 \paragraph{Resources.} Two demonstration videos of the prototype application built with the pipeline are accessible at \url{https://youtu.be/qmHcBuxU1ig} and \url{https://youtu.be/YlD-808gimw}.
 
@@ -43,32 +39,7 @@ Finally, Section~\ref{sec:radar-challenges:conclusion} summarizes this section.
 
 %--------------------------------------------------------------------------------%
 \subsection{Full-wave Radar Model} \label{sec:radar-challenges:mathematical-theory:radar-model}
-% Explain in detail the Modelization
-% Multiple reflections between antenna and medium
-
-% Hypothesis: far-field: antennas reduced as a point source and receiver. 
-% Lambot \etal~\cite{Lambot:2004}
-
 The far-field full-wave radar equation \cite{Lambot:2004} assumes a homogeneous field distribution for the back-scattered field over the antenna aperture when the target is far enough from the antenna. The linear block diagram in \fig~\ref{fig:radar-challenges:ff-block-diagram} describes the antenna using four characteristic global reflection ($R$) and transmission ($T$) coefficients: $R_i(\omega)$, $T_i(\omega)$, $T_s(\omega)$, and $R_s(\omega)$, where $\omega$ is the angular frequency and $a(\omega)$ and $b(\omega)$ are the source and returned signals in the frequency domain, respectively. Wave propagation from the radar antenna to the target is described using the 3D multilayered media Green function, defined as the $x$-directed backscattered electric field for a unit-strength electric source, both located at the antenna phase center \cite{Chew:1990,Michalski:1990,Slob:2002,Lambot:2004}. This equivalent medium is used for our hand gesture application, as an analytical solution of Maxwell's equations exists, while for real hands a 3D numerical solution would be needed, but would be impractical in terms of computing resources and too complex to use.
-% \begin{figure}[ht]
-% \centering
-% \begin{picture}(200,200)(0,0)
-% \put(85,132){\framebox(30,16){\footnotesize $R_i(\omega)$}}
-% \put(35,92){\framebox(30,16){\footnotesize $T_i(\omega)$}}
-% \put(135,92){\framebox(30,16){\footnotesize $T_s(\omega)$}}
-% \put(85,52){\framebox(30,16){\footnotesize $R_s(\omega)$}}
-% \put(85,12){\framebox(30,16){\footnotesize $G_{xx}(\omega)$}} \put(50,60){\circle{6}}
-% \put(150,140){\circle{6}} \put(50,180){\vector(0,-1){72}} \put(50,92){\vector(0,-1){29}}
-% \put(50,57){\line(0,-1){37}} \put(50,20){\vector(1,0){35}} \put(50,140){\vector(1,0){35}}
-% \put(85,60){\vector(-1,0){32}} \put(115,140){\vector(1,0){32}} \put(150,60){\vector(-1,0){35}}
-% \put(150,20){\vector(0,1){72}} \put(150,108){\vector(0,1){29}} \put(150,143){\vector(0,1){37}}
-% \put(115,20){\line(1,0){35}} \put(57,55){\tiny +} \put(51,68){\tiny +} \put(145,129){\tiny +}
-% \put(138,142){\tiny +} \put(42,185){\footnotesize $a(\omega)$} \put(142,185){\footnotesize
-% $b(\omega)$} \put(90,185){\footnotesize Radar} \put(84,98){\footnotesize Antenna}
-% \put(60,0){\footnotesize Multilayered medium}
-% \end{picture}
-% \caption{Equivalent linear block diagram of the radar-antenna-medium to which corresponds the far-field radar equation \cite{Lambot:2004}.} \label{fig:radar-challenges:ff-block-diagram}
-% \end{figure}
 The equivalent linear block diagram shown in \fig~\ref{fig:radar-challenges:ff-block-diagram} is solved as follows:
 \begin{equation}\label{eq:radar-challenges:sff3}
 b(\omega) = a(\omega) R_{i}(\omega) + \frac{a(\omega) T_{i}(\omega) G_{xx}(\omega)}{1- R_{s}(\omega) G_{xx}(\omega)} T_{s}(\omega)
@@ -77,7 +48,6 @@ Defining the ratio $S(\omega) = b(\omega)/a(\omega)$, like the so-called $S_{11}
 \begin{equation}\label{eq:radar-challenges:sff4}
 S(\omega) = R_{i}(\omega) + \frac{T(\omega) G_{xx}(\omega)}{1- R_{s}(\omega) G_{xx}(\omega)}
 \end{equation}
-
 For a pulse radar, the quantity $s(t)$ is measured, with $t$ being time, and $b(\omega)$ is obtained using the Fourier transform:
 \begin{equation}
 \label{eq:radar-challenges:fft}
@@ -85,7 +55,6 @@ b(\omega)=\text{$\cal{F}$}\left\{
 s(t)
 \right\}=\int_{-\infty}^{\infty}s(t)e^{-2\pi j t \omega}dt
 \end{equation}
-
 Then, defining $H_i(\omega)=a(\omega) R_{i}(\omega)$, $H(\omega) = a(\omega) T(\omega)$ and $H_s(\omega) = R_{s}(\omega)$, Eq.~(\ref{eq:radar-challenges:sff3}) becomes:
 \begin{equation}\label{eq:radar-challenges:sff5}
 \text{$\cal{F}$}\left\{
@@ -97,44 +66,43 @@ $R_i(\omega)$ or $H_i(\omega)$ corresponds to a free-space measurement, for whic
 \begin{equation}\label{eq:radar-challenges:sff6}
 G_{xx}(\omega) = \frac{S(\omega) -  R_{i}(\omega)}{T(\omega) + S(\omega)R_{s}(\omega) - R_{i}(\omega)R_{s}(\omega)}
 \end{equation}
-
 A practical application of the far-field radar equation is to improve radar imaging, \eg for landmine detection~\cite{Lopera:2007}.
 
 \begin{figure}[t]
-\centering
-\begin{picture}(200,132)(0,0)
-%132 ->96
-\put(85,96){\framebox(30,16){\footnotesize $R_i(\omega)$}}
-\put(35,68){\framebox(30,16){\footnotesize $T_i(\omega)$}}
-\put(135,68){\framebox(30,16){\footnotesize $T_s(\omega)$}}
-\put(85,40){\framebox(30,16){\footnotesize $R_s(\omega)$}}
-\put(85,12){\framebox(30,16){\footnotesize $G_{xx}(\omega)$}} 
+    \centering
+    \begin{picture}(200,132)(0,0)
+    %132 ->96
+        \put(85,96){\framebox(30,16){\footnotesize $R_i(\omega)$}}
+        \put(35,68){\framebox(30,16){\footnotesize $T_i(\omega)$}}
+        \put(135,68){\framebox(30,16){\footnotesize $T_s(\omega)$}}
+        \put(85,40){\framebox(30,16){\footnotesize $R_s(\omega)$}}
+        \put(85,12){\framebox(30,16){\footnotesize $G_{xx}(\omega)$}} 
 
-\put(50,48){\circle{6}}
-\put(150,104){\circle{6}} 
-\put(50,124){\vector(0,-1){40}} %180->132
-\put(50,68){\vector(0,-1){17}}
-\put(50,45){\line(0,-1){25}} 
-\put(50,20){\vector(1,0){35}} 
-\put(50,104){\vector(1,0){35}}
-\put(85,48){\vector(-1,0){32}} 
-\put(115,104){\vector(1,0){32}} 
-\put(150,48){\vector(-1,0){35}}
-\put(150,20){\vector(0,1){48}} 
-\put(150,84){\vector(0,1){17}} 
-\put(150,107){\vector(0,1){17}}
-\put(115,20){\line(1,0){35}} 
-\put(57,43){\tiny +} 
-\put(51,57){\tiny +} 
-\put(145,94){\tiny +}
-\put(138,106){\tiny +} 
-\put(42,129){\footnotesize $a(\omega)$} 
-\put(142,129){\footnotesize
-$b(\omega)$} \put(90,129){\footnotesize Radar} 
-\put(84,74){\footnotesize Antenna}
-\put(65,0){\footnotesize Multilayered medium}
-\end{picture}
-\caption{Equivalent linear block diagram of the radar-antenna-medium corresponding to the far-field radar equation \cite{Lambot:2004}.} \label{fig:radar-challenges:ff-block-diagram}
+        \put(50,48){\circle{6}}
+        \put(150,104){\circle{6}} 
+        \put(50,124){\vector(0,-1){40}} %180->132
+        \put(50,68){\vector(0,-1){17}}
+        \put(50,45){\line(0,-1){25}} 
+        \put(50,20){\vector(1,0){35}} 
+        \put(50,104){\vector(1,0){35}}
+        \put(85,48){\vector(-1,0){32}} 
+        \put(115,104){\vector(1,0){32}} 
+        \put(150,48){\vector(-1,0){35}}
+        \put(150,20){\vector(0,1){48}} 
+        \put(150,84){\vector(0,1){17}} 
+        \put(150,107){\vector(0,1){17}}
+        \put(115,20){\line(1,0){35}} 
+        \put(57,43){\tiny +} 
+        \put(51,57){\tiny +} 
+        \put(145,94){\tiny +}
+        \put(138,106){\tiny +} 
+        \put(42,129){\footnotesize $a(\omega)$} 
+        \put(142,129){\footnotesize
+        $b(\omega)$} \put(90,129){\footnotesize Radar} 
+        \put(84,74){\footnotesize Antenna}
+        \put(65,0){\footnotesize Multilayered medium}
+    \end{picture}
+    \caption{Equivalent linear block diagram of the radar-antenna-medium corresponding to the far-field radar equation \cite{Lambot:2004}.} \label{fig:radar-challenges:ff-block-diagram}
 \end{figure}
 
 %--------------------------------------------------------------------------------%
@@ -172,38 +140,6 @@ where
  T-R_iR_s \\
 \end{bmatrix}
 \end{equation}
-
-% \begin{equation}
-% \mathbf{b}=
-% \begin{bmatrix}
-%  S_{1} \\
-%  \vdots \\
-%  S_{k} \\
-%  \vdots \\
-%  S_{n} \\
-% \end{bmatrix}
-% \end{equation}
-
-% \begin{equation}
-% \mathbf{A} =
-% \begin{bmatrix}
-%  1 & S_{1}G_{xx,1} & G_{xx,1} \\
-%  \vdots & \vdots & \vdots \\
-%  1 & S_{k}G_{xx,k} & G_{xx,k} \\
-%  \vdots & \vdots & \vdots\\
-%   1 & S_{n}G_{xx,n} & G_{xx,n} \\
-% \end{bmatrix}
-% \end{equation}
-
-% \begin{equation}
-% \mathbf{x}=
-% \begin{bmatrix}
-%  R_i \\
-%  R_s \\
-%  T-R_iR_s \\
-% \end{bmatrix}
-% \end{equation}
-
 The vector of unknowns is then determined using the least squares approach:
 \begin{equation}
 \mathbf{x}=\left(\mathbf{A}^{\text{H}}\mathbf{A}\right)^{-1}\mathbf{A}^{\text{H}}\mathbf{b}
@@ -277,6 +213,8 @@ To perform subsequent processing stages, the time-domain signal should first be 
 %--------------------------------------------------------------------------------%
 \subsection{Radar Source and Antenna Effects Removal} \label{sec:radar-challenges:antenna-effects}
 This second stage removes the effects of the radar source and antenna (except radiation pattern) by applying the radar equation (Eq.~\ref{eq:radar-challenges:sff6})~\cite{Lambot:2004,Lambot:2014} to the raw signal (\fig~\ref{fig:radar-challenges:pipeline}b). These effects include internal reflections and transmissions between antennas, as well as antenna-target interactions. In the case of antenna arrays, this stage requires the generation of a far-field model of each emitter/receiver pair of antennas by computing their respective characteristic functions. Generating the model is a one-shot process (property P\textsubscript{3}) that consists of performing several measurements at different distances from a metal sheet (Section~\ref{sec:radar-challenges:mathematical-theory:characteristic-functions}). The far-field version of the radar model is chosen as it is much less resource-intensive to compute than the near-field one and is valid as long as the users stay sufficiently far away from the radar, \ie the distance to the target should be longer than the radar aperture size \cite{Tran:2013}. This stage produces a Green's function that is independent of the radar and thereby normalized in the operating frequency range of interest (property P\textsubscript{1}) \cite{DeCoster:2018a}.  Figure 4 illustrates the normalization of signals from two distinct radar systems (a Walabot and a custom radar with a BBHA 9120 A horn antenna, both operating from 0.8 to 5 GHz) using our radar equation to filter out source and antenna effects. This process yields nearly identical Green's functions for both systems, despite their different origins, by focusing on the common frequency components. The slight differences observed are attributed to measurement errors. Users' reflections now stand out as undesired echoes are removed. 
+%
+\textbf{Discuss transfer between radars}
 % 
 We provide the computational complexity of each stage for processing one radar frame based on the variable $n$, which is the size of the radar signal from a single receiving antenna. The signal size is impacted by the sampling rate of the radar. 
 The computational complexity of this stage is $O(n)$.
@@ -372,9 +310,9 @@ The computational complexity of this stage for processing one radar frame is con
 
 % %================================================================================%
 \section{Implementation} \label{sec:radar-challenges:implementation}
-The radar data processing strategy was initially implemented based on MATLAB scripts provided by Prof. Sébastien Lambot that were adapted to automatically process an entire gesture dataset. However, these scripts were slow and could not be adapted easily for real-time gesture recognition.
+The radar data processing strategy was initially implemented based on MATLAB scripts provided by Prof. S\'ebastien Lambot that were adapted to automatically process an entire gesture dataset. However, these scripts were slow and could not be adapted easily for real-time gesture recognition.
 %
-Prof. Sébastien Lambot and his team later converted parts of the MATLAB scripts to C++, which we assembled and optimized for real-time gesture recognition and faster batch processing of gestures.
+Prof. S\'ebastien Lambot and his team later converted parts of the MATLAB scripts to C++, which we assembled and optimized for real-time gesture recognition and faster batch processing of gestures.
 Both the MATLAB and C++ versions of the batch processing pipeline compile all processed gestures into the \ql dataset format. 
 The C++ real-time version of the pipeline initializes a WebSocket server through which it can send processed radar data to other applications, such as the \ql framework (Chapter~\ref{chap:quantumleap}).
 

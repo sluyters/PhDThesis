@@ -49,7 +49,7 @@ Two experiments were conducted to determine users' preferred gestures for browsi
 		\bottomrule
 	\end{tabular}
 	% }
-	\caption{First and second most agreed gesture proposals for each referent (photo-browsing experiment). Referents with above average agreement rates are highlighted in blue. Notation for the Agreement Rate (AR): L${=}$low, M${=}$medium, H${=}$high, V${=}$very high~\cite{Vatavu:2015}.}
+	\caption{First and second most agreed gesture proposals for each referent (photo-browsing experiment). Referents with above-average agreement rates are highlighted in blue. Notation for the Agreement Rate (AR): L${=}$low, M${=}$medium, H${=}$high, V${=}$very high~\cite{Vatavu:2015}.}
 	\label{tbl:lui-ges:agreement-photo}
 	\vspace{-10pt}
 \end{table*}
@@ -93,7 +93,7 @@ Two experiments were conducted to determine users' preferred gestures for browsi
 		\bottomrule
 	\end{tabular}
 	% }
-	\caption{First and second most agreed gesture proposals for each referent (video-browsing experiment). Referents with above average agreement rates are highlighted in blue. Notation for the Agreement Rate (AR): L${=}$low, M${=}$medium, H${=}$high, V${=}$very high~\cite{Vatavu:2015}.}
+	\caption{First and second most agreed gesture proposals for each referent (video-browsing experiment). Referents with above-average agreement rates are highlighted in blue. Notation for the Agreement Rate (AR): L${=}$low, M${=}$medium, H${=}$high, V${=}$very high~\cite{Vatavu:2015}.}
 	\label{tbl:lui-ges:agreement-video}
 	% \vspace{-10pt}
 \end{table*}
@@ -122,70 +122,56 @@ A third GES was conducted to elicit mid-air gestures for multimedia interaction 
 \end{figure}
 
 \subsubsection{Apparatus}
-The experiment involved three devices: the LMC to capture participants' mid-air gesture proposals, a smartphone to record their touch gesture proposals, and a large screen to display the referents. %A laptop computer was used to control the display and record the gestures captured by the LMC using a custom software for contextual gesture elicitation\footnote{We release its code on GitHub at \url{https://github.com/anonymous/recorder}}. This application presents functions (see Table~\ref{tab:media-actions}) depending on the media randomly selected and enables participants to record their gesture one or multiple times (Fig.~\ref{fig:contextual}).
-A laptop controlled the display and recorded the LMC gestures using a custom software suited for gesture elicitation~\ref{fig:lui-ges:real}.
+The experiment involved three devices: the LMC to capture participants' mid-air gesture proposals, a smartphone to record their touch gesture proposals, and a large screen to display the referents. %A laptop computer was used to control the display and record the gestures captured by the LMC using custom software for contextual gesture elicitation\footnote{We release its code on GitHub at \url{https://github.com/anonymous/recorder}}. This application presents functions (see Table~\ref{tab:media-actions}) depending on the media randomly selected and enables participants to record their gesture one or multiple times (Fig.~\ref{fig:contextual}).
+A laptop controlled the display and recorded the LMC gestures using custom software suited for gesture elicitation~\ref{fig:lui-ges:real}.
 %\footnote{We release its code on GitHub at \url{https://github.com/anonymous/elicitation} and \url{https://github.com/anonymous/recorder}}. The software presents functions (see Table~\ref{tab:media-actions}) depending on the media randomly selected (Fig.~\ref{fig:real}) and enables participants to record their gestures.
 % TODO
 
 
 \subsubsection{Design} 
 The experiment manipulates one main independent variable:
-\textsc{Referent}, a within-subject nominal variable with 18 conditions. Each condition represents a common task to perform in multimedia environments, such as in a music player, a video gallery or a PowerPoint presentation: (1) previous, (2) next, (3) enable fullscreen, (4) disable fullscreen, (5) zoom in, (6) zoom out, (7) volume up, (8) volume down, (9) rotate 90\textdegree clockwise, (10) rotate 90\textdegree counter-clockwise, (11) play, (12) pause, (13) like, (14) dislike, (15) fast forward 5 seconds, (16) rewind 5 seconds, (17) enable subtitles, and (18) disable subtitles. The number of conditions has been purposefully kept small by combining similar referents for different contexts together, \eg there is no distinction between going to the next picture and going to the next video.
+\textsc{Referent}, a within-subject nominal variable with 18 conditions. Each condition represents a common task to perform in multimedia environments, such as in a music player, a video gallery, or a PowerPoint presentation: (1) previous, (2) next, (3) enable fullscreen, (4) disable fullscreen, (5) zoom in, (6) zoom out, (7) volume up, (8) volume down, (9) rotate 90\textdegree clockwise, (10) rotate 90\textdegree counter-clockwise, (11) play, (12) pause, (13) like, (14) dislike, (15) fast forward 5 seconds, (16) rewind 5 seconds, (17) enable subtitles, and (18) disable subtitles. The number of conditions has been purposefully kept small by combining similar referents for different contexts together, \eg there is no distinction between going to the next picture and going to the next video.
 
 The following measures were employed to evaluate and understand users' preferences for gestures captured by the LMC~\cite{Gheran:2018}:
 \begin{enumerate}[noitemsep]
-	\item The agreement rate $AR(r)$ was computed for each \textsc{Referent}.% using the formula of ~\cite{Vatavu:2015}
-	%, as follows:
-	%\vspace{-4pt}
-% 	\begin{equation}
-% 		AR(r) = \frac{\sum_{i<j}{\delta_{i,j}}}{n \cdot (n-1) / 2}
-% 			\vspace{-4pt}
-% 	\end{equation}
-% 	where $n$ is the number of participants from which gestures are elicited, and $\delta_{i,j}$ evaluates to $1$ if the $i$-th and $j$-th participants are in agreement over referent $r$ and to $0$ otherwise. 
+    \item The agreement rate $AR(r)$ was computed for each \textsc{Referent}.% using the formula of ~\cite{Vatavu:2015}
+    %, as follows:
+    %\vspace{-4pt}
+%   \begin{equation}
+%       AR(r) = \frac{\sum_{i<j}{\delta_{i,j}}}{n \cdot (n-1) / 2}
+%           \vspace{-4pt}
+%   \end{equation}
+%   where $n$ is the number of participants from which gestures are elicited, and $\delta_{i,j}$ evaluates to $1$ if the $i$-th and $j$-th participants are in agreement over referent $r$ and to $0$ otherwise. 
 
-	\item The \textsc{Thinking-Time} measures the time, in seconds, needed by participants to propose a gesture for a given referent.
-	
-	\item The \textsc{Goodness-of-Fit} represents participants' subjective assessment, as a rating between 1 and 5, of their confidence about how well a gesture fits a referent.
+    \item The \textsc{Thinking-Time} measures the time, in seconds, needed by participants to propose a gesture for a given referent.
+    
+    \item The \textsc{Goodness-of-Fit} represents participants' subjective assessment, as a rating between 1 and 5, of their confidence about how well a gesture fits a referent.
 \end{enumerate}
 
-%     \item \textsc{Interaction method}: a within-subject nominal variable with 2 conditions: (1) touch gesture, and (2) mid-air gesture. Only the participants' mid-air gesture propositions are relevant for this paper.
+%     \item \textsc{Interaction method}: a within-subject nominal variable with 2 conditions: (1) touch gesture, and (2) mid-air gesture. Only the participants' mid-air gesture propositions are relevant to this paper.
     
 %     \item \textsc{Proposition sequence}, a between-subject nominal variable with 2 conditions: (1) for each referent, the participant first proposes a touch gesture and then a mid-air gesture, and (2) for each referent, the participant first proposes a mid-air gesture and then a touch gesture.
 % \end{itemize}
 
 %\vspace{-16pt}
 \subsubsection{Task}
-Participants were installed at a desk and faced a large screen situated at a few meters on the opposite side of the desk. The LMC was positioned in front of them, and a smartphone was placed on their right. Each participant was presented with a series of referents in a randomized order. For each referent, participants were asked to propose a mid-air gesture that fits the referent, in an order determined randomly. Participants' thinking time was measured for each gesture proposal. No constraint was imposed on the participants' choices. After each gesture proposal, the participants estimated its goodness-of-fit on a Likert scale from 1 (very unsatisfied) to 5 (very satisfied).
-%\vspace{-10pt}
-%\subsubsection{Measures}
+Participants were installed at a desk and faced a large screen situated a few meters on the opposite side of the desk. The LMC was positioned in front of them, and a smartphone was placed on their right. Each participant was presented with a series of referents in a randomized order. For each referent, participants were asked to propose a mid-air gesture that fits the referent, in an order determined randomly. Participants' thinking time was measured for each gesture proposal. No constraint was imposed on the participants' choices. After each gesture proposal, the participants estimated its goodness-of-fit on a Likert scale from 1 (very unsatisfied) to 5 (very satisfied).
 
 
 %===================================================================================
 
 
 \subsection{Results} \label{app:lui-ges:results}
-414 mid-air gesture proposals were collected from 23 (participants) $\times$ 18 (referents) conditions. These gesture proposals were then clustered into 112 groups of similar gestures. For this clustering, we distinguished between gestures according to their direction (\ie similar gestures performed in different directions are considered different) but grouped similar gestures performed with different poses together (\eg swiping with a flat hand is considered the same as swiping while pointing the index finger). Table~\ref{tbl:lui-ges:gesture-proposals} summarizes the most agreed upon gestures for each referent.
-%In the rest of this section, we analyze the consensus between participants' gesture proposals, as well as its relation with thinking time and goodness of fit.
-
-% \begin{figure*}[ht]
-% 	\centering
-% 	\captionsetup{justification=centering}
-% 	\includegraphics[width=\linewidth]{Images/elicitation/agreement.pdf}
-% 	\vspace{-10pt}
-% 	\caption{Agreement rates for the gesture proposals. Notes: referents are ordered on the horizontal axis in descending order of their agreement rates; error bars show 95\% CIs computed with the AGATe tool \cite{Vatavu:2015}.}
-% 	\label{fig:agreement-rates}
-% 	\vspace{-8pt}
-% \end{figure*}
-
+414 mid-air gesture proposals were collected from 23 (participants) $\times$ 18 (referents) conditions. These gesture proposals were then clustered into 112 groups of similar gestures. For this clustering, we distinguished between gestures according to their direction (\ie similar gestures performed in different directions are considered different) but grouped similar gestures performed with different poses together (\eg swiping with a flat hand is considered the same as swiping while pointing the index finger). Table~\ref{tbl:lui-ges:gesture-proposals} summarizes the most agreed-upon gestures for each referent.
 
 \begin{table*}[ht]
     % \resizebox{\linewidth}{!}{
     \footnotesize
     \renewcommand{\arraystretch}{1.1}
     \begin{tabular}{p{3.35cm}rp{2.875cm}p{2.975cm}}
-		\toprule
-		\textbf{Referent} & \multicolumn{1}{c}{\textbf{AR}} & \textbf{1\textsuperscript{st} most agreed gesture} & \textbf{2\textsuperscript{nd} most agreed gesture} \\
-		\midrule
+        \toprule
+        \textbf{Referent} & \multicolumn{1}{c}{\textbf{AR}} & \textbf{1\textsuperscript{st} most agreed gesture} & \textbf{2\textsuperscript{nd} most agreed gesture} \\
+        \midrule
         1. \textit{Previous} & \cellcolor{graybluebrighter}.498 (H) & Flick right & Flick left \\
         2. \textit{Next} & \cellcolor{graybluebrighter}.498 (H) & Flick left & Flick right \\
         3. \textit{Enable fullscreen} & .273 (M) & Move hands apart & Pinch out \\
@@ -205,34 +191,27 @@ Participants were installed at a desk and faced a large screen situated at a few
         17. \textit{Enable subtitles} & .032 (L) & Swipe up & Push \\
         18. \textit{Disable subtitles} & .028 (L) & Swipe down & Pull \\
         \bottomrule
-	\end{tabular}
-	% }
-	\caption{First and second most agreed gesture proposals for each referent. Referents above average agreement rate are highlighted. Magnitude of the Agreement Rate ($AR$)~\cite{Vatavu:2015}: L${=}$low, M${=}$medium, H${=}$high, V${=}$very high.}
-	\label{tbl:lui-ges:gesture-proposals}
-	\vspace{-8pt}
+    \end{tabular}
+    % }
+    \caption{First and second most agreed gesture proposals for each referent. Referents with above-average agreement rates are highlighted. Magnitude of the Agreement Rate ($AR$)~\cite{Vatavu:2015}: L${=}$low, M${=}$medium, H${=}$high, V${=}$very high.}
+    \label{tbl:lui-ges:gesture-proposals}
+    \vspace{-8pt}
 \end{table*}
 
-
-%\textbf{Consensus Between Proposed Gestures.}
-%Figure~\ref{fig:agreement-rates} shows the agreement rates obtained for each \textsc{Referent}.
 \subsubsection{Consensus}
-Overall, agreement rates are quite high, between .028 and .83 ($M{=}.366$, $SD{=}.268$). These results fit within the reported agreement rates in the literature of gesture elicitation, see \cite{Vatavu:2015} (\mbox{p. 1332}) that summarize agreement rates of 18 studies. According to the recommendations of ~\cite{Vatavu:2015} to interpret the magnitudes of agreement rates, most of our results fall inside the high consensus (.300$-$.500) category. These results were confirmed by Kendall's coefficient of concordance for estimating the inter-rater reliability:
-%\footnote{\small Kendall's $W$ is a normalization of the Friedman statistic used to assess the agreement between multiple raters with a number ranging between 0 (no agreement at all) and 1 (perfect agreement).}
-$W{=}.564$ ($\chi^2(26){=}220.454$, $p{<}.0001$, large effect).
-% As Kendall's coefficient is related to the average of Spearman correlation coefficients between pairs of rankings~\cite{Kendall:1939}, we can interpret the magnitude of its effect as large (\ie close to $.500$) according to Cohen's suggested limits for interpreting effect sizes. Regarding internal consistency reliability,
-% We computed Cronbach's $\alpha{=}0.875$ and Guttman's $\lambda_2{=}.989$ (with 2000 iteration) coefficients, which indicate that the internal consistency was rather reliable among participants of this GES.
+Overall, agreement rates are quite high, between .028 and .83 ($M{=}.366$, $SD{=}.268$). These results fit within the reported agreement rates in the literature of gesture elicitation, see \cite{Vatavu:2015} (\mbox{p. 1332}) that summarize agreement rates of 18 studies. According to the recommendations of ~\cite{Vatavu:2015} to interpret the magnitudes of agreement rates, most of our results fall inside the high consensus (.300$-$.500) category. These results were confirmed by Kendall's coefficient of concordance for estimating the inter-rater reliability: $W{=}.564$ ($\chi^2(26){=}220.454$, $p{<}.0001$, large effect).
 
 \subsubsection{Gestures' Goodness of Fit}
 Participants rated their gesture proposals with numbers from 1 (poor fit) to 5 (excellent fit) to denote their confidence in the goodness of fit of their proposals. Overall, participants were satisfied with their gesture propositions as shown by the high average goodness of fit ($M{=}4.21$, $SD{=}0.88$).
 \textsc{Goodness-of-Fit} correlated significantly with the \textsc{Agreement-Rate} (Pearson's $r_{(N{=}18)}{=}.711$, $R^2{=}.505$, $p{=}.00094$): referents that reached high agreement rates were assigned gestures that were rated a good fit (Figure~\ref{fig:goodness-of-fit}).
 
 \begin{sidewaysfigure}[ht]
-	\centering
-	\captionsetup{justification=centering}
-	\includegraphics[width=.99\linewidth]{Figures/App-LUIGES/goodness-of-fit.pdf}
-	% \vspace{-24pt}
-	\caption{Relationship between \textsc{Agreement-Rate} and \textsc{Goodness-of-Fit}.}
-	\label{fig:goodness-of-fit}
+    \centering
+    \captionsetup{justification=centering}
+    \includegraphics[width=.99\linewidth]{Figures/App-LUIGES/goodness-of-fit.pdf}
+    % \vspace{-24pt}
+    \caption{Relationship between \textsc{Agreement-Rate} and \textsc{Goodness-of-Fit}.}
+    \label{fig:goodness-of-fit}
     % \vspace{-8pt}
 \end{sidewaysfigure}
 
@@ -241,13 +220,13 @@ The average thinking time was usually quite low ($M{=}6.15$\,s, $SD{=}9.12$\,s).
 \textsc{Thinking-Time} correlated significantly with \textsc{Agreement-Rate} (Pearson's $r_{(N=18)}{=}-.620$, $R^2{=}.384$, $p{=}.006$) (Fig.~\ref{fig:thinking-time}): the agreement rate decreased for longer thinking times. A few referents showed considerably higher than average thinking times: disable subtitles, enable subtitles, and skip backward 5 seconds. These referents represent tasks that participants are less likely to perform regularly on their devices.
 
 \begin{sidewaysfigure}[ht]
-	\centering
-	\captionsetup{justification=centering}
-	\includegraphics[width=\linewidth]{Figures/App-LUIGES/thinking-time.pdf}
-	% \vspace{-15pt}
-	\caption{Relationship between \textsc{Agreement-Rate} and \textsc{Thinking-Time}.}
-	\label{fig:thinking-time}
-	% \vspace{-8pt}
+    \centering
+    \captionsetup{justification=centering}
+    \includegraphics[width=\linewidth]{Figures/App-LUIGES/thinking-time.pdf}
+    % \vspace{-15pt}
+    \caption{Relationship between \textsc{Agreement-Rate} and \textsc{Thinking-Time}.}
+    \label{fig:thinking-time}
+    % \vspace{-8pt}
 \end{sidewaysfigure}
 
 
