@@ -13,7 +13,7 @@ Section~\ref{sec:radar-experiments:data-collection} provides information about o
 %
 A first experiment is conducted in Section~\ref{sec:radar-experiments:sensors}, in which the performance of three different sensors (one vision-based and two radar-based) is compared on a dataset of 16 gestures.
 %
-A second experiment is carried out in Section~\ref{sec:radar-experiments:gesture-subsets}, in which the performance of the Walabot is evaluated in user-dependent, user-independent, and mixed scenarios on an extended dataset of 20 gestures and on well-differentiated subsets of gestures.
+A second experiment is carried out in Section~\ref{sec:radar-experiments:gesture-subsets}, in which the performance of the Walabot is evaluated in user-dependent, user-independent, and mixed scenarios on an extended dataset of 20 gestures and well-differentiated subsets of gestures.
 %
 A third experiment is conducted in Section~\ref{sec:radar-experiments:through-materials} to analyze the impact of occlusion by three different types of materials (wood, PVC, and glass) on the Walabot and confirm whether our pre-processing pipeline can successfully normalize its signal for accurate gesture recognition.
 %
@@ -78,7 +78,7 @@ The Walabot Developer SDK enables the retrieval of raw time-domain radar data fo
     \item Profile 2 (\custominlinecode{PROF_SENSOR_NARROW}): 6.3-8 GHz range, 12 antenna pairs, 4096 fast-time samples/frame, \textasciitilde 41 fps.
     \item Profile 3 (\custominlinecode{PROF_WIDE_BAND}): 3.3-10 GHz range, 40 antenna pairs, 8192 fast time samples/frame, \textasciitilde 15 fps. This profile is only available with the US/FCC version of the Walabot.
 \end{itemize}
-The walabot is effective and efficient in various application domains, including material identification~\cite{Agresti:2019}, activity recognition~\cite{Avrahami:2018, Zhu:2018}, and gesture recognition~\cite{Zhang:2021} with deep neural networks.
+The Walabot is effective and efficient in various application domains, including material identification~\cite{Agresti:2019}, activity recognition~\cite{Avrahami:2018, Zhu:2018}, and gesture recognition~\cite{Zhang:2021} with deep neural networks.
 
 \begin{figure*}[tb]
     \centering
@@ -277,7 +277,7 @@ We processed the radar signals from each dataset with our processing pipeline de
     \item \textit{Full-wave inversion}: the inversion process used a LUT containing 351 permittivity values (between 1 and 8) and 750 distance values (from 1 mm to 75 cm).
     \item \textit{Filtering}: distance and permittivity values were discarded and replaced with default values ($d$ = 75 cm, $\epsilon_{r,e}$=1.0) when the estimated permittivity was lower than 1.1, indicating a hand was not detected in front of the radar. A moving median filter was then applied to the resulting data with a window of size 8. Compared to a moving average, the moving median filter is less sensitive to outliers.
 \end{enumerate}
-Data from stages a, b, c, and d could be exported in the frequency- and the time-domain.
+Data from stages a, b, c, and d could be exported in the frequency and time domains.
 
 
 %================================================================================%
@@ -295,7 +295,7 @@ This first experiment investigates the performance of three sensors on the ``sen
 \subsection{Protocol} \label{sec:radar-experiments:sensors:protocol}
 This experiment consisted of four studies, each following a similar protocol, albeit with slight variations.
 %
-The \ql testing tool (Chapter~\ref{chap:quantumleap-testing}) was configured with Taranta \etal's Jackknife~\cite{Taranta:2017}, a 1-NN gesture recognizer that can accommodate different data types, works with as few as one training template, and is fast to train and execute. We chose to work with an existing recognizer, as implementing the best-performing algorithm for (radar) gesture recognition was outside of the scope of this thesis. However, other algorithms (\eg deep-learning-based) could be used in conjunction with \ql and our data processing pipeline to achieve better performance. Jackknife was set up with its default settings for the inner product distance measure. 
+The \ql testing tool (Chapter~\ref{chap:quantumleap-testing}) was configured with Taranta \etal's Jackknife~\cite{Taranta:2017}, a 1-NN gesture recognizer that can accommodate different data types, works with as few as one training template per class, and is fast to train and execute. We chose to work with an existing recognizer, as implementing the best-performing algorithm for (radar) gesture recognition was outside of the scope of this thesis. However, other algorithms (\eg deep-learning-based) could be used in conjunction with \ql and our data processing pipeline to achieve better performance. Jackknife was set up with its default settings for the inner product distance measure. 
 %
 The performance of Jackknife on data from each sensor was evaluated following a leave-one-out cross-validation (LOOCV) procedure in a user-dependent and single-dataset scenario (see \tab~\ref{tab:quantumleap-testing:testing-procedures} for a detailed description of the procedure). 
 The total number of training templates per trial is 79 (four to five per gesture class), as one of the 80 templates is put aside for testing.
@@ -304,8 +304,6 @@ All the tests were run on a laptop with an Intel i7-10875H CPU and 32GB of DDR4 
 
 We conducted a similar experiment in a previous paper~\cite{Sluyters:2022:IUI} using a train-test-split (TTS) procedure. This experiment addresses some of the limitations of this paper, including the different recording procedures between the LMC+Walabot and LMC+Horn sessions and the fact that Walabot gestures were recorded with only half of the available antenna pairs.
 
-% %
-% This gesture recognizer was selected because it can accommodate different data types, works with as few as one training template, and is fast to train and execute. We chose to work with an existing recognizer, as implementing the best-performing algorithm for radar gesture recognition was outside of the scope of this paper. However, other algorithms (\eg deep-learning-based) could be used in conjunction with our data processing pipeline to achieve better performance.
 
 \subsubsection{LMC} \label{sec:radar-experiments:sensors:protocol:lmc}
 This first study evaluates the accuracy of Jackknife on the raw LMC data from the LMC+Horn and LMC+Walabot sessions, following the protocol described at the start of Section~\ref{sec:radar-experiments:sensors:protocol}. The study is within-factors with three independent variables:
@@ -343,7 +341,7 @@ The third study evaluates the impact of the selected set of antenna pairs on the
 \begin{enumerate}
     \item \custominlinehighlight{Processing Stage}: same as the second study.
     % \item \custominlinehighlight{Number of Templates}: numerical variable with 3 conditions, representing the number of templates per gesture class used to train the recognizer: $T{=}\{1, 2, 4\}$.
-    \item \custominlinehighlight{Antenna Pairs}: nominal variable with 127 conditions, representing all the possible combinations of non-redundant antenna pairs (excluding the empty set) and the set of all antenna pairs: $\splitatcommas{AP=\{(1), (2), (3), (6), (8), (9), (1, 2), ... , (2, 3, 6, 8, 9), (1, 2, 3, 6, 8, 9)\} \cup \{(4), (5), (7), (10), (11), (12), (4, 5), ... , (5, 7, 10, 11, 12), (4, 5, 7, 10, 11, 12)\} \cup \{(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\}}$.
+    \item \custominlinehighlight{Antenna Pairs}: nominal variable with 127 conditions, representing all the possible combinations of non-redundant antenna pairs (excluding the empty set) and the set of all antenna pairs: $\splitatcommas{AP=\{(1), (2), (3), (6), (8), (9), (1, 2), ..., (2, 3, 6, 8, 9), (1, 2, 3, 6, 8, 9)\} \cup \{(4), (5), (7), (10), (11), (12), (4, 5), ..., (5, 7, 10, 11, 12), (4, 5, 7, 10, 11, 12)\} \cup \{(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\}}$.
 \end{enumerate}
 %
 The fourth study investigates the impact of the number of sampling points on the accuracy of Jackknife for the three best-performing sets of antenna pairs of each processing stage (determined in the previous study).
@@ -353,7 +351,7 @@ This study is also within-factors, with three independent variables:
     % \item \custominlinehighlight{Number of Templates}: same as the first study.
     \item \custominlinehighlight{Number of Sampling Points}: same as the first study.
     \item \custominlinehighlight{Antenna Pairs}: nominal variable with 18 conditions, representing the three best-performing sets of antenna pairs determined in the first study, all single antenna pairs, the two largest sets of non-redundant antenna pairs, and the set of all antenna pairs. For instance, for the ``filtering'' processing stage, $\splitatcommas{AP=\{(1, 2, 6, 8, 9), (1, 2, 8, 9), (4, 7, 10, 11, 12)\} \cup \{(1), (2), ..., (11), (12)\} \cup \{(1, 2, 3, 6, 8, 9), (4, 5, 7, 10, 11, 12), (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\}}$.    
-    % best-performing combinations of antenna pairs determined in the first study. For instance, for processing stage ``raw data capture'', $\splitatcommas{AP=\{(4, 5, 7, 11), (4, 7, 11), (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\}}$.
+    % best-performing combinations of antenna pairs determined in the first study. For instance, for the ``raw data capture'' processing stage, $\splitatcommas{AP=\{(4, 5, 7, 11), (4, 7, 11), (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\}}$.
 \end{enumerate}
 In both studies, a gesture template consists of a sequence of frames, each containing two elements: (1) a timestamp and (2) a vector with the radar data at that instant. In the inversion and filtering steps, the vector (length $2 \times AP$) is the concatenation of the distance and permittivity values retrieved from all the antenna pairs. In the other stages, the vector (length $2 \times 34 \times AP$) results from the concatenation of the real and imaginary parts of the frequency-domain radar signal (34 frequencies) from the selected pairs of antennas.
 
@@ -467,7 +465,7 @@ Compared to a similar experiment described in our previous paper~\cite{Sluyters:
 
 
 \subsubsection{Horn} \label{sec:radar-experiments:sensors:results:horn}
-\fig~\ref{fig:radar-experiments:sensors:horn-samples} shows, for the four processing stages, the accuracy of Jackknife depending on the number of sampling points and training templates. In addition, \fig~\ref{fig:radar-experiments:sensors:horn-confusion} shows the confusion matrix of the best-performing configuration for each stage.
+\fig~\ref{fig:radar-experiments:sensors:horn-samples} shows, for the four processing stages, the accuracy of Jackknife with respect to the number of sampling points and training templates. In addition, \fig~\ref{fig:radar-experiments:sensors:horn-confusion} shows the confusion matrix of the best-performing configuration for each stage.
 
 
 % Raw data
@@ -757,113 +755,113 @@ Gestures h, i, j, k, and l (swipe right/left/up/down and draw infinity) were bet
 \begin{table}[bt]
     \resizebox{\linewidth}{!}{
     \renewcommand{\arraystretch}{1.1}
-	\begin{tabular}{l|rrr|rrr|rrr|rrr}
-	    \toprule
-	    & \multicolumn{3}{c|}{\textbf{Raw data}} & \multicolumn{3}{c|}{\textbf{Background subtraction}} & \multicolumn{3}{c|}{\textbf{Full-wave inversion}} & \multicolumn{3}{c}{\textbf{Filtering}}\\
-	    \cmidrule{2-13}
+    \begin{tabular}{l|rrr|rrr|rrr|rrr}
+        \toprule
+        & \multicolumn{3}{c|}{\textbf{Raw data}} & \multicolumn{3}{c|}{\textbf{Background subtraction}} & \multicolumn{3}{c|}{\textbf{Full-wave inversion}} & \multicolumn{3}{c}{\textbf{Filtering}}\\
+        \cmidrule{2-13}
         \textbf{AP} & \makecell{\textbf{RR} \\{} M (SD) [\%]} & \makecell{\textbf{ET}\\{} [ms]} & \textbf{N} & 
         \makecell{\textbf{RR} \\{} M (SD) [\%]} & \makecell{\textbf{ET}\\{} [ms]} & \textbf{N} & 
         \makecell{\textbf{RR} \\{} M (SD) [\%]} & \makecell{\textbf{ET}\\{} [ms]} & \textbf{N} & 
         \makecell{\textbf{RR} \\{} M (SD) [\%]} & \makecell{\textbf{ET}\\{} [ms]} & \textbf{N} \\
-		\midrule
-        % Best sets of antennas pairs
+        \midrule
+        % Best sets of antenna pairs
         1st best & 92.5 (17.7) & 5.6 & 22 &
-		91.3 (14.6) & 6.1 & 28 &
-		53.8 (34.0) & 0.5 & 23 &
-		56.3 (29.4) & 0.4 & 19 \\
+        91.3 (14.6) & 6.1 & 28 &
+        53.8 (34.0) & 0.5 & 23 &
+        56.3 (29.4) & 0.4 & 19 \\
 
         2nd best & 90.0 (16.3) & 5.2 & 27 &
-		93.8 (12.0) & 7.1 & 28 &
-		47.5 (27.2) & 0.8 & 35 &
-		50.0 (29.2) & 0.3 & 16 \\
+        93.8 (12.0) & 7.1 & 28 &
+        47.5 (27.2) & 0.8 & 35 &
+        50.0 (29.2) & 0.3 & 16 \\
 
         3rd best & \cellcolor{graybluebrighter} 93.8 (14.1) & 16.7 & 23 &
-		92.5 (12.4) & 10.5 & 40 &
-		53.8 (28.0) & 0.9 & 38 &
-		60.0 (25.3) & 0.6 & 29 \\
+        92.5 (12.4) & 10.5 & 40 &
+        53.8 (28.0) & 0.9 & 38 &
+        60.0 (25.3) & 0.6 & 29 \\
 
         % Single antenna pairs
-		1 & 82.5 (20.5) & 3.4 & 38 &
-		77.5 (27.2) & 2.8 & 34 &
-		30.0 (23.1) & 0.3 & 22 &
-		28.8 (31.0) & 0.0 & 4 \\
-		
-		2 & 77.5 (20.5) & 3.4 & 37 &
-		76.3 (24.5) & 1.7 & 24 &
-		18.8 (22.5) & 0.9 & 39 &
-		26.3 (30.7) & 0.3 & 36 \\
-		
-		3 & 81.3 (18.5) & 2.7 & 33 &
-		78.8 (21.3) & 2.9 & 39 &
-	    26.3 (23.9) & 0.9 & 40 &
-		30.0 (24.2) & 0.1 & 10 \\
-		
-		4 & 76.3 (22.2) & 3.1 & 35 &
-		81.3 (18.6) & 2.8 & 37 &
-		20.0 (14.6) & 0.6 & 35 &
-		22.5 (23.0) & 0.1 & 8 \\
-		
-		5 & 76.3 (18.2) & 2.1 & 28 &
-		75.0 (27.8) & 3.1 & 40 &
-		21.3 (22.5) & 0.2 & 16 &
-		25.0 (29.7) & 0.0 & 4 \\
-		
-		6 & 81.3 (15.4) & 2.2 & 29 &
-		82.5 (19.2) & 2.6 & 32 &
-		28.8 (25.3) & 0.7 & 37 &
-		31.3 (23.1) & 0.3 & 27 \\
-		
-		7 & 78.8 (28.7) & 3.1 & 40 &
-		80.0 (25.3) & 3.2 & 40 &
-		33.8 (26.0) & 0.2 & 16 &
-		30.0 (28.3) & 0.2 & 16 \\
-		
-		8 & 81.3 (20.0) & 2.3 & 26 &
-		80.0 (27.3) & 3.1 & 36 &
-		27.5 (25.3) & 0.4 & 29 &
-		26.3 (28.0) & 0.2 & 17 \\
-		
-		9 & 88.8 (17.8) & 2.9 & 37 &
-		87.5 (16.1) & 2.7 & 31 &
-		22.5 (25.2) & 0.0 & 4 &
-		30.0 (24.2) & 0.3 & 26 \\
-		
-		10 & 83.8 (22.2) & 2.6 & 33 &
-	    80.0 (20.7) & 3.1 & 34 &
-		23.8 (22.2) & 0.5 & 28 &
-		32.5 (33.4) & 0.0 & 4 \\
-		
-		11 & 86.3 (21.6) & 3.0 & 37 &
-		87.5 (23.0) & 2.9 & 31 &
-		23.8 (22.2) & 0.1 & 13 &
-		23.8 (20.9) & 0.1 & 7 \\
-		
-		12 & 77.5 (17.7) & 2.2 & 29 &
-		80.0 (19.3) & 2.7 & 31 &
-		28.8 (30.1) & 0.5 & 36 &
-		31.3 (27.3) & 0.3 & 26 \\
-		
+        1 & 82.5 (20.5) & 3.4 & 38 &
+        77.5 (27.2) & 2.8 & 34 &
+        30.0 (23.1) & 0.3 & 22 &
+        28.8 (31.0) & 0.0 & 4 \\
+        
+        2 & 77.5 (20.5) & 3.4 & 37 &
+        76.3 (24.5) & 1.7 & 24 &
+        18.8 (22.5) & 0.9 & 39 &
+        26.3 (30.7) & 0.3 & 36 \\
+        
+        3 & 81.3 (18.5) & 2.7 & 33 &
+        78.8 (21.3) & 2.9 & 39 &
+        26.3 (23.9) & 0.9 & 40 &
+        30.0 (24.2) & 0.1 & 10 \\
+        
+        4 & 76.3 (22.2) & 3.1 & 35 &
+        81.3 (18.6) & 2.8 & 37 &
+        20.0 (14.6) & 0.6 & 35 &
+        22.5 (23.0) & 0.1 & 8 \\
+        
+        5 & 76.3 (18.2) & 2.1 & 28 &
+        75.0 (27.8) & 3.1 & 40 &
+        21.3 (22.5) & 0.2 & 16 &
+        25.0 (29.7) & 0.0 & 4 \\
+        
+        6 & 81.3 (15.4) & 2.2 & 29 &
+        82.5 (19.2) & 2.6 & 32 &
+        28.8 (25.3) & 0.7 & 37 &
+        31.3 (23.1) & 0.3 & 27 \\
+        
+        7 & 78.8 (28.7) & 3.1 & 40 &
+        80.0 (25.3) & 3.2 & 40 &
+        33.8 (26.0) & 0.2 & 16 &
+        30.0 (28.3) & 0.2 & 16 \\
+        
+        8 & 81.3 (20.0) & 2.3 & 26 &
+        80.0 (27.3) & 3.1 & 36 &
+        27.5 (25.3) & 0.4 & 29 &
+        26.3 (28.0) & 0.2 & 17 \\
+        
+        9 & 88.8 (17.8) & 2.9 & 37 &
+        87.5 (16.1) & 2.7 & 31 &
+        22.5 (25.2) & 0.0 & 4 &
+        30.0 (24.2) & 0.3 & 26 \\
+        
+        10 & 83.8 (22.2) & 2.6 & 33 &
+        80.0 (20.7) & 3.1 & 34 &
+        23.8 (22.2) & 0.5 & 28 &
+        32.5 (33.4) & 0.0 & 4 \\
+        
+        11 & 86.3 (21.6) & 3.0 & 37 &
+        87.5 (23.0) & 2.9 & 31 &
+        23.8 (22.2) & 0.1 & 13 &
+        23.8 (20.9) & 0.1 & 7 \\
+        
+        12 & 77.5 (17.7) & 2.2 & 29 &
+        80.0 (19.3) & 2.7 & 31 &
+        28.8 (30.1) & 0.5 & 36 &
+        31.3 (27.3) & 0.3 & 26 \\
+        
         % Largest sets of antenna pairs
-		1, 2, 3, 6, 8, 9 & \cellcolor{graybluebrighter} 93.8 (12.0) & 10.1 & 27 &
-		93.8 (9.6) & 9.6 & 26 &
-		61.3 (31.4) & 0.8 & 39 &
-		\cellcolor{graybluebrighter} 63.8 (23.4) & 0.8 & 35 \\
-		
-		4, 5, 7, 10, 11, 12 & 92.5 (12.4) & 14.4 & 38 &
-		\cellcolor{graybluebrighter} 95.0 (8.9) & 11.0 & 31 &
-		51.3 (31.0) & 0.6 & 23 &
-		56.3 (31.2) & 0.4 & 15 \\
-		
-		All 12 pairs & \cellcolor{graybluebrighter} 93.8 (14.1) & 16.7 & 23 &
-		93.8 (12.0) & 28.7 & 38 &
-		\cellcolor{graybluebrighter} 65.0 (28.8) & 1.3 & 34 &
-		58.8 (32.2) & 0.5 & 18 \\
+        1, 2, 3, 6, 8, 9 & \cellcolor{graybluebrighter} 93.8 (12.0) & 10.1 & 27 &
+        93.8 (9.6) & 9.6 & 26 &
+        61.3 (31.4) & 0.8 & 39 &
+        \cellcolor{graybluebrighter} 63.8 (23.4) & 0.8 & 35 \\
+        
+        4, 5, 7, 10, 11, 12 & 92.5 (12.4) & 14.4 & 38 &
+        \cellcolor{graybluebrighter} 95.0 (8.9) & 11.0 & 31 &
+        51.3 (31.0) & 0.6 & 23 &
+        56.3 (31.2) & 0.4 & 15 \\
+        
+        All 12 pairs & \cellcolor{graybluebrighter} 93.8 (14.1) & 16.7 & 23 &
+        93.8 (12.0) & 28.7 & 38 &
+        \cellcolor{graybluebrighter} 65.0 (28.8) & 1.3 & 34 &
+        58.8 (32.2) & 0.5 & 18 \\
         \bottomrule
-	\end{tabular}
-	}
-	\caption{Recognition rates and execution times obtained for the Walabot data at four steps of the processing pipeline for the first, second, and third best sets of antenna pairs in the third study, all single antenna pairs, the two largest sets of non-redundant antenna pairs, and the set of all antenna pairs. AP=antenna pairs, RR=recognition rate [\%], ET=execution time [ms], N=number of sampling points. The best-performing sets of antenna pairs are highlighted in blue.}
-	\label{tab:radar-experiments:sensors:walabot}
-	%\vspace{-14pt}
+    \end{tabular}
+    }
+    \caption{Recognition rates and execution times obtained for the Walabot data at four steps of the processing pipeline for the first, second, and third best sets of antenna pairs in the third study, all single antenna pairs, the two largest sets of non-redundant antenna pairs, and the set of all antenna pairs. AP=antenna pairs, RR=recognition rate [\%], ET=execution time [ms], N=number of sampling points. The best-performing sets of antenna pairs are highlighted in blue.}
+    \label{tab:radar-experiments:sensors:walabot}
+    %\vspace{-14pt}
 \end{table}
 
 % Filtering
@@ -904,6 +902,8 @@ Overall, the Walabot achieved better accuracy than the LMC and the Horn, indicat
 The twelve antenna pairs of the Walabot gave it an edge on the Horn's single antenna, despite their lower quality. However, more spaced-out antennas could achieve even better angular resolution, which would benefit some types of gestures, such as ``swipe right/left/up/down'', ``wave hand'', and ``draw infinity''.
 %
 Using three or more spread-out antennas could also enable us to use trilateration to identify the 3D position of the hand based on data from the full-wave inversion and filtering stages. This could improve the recognition of 3D hand trajectories and be used to display a cursor indicating the position of the user's hand in an application.
+%
+Finally, sensor fusion techniques such as Kalman filters (Section~\ref{sec:state_of_the_art:overview:challenges:sensors-limitations}) could be leveraged to combine the strengths of radar and vision-based sensors, thus improving gesture recognition accuracy and robustness in challenging environmental conditions.
 
 
 
@@ -916,15 +916,6 @@ This second experiment evaluates the performance of the Walabot on the ``20-gest
     \item Evaluate the efficacy of our signal-processing pipeline on a large set of gestures from multiple users in user-dependent, user-independent, and mixed scenarios.
     \item Explore how smaller, highly differentiable subsets of the gesture set affect the performance of our approach in a user-dependent scenario.
 \end{enumerate}
-
-% In this first experiment, the efficiency of the pipeline is evaluated by training  Jackknife~\cite{Taranta:2017}, a 1-NN gesture recognizer on the twenty classes of the dataset, to determine whether output data from the pipeline can be used to accurately classify a large and diverse set of gestures. Jackknife was set up with its default settings for the inner product distance measure.
-% %
-% This gesture recognizer was selected because it can accommodate different data types, works with as few as one training template, and is fast to train and execute. We chose to work with an existing recognizer, as implementing the best-performing algorithm for radar gesture recognition was outside of the scope of this paper. However, other algorithms (\eg deep-learning-based) could be used in conjunction with our data processing pipeline to achieve better performance.
-% %
-% This second experiment aims at identifying well-differentiated subsets of our gesture dataset that can be recognized accurately in a user-dependent scenario.  µ
-
-% Two experiments were devised to evaluate the efficacy of the signal-processing pipeline. The first experiment looked into how it performed on the full gesture set in user-dependent, user-independent, and mixed scenarios. 
-% The second experiment explored how smaller, highly differentiable subsets of the gesture set could affect the performance of our approach in a user-dependent scenario.
 
 %--------------------------------------------------------------------------------%
 \subsection{Protocol} \label{sec:radar-experiments:gesture-subsets:protocol}
@@ -1420,8 +1411,8 @@ Similarly to the time gating stage, the low accuracy could be explained by the l
 
 %--------------------------------------------------------------------------------%
 \subsection{Summary} \label{sec:radar-experiments:through-materials:discussion}
-This experiment showed us that a relatively inexpensive radar like the Walabot could perform relatively well through some types of materials, including wood and PVC. In addition, our signal-processing pipeline managed to normalize the signals from the two materials, achieving a fairly high accuracy of around 71\% across these materials.
-\textbf{TODO} The results of Leiva \etal's study with fabrics~\cite{Leiva:2020} suggest that even better accuracy could be achieved by training the gesture recognition algorithm with a larger set of samples performed without any material in front of the radar. This could be worth investigating in future works, as the data normalization applied by our pipeline could further improve these results.
+This experiment demonstrated that a relatively inexpensive radar like the Walabot could perform relatively well through some types of materials, including wood and PVC. In addition, our signal-processing pipeline was able to normalize the signals from the two materials, achieving a fairly high accuracy of around 71\% across these materials.
+The results of Leiva \etal's study about radar sensing through fabric~\cite{Leiva:2020} suggest that training the gesture recognition algorithm on a larger set of samples without material obstruction could further enhance accuracy across all tested materials. This avenue would be worth investigating in future research, as combining this technique with the data normalization applied by our pipeline could lead to even greater gesture recognition accuracy through different materials.
 %
 The higher relative permittivity of the glass compared to the other materials resulted in a lower accuracy. While the average accuracy still reached 71.6\% in the user-dependent scenario when using glass data for training and testing, it dropped to around 38\% when mixing glass with another material. This indicates that our processing pipeline could not properly normalize signals recorded through the glass, probably because of the lower signal-to-noise ratio. Other radar systems operating at a different power level and/or frequency range may alleviate this issue.
 %
@@ -1461,7 +1452,7 @@ For example, in the user-dependent scenario, there was little to no confusion be
 \paragraph{G5. Select gestures based on the level of criticality of your application.}
 For non-critical applications (\eg interacting with a TV at home), gestures with lower accuracy, such as ``open/close/open then close hand'' and ``extend one/two/three/four fingers'', may be selected if they are well suited to perform a specific action. In such applications, an incorrect result from the recognizer would only impact the user experience of the application.
 %
-For safety-critical applications, such as performing high-precision medical procedures, developers should rely on small gesture sets composed exclusively of gestures that can be recognized with very high accuracy (> 99\%). It is strongly advised to train the system with data from the same person(s) that would use the system in order to guarantee high accuracy. In fact, an incorrectly recognized gesture in these applications could have life-threatening consequences. 
+For safety-critical applications, such as performing high-precision medical procedures, developers should rely on small gesture sets composed exclusively of gestures that can be recognized with very high accuracy (> 99\%). To guarantee high accuracy, it is strongly advised to train the system with data from the same person(s) that would use the system, as an incorrectly recognized gesture in these applications could have life-threatening consequences. 
     
 % \paragraph{\textbf{I6. Favor the most accurately recognized gestures}} 
 % Priority should be given to gestures that are the most accurately recognized. Positive examples for the Walabot are gestures no. 1 to 4, 7, 10, and 11 with more than 70\% recognition accuracy rates.
@@ -1484,7 +1475,7 @@ Because the radar signals output by this step are normalized and thus free of an
 \paragraph{S2. Prefer time-domain to frequency-domain data.}
 Compared to the first two experiments, our third experiment (Section~\ref{sec:radar-experiments:through-materials:results}) showed that gesture recognition accuracy was more stable with respect to the number of sampling points when using time-domain data, as temporal information is better preserved when the signal is resampled to a lower number of points. In addition, time-domain data is relatively easy to interpret by humans, which can be an advantage when designing a highly differentiable gesture set.
 
-\paragraph{E1. Avoid materials with a high relative permittivity.} 
+\paragraph{E1. Avoid materials with high relative permittivity.} 
 Our third experiment showed that we could still achieve relatively accurate gesture recognition when the radar was obstructed by some material like wood or PVC (Section~\ref{sec:radar-experiments:through-materials:results:intra-material}). 
 %
 However, materials with a higher relative permittivity (\eg glass) will reflect a larger fraction of the radar signal, resulting in a lower signal-to-noise ratio which will impact gesture recognition accuracy. 

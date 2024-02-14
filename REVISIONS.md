@@ -35,10 +35,10 @@ No modification.
   - Would learned features transfer between radars or models? So many formats: FFT-based, Doppler-based, point clouds, etc.
 
 ## Chapter 7 - Experimenting with Radar-based Gestures
-- [ ] Discuss the problem of sensor fusion. `Section 7.2.4`
-- [ ] Gestures through materials dataset: Any thoughts about how would the results transfer/replicate between studies? See e.g. the Slovenia dataset. (Radar experiments)
-- [ ] Explicitly include, quote, and discuss the reference Leiva:2020 (State of the art + Radar experiments)
+- [x] Discuss the problem of sensor fusion. `Section 7.2.4`
+- [x] Explicitly include, quote, and discuss the reference Leiva:2020 `Section 7.4.1` `Section 7.4.4`
   - Chapter 7: Missing citation (shameless plug): "The wearable radar" paper. We used the same training/testing aproach as shown in Table 146.
+  - Gestures through materials dataset: Any thoughts about how would the results transfer/replicate between studies? See e.g. the Slovenia dataset.
 
 ## Chapter 8 - Conclusion
 - [x] Discuss the problem of sensor fusion. `Section 8.2`
@@ -52,7 +52,7 @@ No modification.
   - [x] Chapter 4
   - [x] Chapter 5
   - [ ] Chapter 6
-  - [ ] Chapter 7
+  - [x] Chapter 7
   - [x] Conclusion 
 
 ## Suggested modifications not applied to the revised thesis
