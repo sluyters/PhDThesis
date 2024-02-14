@@ -31,7 +31,7 @@ No modification.
 ## Chapter 6 - Addressing the Challenges of Radar-based Gesture Recognition
 - [x] Fix typo in computational complexity estimation: O(n ∗ k) should be O(n · k). `Section 6.2.5`
 - [x] Have you studied the effect of angle? It's mentioned "distance d from the radar and is orthogonal to the radar-hand direction". `Section 6.2.5`
-- [ ] In data normalization, discuss the transfer from one sensor to another one (Radar challenges) `Section 6.2.2`
+- [x] In data normalization, discuss the transfer from one sensor to another one (Radar challenges) `Section 6.2.2`
   - Would learned features transfer between radars or models? So many formats: FFT-based, Doppler-based, point clouds, etc.
 
 ## Chapter 7 - Experimenting with Radar-based Gestures
@@ -45,20 +45,23 @@ No modification.
 
 ## Miscellaneous
 - [x] Fix academic name of Luis A. Leiva. `Title page`
-- [ ] Fix typos. `Everywhere`
+- [x] Formatting improvements 
+- [x] Added missing references of papers "in press" or just published.
+- [x] Fix typos. `Everywhere`
   - [x] Introduction
   - [x] State of the Art
   - [x] Chapter 3
   - [x] Chapter 4
   - [x] Chapter 5
-  - [ ] Chapter 6
+  - [x] Chapter 6
   - [x] Chapter 7
   - [x] Conclusion 
   - [x] Appendices
 
 ## Suggested modifications not applied to the revised thesis
-- 	Update Table 2.2 with more up-to-date references, since only 1 ref from 2021 was included.
-- 	Explain why JackKnife has 725 LOCs? It's substantailly higher than the rest of recognizers. Was it written in the same programming language?
+- [ ] Update Table 2.2 with more up-to-date references, since only 1 ref from 2021 was included.
+- [ ] Explain why JackKnife has 725 LOCs? It's substantailly higher than the rest of recognizers. Was it written in the same programming language?
+  - We included the entire JavaScript implementation of Jackknife, which defines multiple parameters, parameters, and classes, that can be combined to adapt Jackknife to different use cases. A particular configuration of Jackknife could fit in a smaller number of LOCs but would require more work to slim down its code than just using it "as is", which is why we decided to count all of its LOCs.
 
 	
 

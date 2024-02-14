@@ -145,7 +145,7 @@ The vector of unknowns is then determined using the least squares approach:
 \mathbf{x}=\left(\mathbf{A}^{\text{H}}\mathbf{A}\right)^{-1}\mathbf{A}^{\text{H}}\mathbf{b}
 \end{equation}
 where symbol H denotes the Hermitian or conjugate transpose
-($\mathbf{A}^{\text{H}}\equiv\overline{\mathbf{A}^{T}}$). In order for the Green's function model to apply, which assumes infinite layers, the metal sheet should be larger than five times the maximum wavelength, depending on the antenna radiation pattern. For smaller sizes, the edge effects can affect the results.
+($\mathbf{A}^{\text{H}}\equiv\overline{\mathbf{A}^{T}}$). For the Green's function model to apply, which assumes infinite layers, the metal sheet should be larger than five times the maximum wavelength, depending on the antenna radiation pattern. For smaller sizes, the edge effects can affect the results.
 
 %--------------------------------------------------------------------------------%
 \subsection{Full-Wave Signal Inversion} \label{sec:radar-challenges:inversion}
@@ -194,7 +194,7 @@ time-domain windowed Green functions. Depending on the number of unknowns to est
 %================================================================================%
 \section{Radar Data Processing Strategy} \label{sec:radar-challenges:processing-strategy}
 
-\begin{figure*}[t]
+\begin{figure*}[!b]
 \centering
 \includegraphics[width=\linewidth,trim={0 0 0.3cm 0},clip]{Figures/RadarChallenges/Pipeline/pipeline-detailed.pdf}
 \caption{Overview of the radar data processing strategy. For each stage, a visualization of its effect on the radar data and an example of the corresponding radar signal are provided. The radar signal is represented in the time domain for stages (a) to (d) and as time-distance and time-permittivity plots for stages (e) and (f).}
@@ -207,14 +207,16 @@ Based on the full-wave electromagnetic modeling and inversion (Section~\ref{sec:
 %--------------------------------------------------------------------------------%
 \subsection{Raw Data Capture} \label{sec:radar-challenges:processing-strategy:data-capture}
 Data is retrieved from one or more receiving radar antennas, either in the time or frequency domain, depending on the radar used (\fig~\ref{fig:radar-challenges:pipeline}a). 
-Raw data consists of the relevant signal with noise and parasitic reflections, which vary depending on the environment and on the radar system.
+Raw data consists of the relevant signal with noise and parasitic reflections, which vary depending on the environment and the radar system.
 To perform subsequent processing stages, the time-domain signal should first be converted to the frequency domain using a Fast Fourier Transform (FFT)  Eq.~\ref{eq:radar-challenges:fft}) in order to apply the normalizing radar equation \ref{eq:radar-challenges:sff6}. The FFT yields a spectrum spanning from 0 to the Nyquist frequency. Within this spectrum, a specific sub-range is strategically chosen to strike an ideal balance between bandwidth and signal-to-noise ratio. In the context of pulse radar applications, it is common to narrow down this sub-range to a range approximately one-fourth below the center frequency up to twice the center frequency.
 
 %--------------------------------------------------------------------------------%
 \subsection{Radar Source and Antenna Effects Removal} \label{sec:radar-challenges:antenna-effects}
-This second stage removes the effects of the radar source and antenna (except radiation pattern) by applying the radar equation (Eq.~\ref{eq:radar-challenges:sff6})~\cite{Lambot:2004,Lambot:2014} to the raw signal (\fig~\ref{fig:radar-challenges:pipeline}b). These effects include internal reflections and transmissions between antennas, as well as antenna-target interactions. In the case of antenna arrays, this stage requires the generation of a far-field model of each emitter/receiver pair of antennas by computing their respective characteristic functions. Generating the model is a one-shot process (property P\textsubscript{3}) that consists of performing several measurements at different distances from a metal sheet (Section~\ref{sec:radar-challenges:mathematical-theory:characteristic-functions}). The far-field version of the radar model is chosen as it is much less resource-intensive to compute than the near-field one and is valid as long as the users stay sufficiently far away from the radar, \ie the distance to the target should be longer than the radar aperture size \cite{Tran:2013}. This stage produces a Green's function that is independent of the radar and thereby normalized in the operating frequency range of interest (property P\textsubscript{1}) \cite{DeCoster:2018a}.  Figure 4 illustrates the normalization of signals from two distinct radar systems (a Walabot and a custom radar with a BBHA 9120 A horn antenna, both operating from 0.8 to 5 GHz) using our radar equation to filter out source and antenna effects. This process yields nearly identical Green's functions for both systems, despite their different origins, by focusing on the common frequency components. The slight differences observed are attributed to measurement errors. Users' reflections now stand out as undesired echoes are removed. 
+This second stage removes the effects of the radar source and antenna (except radiation pattern) by applying the radar equation (Eq.~\ref{eq:radar-challenges:sff6})~\cite{Lambot:2004,Lambot:2014} to the raw signal (\fig~\ref{fig:radar-challenges:pipeline}b). These effects include internal reflections and transmissions between antennas, as well as antenna-target interactions. In the case of antenna arrays, this stage requires the generation of a far-field model of each emitter/receiver pair of antennas by computing their respective characteristic functions. Generating the model is a one-shot process (property P\textsubscript{3}) that consists of performing several measurements at different distances from a metal sheet (Section~\ref{sec:radar-challenges:mathematical-theory:characteristic-functions}). The far-field version of the radar model is chosen as it is much less resource-intensive to compute than the near-field one and is valid as long as the users stay sufficiently far away from the radar, \ie the distance to the target should be longer than the radar aperture size \cite{Tran:2013}. This stage produces a Green's function that is independent of the radar and thereby normalized in the operating frequency range of interest (property P\textsubscript{1}) \cite{DeCoster:2018a}. 
 %
-\textbf{Discuss transfer between radars}
+\fig~\ref{fig:radar-challenges:radar-equivalence} illustrates the normalization of signals from two distinct radar systems (a Walabot and a custom radar with a BBHA 9120 A horn antenna, both operating from 0.8 to 5 GHz) using the radar equation to filter out source and antenna effects. This process yields nearly identical Green's functions for both systems, despite their different origins, by focusing on the common frequency components. The slight differences observed are attributed to measurement errors. Users' reflections now stand out as undesired echoes are removed. 
+%
+This preliminary experiment suggests that data from this stage could be seamlessly transferred between two distinct radars operating at similar frequencies. The resulting Green's functions can serve as input for various processing stages, such as full wave inversion (Section~\ref{sec:radar-challenges:processing-strategy:inversion}), feature extraction using CNNs, point cloud generation, or range-Doppler map generation. The data normalization applied by this stage could thus facilitate the reuse of datasets, features, and trained neural networks across different radar systems.
 % 
 We provide the computational complexity of each stage for processing one radar frame based on the variable $n$, which is the size of the radar signal from a single receiving antenna. The signal size is impacted by the sampling rate of the radar. 
 The computational complexity of this stage is $O(n)$.
@@ -316,7 +318,7 @@ Prof. S\'ebastien Lambot and his team later converted parts of the MATLAB script
 Both the MATLAB and C++ versions of the batch processing pipeline compile all processed gestures into the \ql dataset format. 
 The C++ real-time version of the pipeline initializes a WebSocket server through which it can send processed radar data to other applications, such as the \ql framework (Chapter~\ref{chap:quantumleap}).
 
-\begin{figure}[t]
+\begin{figure}[bt]
 \centering
 \begin{subfigure}{.49\textwidth}
     \centering
@@ -348,10 +350,10 @@ This section discusses the main limitations of our approach.
 %
 First, our pipeline does not take into account variations in position with respect to the radar, as shown in Section~\ref{sec:radar-challenges:inversion} and \fig~\ref{fig:radar-challenges:radar-angle-distance}, resulting in inaccurate permittivity estimations that change drastically depending on the distance and angle between the user and the radar.
 %
-Second, our signal processing pipeline neglects anatomical differences between users (\eg hand size, arm length), which may lower the effectiveness of gesture recognition algorithms in user-independent scenarios (Section~\ref{sec:quantumleap-testing:description:testing-procedures:user-scenarios}). For example, a larger hand will reflect more signal back towards the radar, resulting in a greater relative permittivity measured for the same gesture. Taking into account these variations would require at least three changes to the pipeline: (1) normalize the amplitude of user reflections with respect to their hand and body size, (2) extract the hand-body distance instead of the hand-radar distance in the inversion stage, and (3) normalize the hand-body distance with respect to the user's arm length.
+Second, our signal processing pipeline neglects anatomical differences between users (\eg hand size, arm length), which may lower the effectiveness of gesture recognition algorithms in user-independent scenarios (Section~\ref{sec:quantumleap-testing:description:testing-procedures:user-scenarios}). For example, a larger hand will reflect more signal towards the radar, resulting in a greater relative permittivity measured for the same gesture. Taking into account these variations would require at least three changes to the pipeline: (1) normalize the amplitude of user reflections with respect to their hand and body size, (2) extract the hand-body distance instead of the hand-radar distance in the inversion stage, and (3) normalize the hand-body distance with respect to the user's arm length.
 
 % processing + real-time
-% matlab and C++ for batch processing
+% Matlab and C++ for batch processing
 % C++ for real-time processing
 
 % The pipeline was used in a simple application in the RadarSense project(from Romania)

@@ -45,19 +45,16 @@ Section~\ref{sec:radar-experiments:data-collection:pre-processing} provides deta
 \subsection{Sensors} \label{sec:radar-experiments:data-collection:sensors}
 This section describes the three sensors that we used for data collection, including a vision-based sensor (the LMC) and two radar sensors (a Walabot and a custom horn antenna).
 
-\subsubsection{LMC}
-The LMC (\fig~\ref{fig:radar-experiments:lmc}) is a small, relatively inexpensive, and popular vision-based sensor for gesture recognition. It was described in detail in Section~\ref{sec:state_of_the_art:lmc} when we looked at the state of LMC-based gesture recognition in the literature. The LMC API provides hand skeletons that can be given as input to gesture recognition algorithms.
-
-\begin{figure}[hbt]
+\begin{figure}[!b]
     \centering
-    \begin{subfigure}{.44\linewidth}
+    \begin{subfigure}{.46\linewidth}
         \centering
         \includegraphics[width=\linewidth]{Figures/RadarExperiments/Sensors/lmc.pdf}
         \captionsetup{width=.99\linewidth}
         \caption{Sensor.}
         \label{fig:radar-experiments:lmc:product}
     \end{subfigure}
-    \begin{subfigure}{.55\linewidth}
+    \begin{subfigure}{.46\linewidth}
         \centering
         \includegraphics[width=\linewidth,trim={0.2cm 0.2cm 0.2cm 1.5cm},clip]{Figures/RadarExperiments/Sensors/lmc-fov.pdf}
         \captionsetup{width=.99\linewidth}
@@ -68,45 +65,49 @@ The LMC (\fig~\ref{fig:radar-experiments:lmc}) is a small, relatively inexpensiv
     \label{fig:radar-experiments:lmc}
 \end{figure}
 
+\subsubsection{LMC}
+The LMC (\fig~\ref{fig:radar-experiments:lmc}) is a small, relatively inexpensive, and popular vision-based sensor for gesture recognition. It was described in detail in Section~\ref{sec:state_of_the_art:lmc} when we looked at the state of LMC-based gesture recognition in the literature. The LMC API provides hand skeletons that can be given as input to gesture recognition algorithms.
+
 \subsubsection{Walabot}
 The Walabot Developer is a commercially available, ultra-wideband (UWB) radar sensor employing frequency-modulated continuous-wave (FMCW) technology. It operates in the 6.3-8 GHz range in its EU/CE version and features an array of 18 bowtie radar antennas, including four used as transmitters and 15 as receivers (\fig~\ref{fig:radar-experiments:walabot}). The advantage of using an antenna array, as opposed to a monostatic or bistatic radar configuration, is its capability to furnish not only distance information but also direction information.
 The compact form factor of the Walabot (72$\times$140 mm board) and its USB connectivity make it suitable for use in (semi-)mobile and stationary contexts of use. 
 The Walabot Developer SDK enables the retrieval of raw time-domain radar data for use in custom applications. Three profiles are provided for distant scanning, defining the frequency range, the set of antenna pairs (right part of \fig~\ref{fig:radar-experiments:walabot}), the number of fast-time samples per frame, and the frame rate, as follows:
+\begin{figure*}[!b]
+    \vspace{-4pt}
+    \centering
+    \includegraphics[width=\linewidth]{Figures/RadarExperiments/Sensors/walabot.pdf}
+    \vspace{-16pt}
+    \caption{Walabot enclosure and PCB, antennas IDs, and antenna pairs IDs (profiles 1 and 2).}
+    \label{fig:radar-experiments:walabot}
+\end{figure*}
 \begin{itemize}
     \item Profile 1 (\custominlinecode{PROF_SENSOR}): 6.3-8 GHz range, 40 antenna pairs, 8192 fast-time samples/frame, \textasciitilde 20 fps.
     \item Profile 2 (\custominlinecode{PROF_SENSOR_NARROW}): 6.3-8 GHz range, 12 antenna pairs, 4096 fast-time samples/frame, \textasciitilde 41 fps.
     \item Profile 3 (\custominlinecode{PROF_WIDE_BAND}): 3.3-10 GHz range, 40 antenna pairs, 8192 fast time samples/frame, \textasciitilde 15 fps. This profile is only available with the US/FCC version of the Walabot.
 \end{itemize}
-The Walabot is effective and efficient in various application domains, including material identification~\cite{Agresti:2019}, activity recognition~\cite{Avrahami:2018, Zhu:2018}, and gesture recognition~\cite{Zhang:2021} with deep neural networks.
+The Walabot has been used in various application domains, including material identification~\cite{Agresti:2019}, activity recognition~\cite{Avrahami:2018, Zhu:2018}, and gesture recognition~\cite{Zhang:2021}.
 
-\begin{figure*}[tb]
-    \centering
-    \includegraphics[width=\linewidth]{Figures/RadarExperiments/Sensors/walabot.pdf}
-    \vspace{-12pt}
-    \caption{Walabot enclosure and PCB, antennas IDs, and antenna pairs IDs (profiles 1 and 2).}
-    \label{fig:radar-experiments:walabot}
-    \vspace{-14pt}
-\end{figure*}
+
 
 \subsubsection{Custom Radar}
 The ``horn'' (\fig~\ref{fig:radar-experiments:horn}) is a custom radar equipped with an antenna system consisting of a linearly polarized, double-ridged broadband horn antenna (BBHA 9120 A, Schwarzbeck Mess-Elektronik, Germany). The antenna dimensions are 22 cm (8.66 in.) long and 14$\times$24 cm$^2$ (5.51$\times$9.45 in.$^2$) aperture area. The antenna's nominal frequency range is 0.8 to 5 GHz, and its isotropic gain ranges from 6 to 18 dBi. The high directivity of the antenna (45\textdegree 3 dB beamwidth in the E-plane and 30\textdegree in the H-plane at 1 GHz) makes it suitable for gesture recognition.
 This radar system provides very high range resolution, but low angular resolution as it features only one antenna.
 
-\begin{figure*}[tb]
+\begin{figure}[!h]
     \centering
-    \includegraphics[width=.4\linewidth,trim={2pt 2pt 2pt 2pt},clip]{Figures/RadarExperiments/Sensors/horn-antenna.pdf}
+    \includegraphics[width=.35\linewidth,trim={2pt 2pt 2pt 2pt},clip]{Figures/RadarExperiments/Sensors/horn-antenna.pdf}
     % \vspace{-12pt}
     \caption{Custom radar.}
     \label{fig:radar-experiments:horn}
     % \vspace{-14pt}
-\end{figure*}
+\end{figure}
 
 
 %--------------------------------------------------------------------------------%
 \subsection{Datasets} \label{sec:radar-experiments:data-collection:datasets}
 Three datasets were designed to evaluate the radar data processing strategy in different conditions (\tab~\ref{tab:radar-experiments:datasets-summary}). Their gestures are compiled in \fig~\ref{fig:radar-experiments:gestures-a},~\ref{fig:radar-experiments:gestures-b}, and~\ref{fig:radar-experiments:gestures-c}. Each gesture is classified according to Aigner \etal's taxonomy~\cite{Aigner:2012} and our taxonomy, inspired by Vatavu's iFad gestures~\cite{Vatavu:2023b} (\fig~\ref{fig:radar-experiments:taxonomy}).
 
-\begin{table}
+\begin{table}[!b]
     \footnotesize
     \centering
     \begin{tabular}{lrrrp{4.6cm}}
@@ -122,7 +123,7 @@ Three datasets were designed to evaluate the radar data processing strategy in d
     \label{tab:radar-experiments:datasets-summary}
 \end{table}
 
-\begin{figure}[ht]
+\begin{figure}[b]
     \centering
     \includegraphics[width=.60\linewidth]{Figures/RadarExperiments/Datasets/20Gestures/gesture-taxonomy.pdf}
     \vspace{-2pt}
@@ -185,6 +186,7 @@ The custom radar produced frequency-domain data at about ten frames per second.
         \caption{Custom radar and LMC.}
         \label{fig:radar-experiments:setup-sensors-comparison:horn-lmc}
     \end{subfigure}
+    \vspace{-16pt}
     \caption{Setup used for acquiring the ``sensors comparison'' dataset.}
     \label{fig:radar-experiments:setup-sensors-comparison}
 \end{figure}
@@ -227,7 +229,7 @@ Each material was placed on an easel with its height adjusted so that the partic
     \vspace{-12pt}
     \caption{Setup used for acquiring the ``through-materials'' datasets.}
     \label{fig:radar-experiments:setup-walabot-materials}
-    \vspace{-8pt}
+    % \vspace{-8pt}
 \end{figure}
 
 Each gesture was performed five times by 20 participants in a controlled environment, resulting in a total of 9 (gestures) $\times$ 20 (participants) $\times$ 5 (repetitions) ${=}$ 900 samples per type of material. The recording procedure was as follows: show the gesture to the participant, then, for each sample, (1) the participant starts with their arms alongside their body, (2) the recording is started, (3) the participant produces the gesture, (4) the participant places their arms back alongside their body, (5) the recording is stopped and the data saved to a text file. This action sequence was repeated for each repetition of each gesture and each material. 
