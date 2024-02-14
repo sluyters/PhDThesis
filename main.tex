@@ -112,7 +112,16 @@
 \definecolor{grayblue+}{RGB}{88, 109, 138}
 \definecolor{grayblue}{RGB}{68, 84, 106}
 \definecolor{customdarkgray}{RGB}{100, 100, 100}
-\definecolor{customlightgray}{RGB}{230, 230, 230}
+\definecolor{customgray}{RGB}{180, 180, 180}
+\definecolor{customlightgray}{RGB}{225, 225, 225}
+
+% Choose colors for web vs print
+% \colorlet{highlightcolor}{customlightgray} % Print
+% \colorlet{circlecolor1}{black} % Print
+% \colorlet{circlecolor2}{customgray} % Print
+\colorlet{highlightcolor}{graybluebrighterer} % Web
+\colorlet{circlecolor1}{grayblue} % Web
+\colorlet{circlecolor2}{graybluebrighter} % Web
 
 %================================================================================%
 %   Commands
@@ -133,18 +142,34 @@
 \newcommand{\lst}{Listing\xspace}
 
 % Circles
-\newcommand*\emptycirc[1][1ex]{\tikz\draw[graybluebrighterer, thick] (0,0) circle (#1);} 
-\newcommand*\halfcirc[1][1ex]{%
-  \begin{tikzpicture}
-  \draw[grayblue,fill=grayblue] (0,0)-- (90:#1) arc (90:270:#1) -- cycle ;
-  \draw[grayblue] (0,0) circle (#1);
-  \end{tikzpicture}}
-\newcommand*\fullcirc[1][1ex]{\tikz\fill[color=grayblue] (0,0) circle (#1);} 
+\newcommand*\emptycirc[1][1ex]{
+  \begin{tikzpicture}[baseline=(base)]
+    \draw[circlecolor2, thick] (0,0) circle (#1);
+    \node (base) at (0,-.7ex) {};
+  \end{tikzpicture}
+} 
 
-\newcommand*\circled[3][white]{\tikz[baseline=(char.base)]{
+\newcommand*\halfcirc[1][1ex]{%
+  \begin{tikzpicture}[baseline=(base)]
+    \draw[circlecolor1,fill=circlecolor1] (0,0)-- (90:#1) arc (90:270:#1) -- cycle ;
+    \draw[circlecolor1,thick] (0,0) circle (#1);
+    \node (base) at (0,-.7ex) {};
+  \end{tikzpicture}
+}
+
+\newcommand*\fullcirc[1][1ex]{
+  \begin{tikzpicture}[baseline=(base)]
+    \draw[circlecolor1,fill=circlecolor1,thick] (0,0) circle (#1);
+    \node (base) at (0,-.7ex) {};
+  \end{tikzpicture}
+} 
+
+\newcommand*\circled[3][white]{
+  \tikz[baseline=(char.base)]{
   % \node[shape=circle,fill=#2,inner sep=1.2pt] (char)
   \node[shape=circle,fill=#3,minimum size=4mm, inner sep=0pt] (char)
-  {\rule[-3pt]{0pt}{\dimexpr2ex+2pt}\textcolor{#1}{#2}};}}
+  {\rule[-3pt]{0pt}{\dimexpr2ex+2pt}\textcolor{#1}{#2}};}
+}
 
 % Split math formulas at commas
 \newcommand{\splitatcommas}[1]{%
@@ -192,7 +217,7 @@
 \NewTotalTCBox{\custominlinecode}{ O{javascript} v !O{} }{%
   nobeforeafter,
   verbatim,
-  colback=graybluebrighterer,
+  colback=highlightcolor,
   frame empty,
   boxsep=0.5mm,
   top=0pt,bottom=0pt,left=0mm,right=0mm
@@ -241,66 +266,6 @@
 
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
 \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
-
-% %================================================================================%
-% %   Title page (old)
-% %================================================================================%
-% \begin{titlepage}
-% \begin{center}
-
-% \begin{figure}
-%   \centering
-%   \includegraphics[scale = 0.30]{Figures/logo_joint.png}
-% \end{figure}
-
-
-% 	%\begin{center}
-% 	%\includegraphics[scale = 0.20]{UCL+mention-pantone282.eps}\\[0.5cm]
-% 	%\end{center}
-		
-% %\textsc{\large Doctoral Thesis}\\[0.5cm] % Thesis type
-
-% \HRule \\[0.4cm] % Horizontal line
-% {\LARGE \bfseries \ttitle}\\[0.1cm] % Thesis title
-% \HRule \\[1.0cm] % Horizontal line
-
-% \begin{minipage}{\textwidth}
-%     \centering
-%     \begin{tabular}{ll}
-%         \textbf{Author:} & \\
-%         Arthur Slu\"{y}ters &  UCLouvain, Belgium \\
-%     \end{tabular}
-% \end{minipage}
- 
-% \vspace{1cm}
-	
-% %\large 
-% {Thesis submitted in fulfillment \\ of the requirements for the degree of \\[0.3cm] \large{Doctor of Computer Science}}\\[0.3cm] % University requirement text
-% {of the \univname}\\[1cm]
- 
-% \begin{minipage}{\textwidth}
-%     \centering
-%     \begin{tabular}{ll}
-%         \textbf{Committee in charge:}  & \\
-%         Prof. S\'ebastien Lambot (co-advisor) &  UCLouvain, Belgium \\
-%         Prof. Jean Vanderdonckt (co-advisor) &  UCLouvain, Belgium \\
-%         Prof. Suzanne Kieffer (secretary) & UCLouvain, Belgium \\
-%         Prof. Peter Van Roy (president) & UCLouvain, Belgium \\
-%         Prof. Paolo Roselli & Università di Roma ``Tor Vergata'', Italy \\
-%         Prof. Luis A. Leiva & University of Luxembourg, Luxembourg \\
-%     \end{tabular}
-% \end{minipage}
-
-
-% %{%\large 
-% %\today}\\[4cm] % Date
-% %\includegraphics{Logo} % University/department logo - uncomment to place it
- 
-% \vfill
-% \end{center}
-% \end{titlepage}
-
-% \thispagestyle{empty} 
 
 %================================================================================%
 %   Title page (new)

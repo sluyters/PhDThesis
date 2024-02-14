@@ -617,10 +617,10 @@ In the rest of this section, we motivate our choice of modules by conducting a c
         \multicolumn{2}{c|}{\textbf{Recognizer}} & \multicolumn{6}{c|}{\textbf{Gesture class}} & \multicolumn{2}{c|}{\textbf{Global accuracy}} & \multirow{2}{*}{\textbf{Time}} \\
 		 Name & $A$ & Flat & Point & Pinch & Grab & Thumb & Idle & Mean & SD & \\
 		\midrule
-        \$P\textsuperscript{3}+ & 6 & 99.7\% & 100.0\% & 100.0\% & 100.0\% & 100.0\% & 100.0\% & \cellcolor{graybluebrighter} 99.9\% & 0.1\% & 0.15ms \\
-        \$P\textsuperscript{3}+ & 16 & 100.0\% & 99.9\% & 99.7\% & 100.0\% & 100.0\% & 100.0\% & \cellcolor{graybluebrighter} 99.9\% & 0.1\% & 0.46ms \\
-        GPSDa & 6 & 99.6\% & 99.0\% & 98.3\% & 99.9\% & 98.2\% & 100.0\% & \cellcolor{graybluebrighter} 99.2\% & 0.8\% & 0.04ms \\
-        GPSDa & 16 & 99.6\% & 99.8\% & 99.4\% & 100.0\% & 99.5\% & 100.0\% & \cellcolor{graybluebrighter} 99.7\% & 0.3\% & 0.22ms \\
+        \$P\textsuperscript{3}+ & 6 & 99.7\% & 100.0\% & 100.0\% & 100.0\% & 100.0\% & 100.0\% & \cellcolor{highlightcolor} 99.9\% & 0.1\% & 0.15ms \\
+        \$P\textsuperscript{3}+ & 16 & 100.0\% & 99.9\% & 99.7\% & 100.0\% & 100.0\% & 100.0\% & \cellcolor{highlightcolor} 99.9\% & 0.1\% & 0.46ms \\
+        GPSDa & 6 & 99.6\% & 99.0\% & 98.3\% & 99.9\% & 98.2\% & 100.0\% & \cellcolor{highlightcolor} 99.2\% & 0.8\% & 0.04ms \\
+        GPSDa & 16 & 99.6\% & 99.8\% & 99.4\% & 100.0\% & 99.5\% & 100.0\% & \cellcolor{highlightcolor} 99.7\% & 0.3\% & 0.22ms \\
         \bottomrule
 	\end{tabular}
 	}
@@ -666,7 +666,7 @@ Jackknife ($A{=}1$) was selected as the dynamic recognizer for \lui, as it maxim
         \multicolumn{2}{c|}{\textbf{Recognizer}} & \multicolumn{4}{c|}{\textbf{Gesture class}} & \multicolumn{2}{c|}{\textbf{Global accuracy}} & \multirow{2}{*}{\textbf{Time}} \\
 		Name & $A$ & Flick up & Flick left & Flick right & Tap & Mean & SD & \\
 		\midrule
-        3\textcent & 1 &  100.0\% & 97.2\% & 100.0\% & 100.0\% & \cellcolor{graybluebrighter} 99.3\% & 1.4\% & 0.78ms \\
+        3\textcent & 1 &  100.0\% & 97.2\% & 100.0\% & 100.0\% & \cellcolor{highlightcolor} 99.3\% & 1.4\% & 0.78ms \\
         \$P\textsuperscript{3} & 1 &  100.0\% & 67.7\% & 70.1\% & 100.0\% & 84.5\% & 18.0\% & 0.33ms \\
         \$P\textsuperscript{3} & 6 &  94.3\% & 91.5\% & 80.3\% & 99.9\% & 91.5\% & 8.2\% & 0.38ms \\
         \$P\textsuperscript{3} & 16 &  91.9\% & 99.9\% & 90.8\% & 100.0\% & 95.7\% & 5.0\% & 0.28ms \\
@@ -676,9 +676,9 @@ Jackknife ($A{=}1$) was selected as the dynamic recognizer for \lui, as it maxim
         \$Q\textsuperscript{3} & 1 &  100.0\% & 65.9\% & 36.1\% & 100.0\% & 75.5\% & 30.8\% & 0.91ms \\
         \$Q\textsuperscript{3} & 6 &  100.0\% & 82.1\% & 71.6\% & 100.0\% & 88.4\% & 14.0\% & 1.03ms \\
         \$Q\textsuperscript{3} & 16 &  99.2\% & 90.8\% & 75.2\% & 100.0\% & 91.3\% & 11.5\% & 0.97ms \\
-        Jackknife & 1 &  100.0\% & 100.0\% & 100.0\% & 100.0\% & \cellcolor{graybluebrighter} 100.0\% & 0.0\% & 0.04ms \\
-        Jackknife & 6 &  100.0\% & 100.0\% & 100.0\% & 100.0\% & \cellcolor{graybluebrighter} 100.0\% & 0.0\% & 0.10ms \\
-        Jackknife & 16 &  100.0\% & 100.0\% & 100.0\% & 100.0\% & \cellcolor{graybluebrighter} 100.0\% & 0.0\% & 0.19ms \\
+        Jackknife & 1 &  100.0\% & 100.0\% & 100.0\% & 100.0\% & \cellcolor{highlightcolor} 100.0\% & 0.0\% & 0.04ms \\
+        Jackknife & 6 &  100.0\% & 100.0\% & 100.0\% & 100.0\% & \cellcolor{highlightcolor} 100.0\% & 0.0\% & 0.10ms \\
+        Jackknife & 16 &  100.0\% & 100.0\% & 100.0\% & 100.0\% & \cellcolor{highlightcolor} 100.0\% & 0.0\% & 0.19ms \\
         \bottomrule
 	\end{tabular}
 	}
@@ -767,8 +767,8 @@ A stratified sampling of 17 participants (8 females and 9 males), aged between 2
 	    \toprule
 	    Gender & \multicolumn{4}{c}{\textcolor{white}{Female} \cellcolor{grayblue}} & \multicolumn{4}{c}{\textcolor{white}{Male} \cellcolor{grayblue+}} \\
 	    Background & \multicolumn{2}{c}{\textcolor{white}{Technical} \cellcolor{graybluebright-}} & \multicolumn{2}{c}{\textcolor{white}{Non-technical} \cellcolor{graybluebright}} & \multicolumn{2}{c}{\textcolor{white}{Technical}\cellcolor{graybluebright-}} & \multicolumn{2}{c}{\textcolor{white}{Non-technical}\cellcolor{graybluebright}} \\
-	    Age [years] & ${\leq}$ 30 \cellcolor{graybluebrighter} & ${>}$ 30 \cellcolor{graybluebrighterer} & ${\leq}$ 30  \cellcolor{graybluebrighter} & ${>}$ 30 \cellcolor{graybluebrighterer} & ${\leq}$ 30 \cellcolor{graybluebrighter} & ${>}$ 30 \cellcolor{graybluebrighterer} & ${\leq}$ 30 \cellcolor{graybluebrighter} & ${>}$ 30 \cellcolor{graybluebrighterer} \\
-	    \#participants & 2 \cellcolor{graybluebrighter} & 2 \cellcolor{graybluebrighterer} & 2 \cellcolor{graybluebrighter} & 2 \cellcolor{graybluebrighterer} & 2 \cellcolor{graybluebrighter} & 2 \cellcolor{graybluebrighterer} & 2 \cellcolor{graybluebrighter} & 3 \cellcolor{graybluebrighterer} \\
+	    Age [years] & ${\leq}$ 30 \cellcolor{highlightcolor} & ${>}$ 30 \cellcolor{graybluebrighterer} & ${\leq}$ 30  \cellcolor{highlightcolor} & ${>}$ 30 \cellcolor{graybluebrighterer} & ${\leq}$ 30 \cellcolor{highlightcolor} & ${>}$ 30 \cellcolor{graybluebrighterer} & ${\leq}$ 30 \cellcolor{highlightcolor} & ${>}$ 30 \cellcolor{graybluebrighterer} \\
+	    \#participants & 2 \cellcolor{highlightcolor} & 2 \cellcolor{graybluebrighterer} & 2 \cellcolor{highlightcolor} & 2 \cellcolor{graybluebrighterer} & 2 \cellcolor{highlightcolor} & 2 \cellcolor{graybluebrighterer} & 2 \cellcolor{highlightcolor} & 3 \cellcolor{graybluebrighterer} \\
         \bottomrule
 	\end{tabular}
 	\vspace{-4pt}
