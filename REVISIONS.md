@@ -48,20 +48,12 @@ No modification.
 - [x] Formatting improvements 
 - [x] Added missing references of papers "in press" or just published.
 - [x] Fix typos. `Everywhere`
-  - [x] Introduction
-  - [x] State of the Art
-  - [x] Chapter 3
-  - [x] Chapter 4
-  - [x] Chapter 5
-  - [x] Chapter 6
-  - [x] Chapter 7
-  - [x] Conclusion 
-  - [x] Appendices
 
 ## Suggested modifications not applied to the revised thesis
 - [ ] Update Table 2.2 with more up-to-date references, since only 1 ref from 2021 was included.
-- [ ] Explain why JackKnife has 725 LOCs? It's substantailly higher than the rest of recognizers. Was it written in the same programming language?
-  - We included the entire JavaScript implementation of Jackknife, which defines multiple parameters, parameters, and classes, that can be combined to adapt Jackknife to different use cases. A particular configuration of Jackknife could fit in a smaller number of LOCs but would require more work to slim down its code than just using it "as is", which is why we decided to count all of its LOCs.
+  - I did not update the table, with the approval of my supervisors, as it would require analyzing all the new papers published since 2021 (around 40 relevant papers per year), including indentification, screening, eligibility, and inclusion steps, as well as updating the text and figures to account for the new references. This would not have been possible before the deadline for this revision of the thesis.
+- [ ] Explain why JackKnife has 725 LOCs? It's substantially higher than the rest of recognizers. Was it written in the same programming language?
+  - Answer to the question: We included the entire JavaScript implementation of Jackknife, which defines multiple parameters, parameters, and classes, that can be combined to adapt Jackknife to different use cases. A particular configuration of Jackknife could fit in a smaller number of LOCs but would require more work to slim down its code than just using it "as is", which is why we decided to count all of its LOCs.
 
 	
 
