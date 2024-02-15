@@ -471,7 +471,7 @@ Compared to a similar experiment described in our previous paper~\cite{Sluyters:
 
 % Raw data
 % 93.8\%, 6.0ms ($N{=}28$)
-\paragraph{Raw data capture}
+\paragraph{Raw data capture.}
 The average accuracy on the raw radar data was already very high and hovered around 90\% with $N{\ge}12$ sampling points, reaching up to 93.8\% for $N{=}28$ (\fig~\ref{fig:radar-experiments:sensors:horn-samples:raw}), with an average execution time of 6.0 ms. Overall, the execution time increased with the number of sampling points. 
 %
 The corresponding confusion matrix (\fig~\ref{fig:radar-experiments:sensors:horn-confusion:raw}) shows that 11 of the 16 gesture classes were correctly recognized 100\% of the time. The remaining gestures were ``extend three fingers'', ``swipe right'', ``swipe up'', ``draw infinity'', and ``barrier gesture'' (f, h, j, l, u). 
@@ -524,7 +524,7 @@ Finally, the confusion between gestures f and g (extend four fingers) is probabl
 
 % Background scene removal
 % 95.0\%, 5.8ms ($N{=}27$)
-\paragraph{Background scene removal}
+\paragraph{Background scene removal.}
 The removal of antenna effects and background subtraction enabled even higher recognition rates, reaching 95.0\% for $N{=}27$ (\fig~\ref{fig:radar-experiments:sensors:horn-samples:bgsub}), with an average execution time of 5.8 ms. The resulting confusion matrix (\fig~\ref{fig:radar-experiments:sensors:horn-confusion:bgsub}) is similar to the confusion matrix obtained on the raw data, with some minor differences that can be explained in the same way. 100\% recognition rate was achieved for 12 of the 16 gesture classes, with the four other gestures being ``extend one finger'', ``swipe right'', ``swipe up'', and ``barrier gesture'' (d, h, j, u).
 
 \begin{figure}[tbp]
@@ -569,7 +569,7 @@ The removal of antenna effects and background subtraction enabled even higher re
 
 % Full-wave inversion
 % 53.8\%, 0.5ms ($N{=}27$)
-\paragraph{Full-wave inversion}
+\paragraph{Full-wave inversion.}
 After the inversion stage, the recognition rate decreased significantly and reached a maximum of 53.8\% for $N{=}27$ (\fig~\ref{fig:radar-experiments:sensors:horn-samples:inversion}). Average execution time was very short at 0.5 ms. Such a drop was expected, as the size of each frame was divided by 89 compared to the background scene removal stage. 
 %
 We observed that the recognition rate did not steadily increase with the number of sampling points and could change by more than 10\% between two consecutive values of $N$. This behavior may have been caused by errors in the inversion process, where the distance and apparent permittivity values corresponding to one frame were incorrectly estimated due to the low quality of the radar data (\eg if the received signal was barely above noise level). The filtering stage should help alleviate this problem.
@@ -585,7 +585,7 @@ As in the previous stages, the ``swipe'' and ``draw infinity'' gestures (h, i, j
 
 % Filtering
 % 57.5\%, 0.4ms ($N{=}38$)
-\paragraph{Filtering}
+\paragraph{Filtering.}
 As expected, the recognition rate was more stable with respect to the number of sampling points after filtering. However, the best configuration still only reached 57.5\% accuracy for $N{=}30$ (\fig~\ref{fig:radar-experiments:sensors:horn-samples:filtering}), far too low for accurate gesture recognition. 
 Execution time was still very short at 0.4 ms. 
 The confusion matrix for this configuration (\fig~\ref{fig:radar-experiments:sensors:horn-confusion:filtering}) shows that the recognition rate exceeded 80\% for only six gestures: ``extend one/four fingers'', ``swipe left'', ``push palm'', ``wave hand'', and ``barrier gesture'' (d, g, i, p, r, u). 
@@ -601,7 +601,7 @@ Some gestures were recognized less accurately after filtering, including ``push 
 
 
 % Raw data
-\paragraph{Raw data capture}
+\paragraph{Raw data capture.}
 % First study - Best antenna pairs
 % 88.8\%, 3.6ms ($\splitatcommas{AP{=}(4, 5, 7, 11)}$)
 % 86.3\%, 2.8ms ($\splitatcommas{AP{=}(4, 7, 11)}$)
@@ -672,7 +672,7 @@ The confusion between gestures k and a (open hand), as well as between gestures 
 
 
 % Background scene removal
-\paragraph{Background scene removal}
+\paragraph{Background scene removal.}
 % Best antenna pairs
 % 90.0\%, 3.0ms ($\splitatcommas{AP{=}(4, 7, 11)}$)
 % 88.8\%, 3.7ms ($\splitatcommas{AP{=}(4, 7, 11, 12)}$)
@@ -733,7 +733,7 @@ The resulting confusion matrix (\fig~\ref{fig:radar-experiments:sensors:walabot-
 
 
 % Full-wave inversion
-\paragraph{Full-wave inversion}
+\paragraph{Full-wave inversion.}
 % Best antenna pairs
 % 45.0\%, 0.3ms ($\splitatcommas{AP{=}(4, 7, 10, 11, 12)}$)
 % 45.0\%, 0.3ms ($\splitatcommas{AP{=}(2, 3, 8, 9)}$)
@@ -866,7 +866,7 @@ Gestures h, i, j, k, and l (swipe right/left/up/down and draw infinity) were bet
 \end{table}
 
 % Filtering
-\paragraph{Filtering}
+\paragraph{Filtering.}
 % Best antenna pairs
 % 51.3\%, 0.3ms ($\splitatcommas{AP{=}(1, 2, 6, 8, 9)}$)
 % 50.0\%, 0.3ms ($\splitatcommas{AP{=}(1, 2, 8, 9)}$)
@@ -1174,7 +1174,7 @@ Similarly, \fig~\ref{fig:radar-experiments:through-materials:wood-confusion}, \r
     \label{fig:radar-experiments:through-materials:wood-samples}
 \end{figure}
 
-\paragraph{Time gating}
+\paragraph{Time gating.}
 
 % User-dependent
 \fig~\ref{fig:radar-experiments:through-materials:results:timegating} shows the average accuracy achieved by the best configuration for each combination of training and testing material with data from the time-gating stage in the user-dependent scenario.
@@ -1242,7 +1242,7 @@ Average accuracy also dropped for the best configurations of the PVC and glass, 
     \label{fig:radar-experiments:through-materials:wood-confusion}
 \end{figure}
 
-\paragraph{Filtering}
+\paragraph{Filtering.}
 \fig~\ref{fig:radar-experiments:through-materials:results:filtering} depicts the average accuracy achieved by the best configuration for each combination of training and testing material with data from the filtering stage in the user-dependent scenario.
 %
 Accuracy dropped significantly compared to time-domain data from the time gating stage but still increased with the number of sampling points, plateauing at around 46\% for the wood and 43\% for the PVC and glass.
@@ -1299,7 +1299,7 @@ The inter-material testing was only conducted in a user-dependent scenario.
 %
 Similarly, \fig~\ref{fig:radar-experiments:through-materials:wood-pvc-confusion}, \ref{fig:radar-experiments:through-materials:pvc-wood-confusion}, \ref{fig:radar-experiments:through-materials:wood-glass-confusion}, \ref{fig:radar-experiments:through-materials:glass-wood-confusion},\ref{fig:radar-experiments:through-materials:pvc-glass-confusion}, and~\ref{fig:radar-experiments:through-materials:glass-pvc-confusion} show the confusion matrices of the best configurations for the wood+PVC, PVC+wood, wood+glass, glass+wood, PVC+glass, and glass+PVC conditions, respectively. 
 
-\paragraph{Time gating}
+\paragraph{Time gating.}
 \fig~\ref{fig:radar-experiments:through-materials:results:filtering} depicts the average accuracy achieved by the best configuration for each combination of training and testing material with data from the time gating stage.
 % Wood + PVC, PVC + Wood
 The results for the wood+PVC and PVC+wood combinations of training and testing materials are similar to those of the intra-material testing in the user-dependent scenario but with slightly lower accuracy. 
@@ -1315,7 +1315,7 @@ This drop in accuracy seems to indicate that, despite the normalization applied 
 The smaller relative permittivity of wood and PVC resulted in a higher signal-to-noise ratio and thus more comparable radar signatures.
 
 
-\paragraph{Filtering}
+\paragraph{Filtering.}
 \fig~\ref{fig:radar-experiments:through-materials:results:filtering} depicts the average accuracy achieved by the best configuration for each combination of training and testing material with data from the filtering stage.
 % Wood + PVC, PVC + Wood
 The results are similar to those obtained with data from the time gating stage, but with even lower accuracy, reaching only 29.6\% accuracy with the wood+pvc ($N{=}34$, $\splitatcommas{AP{=}(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)}$) and pvc+wood materials ($N{=}26$, $\splitatcommas{AP{=}(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)}$).
@@ -1433,7 +1433,7 @@ Our first experiment (Section~\ref{sec:radar-experiments:sensors:results:walabot
     \label{fig:radar-experiments:discussion:elevation}
 \end{figure}
 
-\paragraph{G1. Collect gestures from multiple users}
+\paragraph{G1. Collect gestures from multiple users.}
 Hands can vary widely in size and surface area between users. The length of the hand can range from 15 to 30 cm (5.9 to 11.8 in) and the circumference of the hand from 15 to 28 cm (5.9 to 11.02 in), giving an idea of the potential surface range. Hand and palm surface areas vary with gender, age, and morphology. For example, \cite{Goker:2017} reported that the average hand surface area for Turkish women and men is \textit{M}{=}158.34 $cm^2$ (\textit{SD}{=}14.76 $cm^2$) and \textit{M}{=}127.87 $cm^2$ (\textit{SD}{=}14.75 $cm^2$), respectively, and palm surface area \textit{M}{=}63.91 $cm^2$ (\textit{M}{=}11.84 $cm^2$) and \textit{M}{=}82.98 $cm^2$ (\textit{SD}{=}10.74 $cm^2)$, respectively. 
 Variations in the hand surface area result in variations in the radar signal that should be taken into account to ensure high recognition accuracy, especially for the user-independent scenario. Other parameters can equally vary between different users, such as arm length and position relative to the radar (\eg elevation, distance), which may also result in signal variations (\fig~\ref{fig:radar-experiments:discussion:elevation}). Gesture training sets for user-independent recognition should include samples produced by a variety of users.
 
