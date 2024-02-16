@@ -209,18 +209,53 @@ These implications can serve as a valuable guide for developers when designing r
 \label{sec:conclusion:limitations-and-future-works}
 We envision three key avenues for future research to address the main limitations of this thesis.
 
+\begin{figure}[htp]
+  \centering
+  \begin{subfigure}{\textwidth}
+      \centering
+      \includegraphics[width=.79\linewidth]{Figures/Conclusion/zeroG-1.pdf}  
+      \vspace{-4pt}
+      \captionsetup{width=.9\linewidth}
+      \caption{Testing dashboard.}
+      \label{fig:zerog:ui:1}
+  \end{subfigure}
+
+  \begin{subfigure}{\textwidth}
+      \centering
+      \includegraphics[width=.79\linewidth]{Figures/Conclusion/zeroG-2.pdf}  
+      \vspace{-4pt}
+      \captionsetup{width=.9\linewidth}
+      \caption{Dataflow creation.}
+      \label{fig:zerog:ui:2}
+  \end{subfigure}
+  
+  \begin{subfigure}{\textwidth}
+      \centering
+      \includegraphics[width=.79\linewidth]{Figures/Conclusion/zeroG-3.pdf}  
+      \vspace{-4pt}
+      \captionsetup{width=.9\linewidth}
+      \caption{Dataflow configuration.}
+      \label{fig:zerog:ui:3}
+  \end{subfigure}
+
+  \vspace{-6pt}
+  \caption{Mockups of the zeroG UI.}
+  \label{fig:zerog:ui}
+  % \vspace{-12pt}
+\end{figure}
+
 %% QuantumLeap Testing and Applications
 Regarding tools for the development of gesture-based applications, we are currently working on a new framework for gesture recognition, named \textit{zeroG}, that aims to address the main limitations of \ql and its testing tool through profound architectural enhancements.
 %
-The \textit{zeroG} framework would rely on a flexible architecture based on standardized modules that can be assembled to construct complex dataflows for gesture recognition. 
+The \textit{zeroG} framework (\fig~\ref{fig:zerog:ui}) would rely on a flexible architecture based on standardized modules that could be assembled to construct complex dataflows for gesture recognition (\fig~\ref{fig:zerog:ui:2}). 
 %
-This architecture would cater to users of varying expertise levels: (1) experts could manually create dataflows from scratch by freely combining modules, (2) advanced users could adapt predefined dataflow templates for their applications by filling placeholders with suitable module implementations, similarly to \ql, and (3) novice users could ask \textit{zeroG} to suggest (or even generate) a functioning dataflow based on some criteria, such the type of application, sensor(s), and gestures.
+This architecture would cater to users of varying expertise levels: (1) experts could manually create dataflows from scratch by freely combining modules, (2) advanced users could adapt predefined dataflow templates for their applications by filling placeholders with suitable module implementations, similarly to \ql, and (3) novice users could ask \textit{zeroG} to suggest (or even generate) functioning dataflows based on some criteria like the type of application, sensor(s), and gestures.
 %
-Overall, the configuration GUI should provide ample guidance to users in the form of tutorials, tips, and module suggestions. 
+Overall, the configuration GUI (\fig~\ref{fig:zerog:ui:3}) should provide ample guidance to users in the form of tutorials, tips, and module suggestions. 
 %
-To expedite the development process of gesture-based applications, \textit{zeroG} could generate scaffolding code that would perform, among other, initialization steps like connecting to the framework and submitting a dataflow configuration.
+To expedite the development process of gesture-based applications, \textit{zeroG} could generate scaffolding code to perform, among other, initialization steps like connecting to the framework and submitting a dataflow configuration.
 %
-In line with the \textit{compatibility} software quality property, \textit{zeroG} should also seamlessly support the use of multiple applications on the same platform, without requiring user involvement. As such, it should enable applications to submit their dataflow configuration to the framework upon connection.
+In line with the \textit{compatibility} software quality property, \textit{zeroG} should seamlessly support the use of multiple applications on the same platform, without requiring user involvement. As such, it should enable applications to submit their dataflow configuration to the framework upon connection.
 %
 Later developments could extend to building an entire ecosystem around the framework, including databases of modules, gestures, and dataflows. This would facilitate access to components for gesture recognition and would allow \textit{zeroG} to automatically download missing components required by an application.
 
@@ -234,8 +269,6 @@ In addition, we could add a stage at the end of the pipeline to compute the 3D p
 Similarly, we could apply sensor fusion to improve the robustness of a gesture recognition system under challenging environmental conditions.
 % 
 We could also investigate the possibility of recognizing gestures performed by more than one user concurrently with a single radar system and look into gesture segmentation techniques for radar to facilitate real-time gesture interaction, \eg using the \ql framework.
-
-
 
 %% Radar experiments
 Finally, future work could continue the exploration of radar-based gesture recognition through experimentation.
