@@ -606,7 +606,7 @@ Some gestures were recognized less accurately after filtering, including ``push 
 % 88.8\%, 3.6ms ($\splitatcommas{AP{=}(4, 5, 7, 11)}$)
 % 86.3\%, 2.8ms ($\splitatcommas{AP{=}(4, 7, 11)}$)
 % 86.3\%, 10.5ms ($\splitatcommas{AP{=}(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)}$)
-The recognition rate differed widely depending on the set of antenna pairs used for gesture recognition, with larger sets usually achieving better accuracy (Table~\ref{tab:radar-experiments:sensors:walabot}). 
+The recognition rate differed widely depending on the set of antenna pairs used for gesture recognition, with larger sets usually achieving better accuracy (\tab~\ref{tab:radar-experiments:sensors:walabot}). 
 
 In the third study, the three best configurations all achieved ${>}86\%$ accuracy on the raw Walabot data: 88.8\% with $\splitatcommas{AP{=}(4, 5, 7, 11)}$, 86.3\% with $\splitatcommas{AP{=}(4, 7, 11)}$, and 86.3\% with $\splitatcommas{AP{=}(1,2,3,4,5,6,7,8,9,10,11,12)}$. Execution time increased with the number of antenna pairs and reached up to 10.5 ms with the set of all antenna pairs. 
 
@@ -738,7 +738,7 @@ The resulting confusion matrix (\fig~\ref{fig:radar-experiments:sensors:walabot-
 % 45.0\%, 0.3ms ($\splitatcommas{AP{=}(4, 7, 10, 11, 12)}$)
 % 45.0\%, 0.3ms ($\splitatcommas{AP{=}(2, 3, 8, 9)}$)
 % 43.8\%, 0.3ms ($\splitatcommas{AP{=}(1, 2, 3, 6, 8)}$)
-The recognition rate for all sets of antenna pairs after the inversion stage was noticeably lower than after the first two stages (Table~\ref{tab:radar-experiments:sensors:walabot}). Such a drop was expected, as the size of each frame was divided by 34 compared to the first two processing stages. 
+The recognition rate for all sets of antenna pairs after the inversion stage was noticeably lower than after the first two stages (\tab~\ref{tab:radar-experiments:sensors:walabot}). Such a drop was expected, as the size of each frame was divided by 34 compared to the first two processing stages. 
 %
 The best-performing combinations of antenna pairs were: $AP{=}(4, 7, 10, 11, 12)$ with 45.0\% accuracy, $AP{=}(2, 3, 8, 9)$ with 45.0\% accuracy, and $AP{=}(1, 2, 3, 6, 8)$ with 43.8\% accuracy. The average execution time was very short but increased with the number of antenna pairs, reaching up to 0.5 ms with the set of all antenna pairs. 
 
@@ -943,7 +943,7 @@ This second study evaluates the accuracy of Jackknife on subsets of our ``20-ges
     \item \custominlinehighlight{Antenna Pairs}: same as the first study.
     \item \custominlinehighlight{Gesture Subset}: nominal variable with nine conditions, representing the gesture subset used for training and testing (see \tab~\ref{tab:radar-experiments:subsets}).
 \end{enumerate}
-The selected subsets are summarized in Table~\ref{tab:radar-experiments:subsets} and highlighted in \fig~\ref{fig:radar-experiments:confusion-exp1-UD}. 
+The selected subsets are summarized in \tab~\ref{tab:radar-experiments:subsets} and highlighted in \fig~\ref{fig:radar-experiments:confusion-exp1-UD}. 
 The time-gating subsets (S6 to S9) consist mostly of arm-level gesture classes, with only two hand-level gesture classes per subset. This indicates that the larger motion of arm-level gestures was easier to differentiate than the smaller-scale hand-level gestures. The filtering subsets (S4 and S5) contain fewer gesture classes than the time-gating subsets, which reflects the high confusion between gesture classes when using data from the filtering stage.
 The total number of training templates per trial varies based on the size of the gesture subset but the training sets always feature nine or ten templates per gesture class.
 
