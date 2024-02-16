@@ -43,7 +43,7 @@ The rest of this section describes the overall software architecture of \ql.
 The dataflow architecture of \ql (\fig~\ref{fig:quantumleap:archi}) has been designed to be versatile and simple to configure (Section~\ref{sec:quantumleap:description:configuration}). It consists of eight modules (\ie hot spots), each stemming from the challenges of gesture recognition discussed in Section~\ref{sec:state_of_the_art:overview:challenges}: a sensor module, filtering module, loaders for static and dynamic datasets, static and dynamic gesture recognizers, gesture segmentation module, and an analyzer module. Various implementations are provided for each module to suit the needs of a specific application (see Appendix~\ref{app:quantumleap-modules}). When these implementations are not suited for a particular application, the framework is extensible and developers are thus encouraged to propose new implementations. The modules communicate together using various data structures described in \tab~\ref{tbl:quantumleap:communication-data-structures}. 
 The rest of this section provides information about each type of module.
 
-\begin{table}[ht]
+\begin{table}[t]
     \footnotesize
     \centering
     \begin{tabular}{lp{10.8cm}}
@@ -91,11 +91,11 @@ Four different modules are provided and described in Appendix~\ref{app:quantumle
 
 \subsubsection{Static and Dynamic Datasets}
 These modules transform a gesture dataset into a \custominlinecode{GestureSet} object, \ie a standardized format compatible with the framework. Datasets are then used to train the static and dynamic recognizers.
-\begin{figure*}[!ht]
+\begin{figure*}[p]
     \centering
-    \vspace{-6pt}
+    % \vspace{-6pt}
     \captionsetup{justification=centering}
-    \includegraphics[width=0.9\linewidth]{Figures/QuantumLeap/Architecture/QuantumLeap-UML.pdf}
+    \includegraphics[width=\linewidth]{Figures/QuantumLeap/Architecture/QuantumLeap-UML.pdf}
     % \vspace{-4pt}
     \caption{UML V2.5 class diagram of the gesture sets.}
     \label{fig:quantumleap:dataset-uml}
