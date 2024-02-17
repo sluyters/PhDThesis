@@ -117,9 +117,11 @@
 
 % Choose colors for web vs print
 % \colorlet{highlightcolor}{customlightgray} % Print
+% \colorlet{inlinecodecolor}{customlightgray} % Print
 % \colorlet{circlecolor1}{black} % Print
 % \colorlet{circlecolor2}{customgray} % Print
-\colorlet{highlightcolor}{graybluebrighterer} % Web
+\colorlet{highlightcolor}{graybluebrighter} % Web
+\colorlet{inlinecodecolor}{graybluebrighterer} % Web
 \colorlet{circlecolor1}{grayblue} % Web
 \colorlet{circlecolor2}{graybluebrighter} % Web
 
@@ -217,7 +219,7 @@
 \NewTotalTCBox{\custominlinecode}{ O{javascript} v !O{} }{%
   nobeforeafter,
   verbatim,
-  colback=highlightcolor,
+  colback=inlinecodecolor,
   frame empty,
   boxsep=0.5mm,
   top=0pt,bottom=0pt,left=0mm,right=0mm
