@@ -147,12 +147,7 @@ Ten dynamic recognizers are provided that cover multiple properties of gesture s
 %--------------------------------------------------------------------------------%
 \subsection{Configuration} \label{sec:quantumleap:description:configuration}
 
-\ql features a configuration graphical user interface (GUI) that allows developers to quickly set it up for their needs. It is divided into a series of pages: an ``overview'' page which shows the complete dataflow architecture and allows users to navigate to the page of each module (\fig~\ref{fig:quantumleap:ui:1}), an ``API'' page that contains the complete API documentation (\fig~\ref{fig:quantumleap:ui:2}), and dedicated ``module'' pages for each type of module (\fig~\ref{fig:quantumleap:ui:3} and \ref{fig:quantumleap:ui:4}). The ``module'' pages let developers select a specific implementation of the module and configure it to their needs (\eg select the points used by a recognizer). The settings of each module can be defined in their corresponding ``config-template.json'' file. Framework configurations can be imported and exported as JSON files from the GUI.
-
-The GUI provides limited guidance in the form of short descriptions for each implemented module to help developers select the best set of modules for their application. Further guidance, such as recommending the most appropriate modules (\eg gesture recognizers) for a particular application, is currently outside of the scope of this paper. 
-However, resources like the comparative studies of Magrofuoco \etal~\cite{Magrofuoco:2021} or Erazo and P\'erez-Medina~\cite{Erazo:2020} may prove extremely valuable when choosing, \eg a gesture recognizer. 
-
-\begin{figure}[ht]
+\begin{figure}[!b]
     \centering
     \begin{subfigure}{.49\textwidth}
         \centering
@@ -171,6 +166,7 @@ However, resources like the comparative studies of Magrofuoco \etal~\cite{Magrof
         \label{fig:quantumleap:ui:3}
     \end{subfigure}
     
+    \vspace{2pt}
     \begin{subfigure}{.49\textwidth}
         \centering
         \includegraphics[width=\linewidth]{Figures/QuantumLeap/UI/module-point_selection.pdf}  
@@ -188,11 +184,18 @@ However, resources like the comparative studies of Magrofuoco \etal~\cite{Magrof
         \label{fig:quantumleap:ui:2}
     \end{subfigure}
 
-    \vspace{-8pt}
+    % \vspace{-4pt}
     \caption{Screenshots of the \ql GUI.}
     \label{fig:quantumleap:ui}
-    \vspace{-12pt}
+    % \vspace{-12pt}
 \end{figure}
+
+\ql features a configuration graphical user interface (GUI) that allows developers to quickly set it up for their needs. It is divided into a series of pages: an ``overview'' page which shows the complete dataflow architecture and allows users to navigate to the page of each module (\fig~\ref{fig:quantumleap:ui:1}), an ``API'' page that contains the complete API documentation (\fig~\ref{fig:quantumleap:ui:2}), and dedicated ``module'' pages for each type of module (\fig~\ref{fig:quantumleap:ui:3} and \ref{fig:quantumleap:ui:4}). The ``module'' pages let developers select a specific implementation of the module and configure it to their needs (\eg select the points used by a recognizer). The settings of each module can be defined in their corresponding ``config-template.json'' file. Framework configurations can be imported and exported as JSON files from the GUI.
+
+The GUI provides limited guidance in the form of short descriptions for each implemented module to help developers select the best set of modules for their application. Further guidance, such as recommending the most appropriate modules (\eg gesture recognizers) for a particular application, is currently outside of the scope of this paper. 
+However, resources like the comparative studies of Magrofuoco \etal~\cite{Magrofuoco:2021} or Erazo and P\'erez-Medina~\cite{Erazo:2020} may prove extremely valuable when choosing, \eg a gesture recognizer. 
+
+
 
 %--------------------------------------------------------------------------------%
 \subsection{Application Programming Interface} \label{sec:quantumleap:description:api}
@@ -311,7 +314,7 @@ Despite their differences in terms of years of experience and level of expertise
 \subsubsection{Task and Step Completion Times}
 As a potential optimal performance, the first author of this paper (23 years, 6 years of experience, level 8)  completed the \textit{Configuration} and \textit{Development} tasks of the experiment in 2.1 minutes and 10.2 minutes, respectively. On average, participants took 6.6 minutes to complete the first task ($SD{=}1.2$), with the slowest participant completing it in 9.1 minutes and the fastest in 5.2 minutes. For the second task, the completion time was between 22.2 and 65.1 minutes ($M{=}37.4$, $SD{=}18.2$). \fig~\ref{fig:quantumleap:task2-time} shows that participants spent a more significant amount of time on the fifth step of this task (\ie adding an event listener that reacts to the ``swipe left'' gesture), which is normal since this is the most complex step.
 
-\begin{figure}[!b]
+\begin{figure}[t]
     \centering
     \includegraphics[width=\linewidth]{Figures/QuantumLeap/Evaluation/Task 1 (time).pdf}
     % \vspace{-14pt}
@@ -349,7 +352,7 @@ Workload scores range from 8.7 to 65.3 out of 100 ($M{=}34.0$, $SD{=}19.5$). Acc
 \begin{figure}[t]
     \centering
     \includegraphics[width=\linewidth]{Figures/QuantumLeap/Evaluation/NASA-TLX-scores.pdf}
-    \vspace{-8pt}
+    \vspace{-16pt}
     \caption{Average weighted score for each subscale of the NASA-TLX questionnaire. Error bars show a confidence interval with $\alpha{=}0.5$.}
     % \vspace{-8pt}
     \label{fig:quantumleap:nasa-tlx-scores}

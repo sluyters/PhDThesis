@@ -570,7 +570,7 @@ The removal of antenna effects and background subtraction enabled even higher re
 % Full-wave inversion
 % 53.8\%, 0.5ms ($N{=}27$)
 \paragraph{Full-wave inversion.}
-After the inversion stage, the recognition rate decreased significantly and reached a maximum of 53.8\% for $N{=}27$ (\fig~\ref{fig:radar-experiments:sensors:horn-samples:inversion}). Average execution time was very short at 0.5 ms. Such a drop was expected, as the size of each frame was divided by 89 compared to the background scene removal stage. 
+The recognition rate decreased significantly after the inversion stage, and reached a maximum of 53.8\% for $N{=}27$ (\fig~\ref{fig:radar-experiments:sensors:horn-samples:inversion}). Average execution time was very short at 0.5 ms. Such a drop was expected, as the size of each frame was divided by 89 compared to the background scene removal stage. 
 %
 We observed that the recognition rate did not steadily increase with the number of sampling points and could change by more than 10\% between two consecutive values of $N$. This behavior may have been caused by errors in the inversion process, where the distance and apparent permittivity values corresponding to one frame were incorrectly estimated due to the low quality of the radar data (\eg if the received signal was barely above noise level). The filtering stage should help alleviate this problem.
 %
@@ -971,7 +971,7 @@ The total number of training templates per trial varies based on the size of the
     \end{tabular}
     \caption{The nine selected subsets of gestures. C represents the maximum number of confusion between pairs of gestures. Gestures are colored based on the taxonomy in \fig~\ref{fig:radar-experiments:taxonomy}.}
     \label{tab:radar-experiments:subsets}
-    \vspace{-14pt}
+    % \vspace{-14pt}
 \end{table}
 
 %--------------------------------------------------------------------------------%
@@ -1027,7 +1027,7 @@ Confusion matrices in this scenario are similar to the user-dependent scenario, 
     \includegraphics[width=.72\linewidth]{Figures/RadarExperiments/Datasets/20Gestures/Results/1_4_7_8_10_14_18_19/1f-cm.pdf}
     \caption{Confusion matrix of the best-performing configuration on gesture subset S6 (time gating stage).}
     \label{fig:confusion-exp2-S6}
-    \vspace{-12pt}
+    % \vspace{-12pt}
 \end{figure}
 
 
@@ -1202,11 +1202,11 @@ Our observations are mostly similar to the user-dependent scenario, with some co
 % PVC and glass
 Average accuracy also dropped for the best configurations of the PVC and glass, at 64.9\% ($N{=}34$, $\splitatcommas{AP{=}(4, 5, 7, 10, 11, 12)}$), and 55.7\% ($N{=}34$, $\splitatcommas{AP{=}(1, 2, 3, 6, 8, 9)}$), respectively. The corresponding confusion matrices are very similar to the wood, albeit with lower accuracy.
 
-\begin{figure}[!b]
+\begin{figure}[!t]
     \begin{subfigure}{.49\textwidth}
         \centering
         \includegraphics[width=.99\linewidth]{Figures/RadarExperiments/Datasets/ThroughMaterials/Wood/confusion-timegating-ud.pdf}
-        \vspace{-5pt}
+        \vspace{-15pt}
         \captionsetup{width=.99\linewidth}
         \caption{Time gating UD $N{=}29$, \\ $\splitatcommas{AP{=}(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)}$.}
         \label{fig:radar-experiments:through-materials:wood-confusion:timegating-ud}
@@ -1214,7 +1214,7 @@ Average accuracy also dropped for the best configurations of the PVC and glass, 
     \begin{subfigure}{.49\textwidth}
         \centering
         \includegraphics[width=.99\linewidth]{Figures/RadarExperiments/Datasets/ThroughMaterials/Wood/confusion-filtering-ud.pdf}
-        \vspace{-5pt}
+        \vspace{-15pt}
         \captionsetup{width=.99\linewidth}
         \caption{Filtering UD $N{=}29$, \\ $\splitatcommas{AP{=}(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)}$.}
         \label{fig:radar-experiments:through-materials:wood-confusion:filtering-ud}
@@ -1223,7 +1223,7 @@ Average accuracy also dropped for the best configurations of the PVC and glass, 
     \begin{subfigure}{.49\textwidth}
         \centering
         \includegraphics[width=.99\linewidth]{Figures/RadarExperiments/Datasets/ThroughMaterials/Wood/confusion-timegating-ui.pdf}  
-        \vspace{-5pt}
+        \vspace{-15pt}
         \captionsetup{width=.99\linewidth}
         \caption{Time gating UI $N{=}38$, \\ $\splitatcommas{AP{=}(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)}$.}
         \label{fig:radar-experiments:through-materials:wood-confusion:timegating-ui}
@@ -1231,13 +1231,13 @@ Average accuracy also dropped for the best configurations of the PVC and glass, 
     \begin{subfigure}{.49\textwidth}
         \centering
         \includegraphics[width=.99\linewidth]{Figures/RadarExperiments/Datasets/ThroughMaterials/Wood/confusion-filtering-ui.pdf}
-        \vspace{-5pt}
+        \vspace{-15pt}
         \captionsetup{width=.99\linewidth}
         \caption{Filtering UI $N{=}30$, \\ $\splitatcommas{AP{=}(1, 2, 3, 6, 8, 9)}$.}
         \label{fig:radar-experiments:through-materials:wood-confusion:filtering-ui}
     \end{subfigure}
     
-    \vspace{-6pt}
+    % \vspace{-6pt}
     \caption{Normalized confusion matrices for the best configuration at two stages of the pipeline in user-dependent (top) and user-independent scenarios (bottom) when using wood data for training and testing. The values in each cell are represented as percentages.}
     \label{fig:radar-experiments:through-materials:wood-confusion}
 \end{figure}
@@ -1327,11 +1327,11 @@ Accuracy for wood+glass, glass+wood, pvc+glass and glass+pvc combinations of mat
 Similarly to the time gating stage, the low accuracy could be explained by the lower signal-to-noise ratio of the signals recorded through glass, which may have caused the inversion process to fail more often than for the other materials.
 
 
-\begin{figure}[ht]
+\begin{figure}[t]
     \begin{subfigure}{.49\textwidth}
         \centering
         \includegraphics[width=.99\linewidth]{Figures/RadarExperiments/Datasets/ThroughMaterials/Wood+PVC/samples-timegating-ud.pdf}
-        \vspace{-5pt}
+        \vspace{-15pt}
         \captionsetup{width=.99\linewidth}
         \caption{Time gating \\ $\splitatcommas{AP{=}(4, 5, 7, 10, 11, 12)}$.}
         \label{fig:radar-experiments:through-materials:wood-pvc-samples:timegating-ud}
@@ -1339,13 +1339,13 @@ Similarly to the time gating stage, the low accuracy could be explained by the l
     \begin{subfigure}{.49\textwidth}
         \centering
         \includegraphics[width=.99\linewidth]{Figures/RadarExperiments/Datasets/ThroughMaterials/Wood+PVC/samples-filtering-ud.pdf}  
-        \vspace{-5pt}
+        \vspace{-15pt}
         \captionsetup{width=.99\linewidth}
         \caption{Filtering \\ $\splitatcommas{AP{=}(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)}$.}
         \label{fig:radar-experiments:through-materials:wood-pvc-samples:filtering-ud}
     \end{subfigure}
   
-    \vspace{-6pt}
+    % \vspace{-6pt}
     \caption{The accuracy of Jackknife with respect to the number of sampling points for the best-performing set of antenna pairs when using wood data for training and PVC data for testing in a user-dependent scenario.}
     \label{fig:radar-experiments:through-materials:wood-pvc-samples}
 \end{figure}
@@ -1354,7 +1354,7 @@ Similarly to the time gating stage, the low accuracy could be explained by the l
     \begin{subfigure}{.49\textwidth}
         \centering
         \includegraphics[width=.99\linewidth]{Figures/RadarExperiments/Datasets/ThroughMaterials/Wood+PVC/confusion-timegating-ud.pdf}
-        \vspace{-5pt}
+        \vspace{-15pt}
         \captionsetup{width=.99\linewidth}
         \caption{Time gating $N{=}34$, \\ $\splitatcommas{AP{=}(4, 5, 7, 10, 11, 12)}$.}
         \label{fig:radar-experiments:through-materials:wood-pvc-confusion:timegating-ud}
@@ -1362,13 +1362,13 @@ Similarly to the time gating stage, the low accuracy could be explained by the l
     \begin{subfigure}{.49\textwidth}
         \centering
         \includegraphics[width=.99\linewidth]{Figures/RadarExperiments/Datasets/ThroughMaterials/Wood+PVC/confusion-filtering-ud.pdf}
-        \vspace{-5pt}
+        \vspace{-15pt}
         \captionsetup{width=.99\linewidth}
         \caption{Filtering $N{=}34$, \\ $\splitatcommas{AP{=}(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)}$.}
         \label{fig:radar-experiments:through-materials:wood-pvc-confusion:filtering-ud}
     \end{subfigure}
     
-    \vspace{-6pt}
+    % \vspace{-6pt}
     \caption{Normalized confusion matrices for the best configuration at two stages of the pipeline in the user-dependent scenario when using wood data for training and PVC data for testing. The values in each cell are represented as percentages.}
     \label{fig:radar-experiments:through-materials:wood-pvc-confusion}
 \end{figure}
@@ -1473,6 +1473,14 @@ For instance, trilateration can be used to compute the position of the hand in s
 Time-domain data from the time-gating stage seems better suited for recognizing more complex gestures, especially in user-dependent and mixed scenarios (Section~\ref{sec:radar-experiments:gesture-subsets:discussion}). 
 Because the radar signals output by this step are normalized and thus free of antenna effects, noise, and clutter, they would also work great with image classification algorithms, such as Convolutional Neural Networks (CNNs), especially if their training set features gestures captured with different sensors.
 
+\begin{figure}[bt]
+    \centering
+    \includegraphics[width=\linewidth]{Figures/RadarExperiments/Discussion/pipeline-limitations-range.pdf}
+    % \vspace{-20pt}
+    \caption{Distance constraints for radar-based gestures.}
+    \label{fig:radar-experiments:discussion:radar-range}
+\end{figure}
+
 \paragraph{S2. Prefer time-domain to frequency-domain data.}
 Compared to the first two experiments, our third experiment (Section~\ref{sec:radar-experiments:through-materials:results}) showed that gesture recognition accuracy was more stable with respect to the number of sampling points when using time-domain data, as temporal information is better preserved when the signal is resampled to a lower number of points. In addition, time-domain data is relatively easy to interpret by humans, which can be an advantage when designing a highly differentiable gesture set.
 
@@ -1482,14 +1490,6 @@ Our third experiment showed that we could still achieve relatively accurate gest
 However, materials with a higher relative permittivity (\eg glass) will reflect a larger fraction of the radar signal, resulting in a lower signal-to-noise ratio which will impact gesture recognition accuracy. 
 %
 As such, materials with a high relative permittivity should be avoided to maximize the accuracy of the system, and thus, its usability.
-
-\begin{figure}[bt]
-    \centering
-    \includegraphics[width=\linewidth]{Figures/RadarExperiments/Discussion/pipeline-limitations-range.pdf}
-    \vspace{-20pt}
-    \caption{Distance constraints for radar-based gestures.}
-    \label{fig:radar-experiments:discussion:radar-range}
-\end{figure}
 
 \paragraph{E2. Ensure that hand gestures are performed within the appropriate range of the radar sensor.}
 Hand gestures should be performed neither too close to the radar (otherwise, a more complicated near-field algorithm should be employed to generate the model of the radar and remove radar source and antenna effects~\cite{Lambot:2014}) nor too far away (otherwise, the reflection may be too weak, reaching the noise level of the radar, and past the time gating threshold). Fig.~\ref{fig:radar-experiments:discussion:radar-range} shows both correct and wrong examples of distances: (a) the hand and body are both too close to the radar, (b) the hand is far enough from the radar (within 15-75 cm) but the body is not excluded by the time gating, (c) the hand and body are both within an appropriate range, and (d) the hand and body are both out of range. This is especially visible in \fig~\ref{fig:radar-experiments:gestures-c}, which shows that most of the reflections from gestures u and v (barrier gesture and touch nose) are outside of the time gating range. In particular, the captured radar signal from gesture u barely sits above the noise level. If too many gestures are performed outside of the range of the sensor, it could result in lower recognition accuracy.
