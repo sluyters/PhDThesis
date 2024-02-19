@@ -45,7 +45,7 @@ No modification.
 
 ## Miscellaneous
 - [x] Fix academic name of Luis A. Leiva. `Title page`
-- [x] Formatting improvements 
+- [x] Various formatting improvements.
 - [x] Added missing references of papers "in press" or just published.
 - [x] Fix typos. `Everywhere`
 
