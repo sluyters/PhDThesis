@@ -570,7 +570,7 @@ The removal of antenna effects and background subtraction enabled even higher re
 % Full-wave inversion
 % 53.8\%, 0.5ms ($N{=}27$)
 \paragraph{Full-wave inversion.}
-After the inversion stage, the recognition rate decreased significantly and reached a maximum of 53.8\% for $N{=}27$ (\fig~\ref{fig:radar-experiments:sensors:horn-samples:inversion}). Average execution time was very short at 0.5 ms. Such a drop was expected, as the size of each frame was divided by 89 compared to the background scene removal stage. 
+The recognition rate decreased significantly after the inversion stage and reached a maximum of 53.8\% for $N{=}27$ (\fig~\ref{fig:radar-experiments:sensors:horn-samples:inversion}). Average execution time was very short at 0.5 ms. Such a drop was expected, as the size of each frame was divided by 89 compared to the background scene removal stage. 
 %
 We observed that the recognition rate did not steadily increase with the number of sampling points and could change by more than 10\% between two consecutive values of $N$. This behavior may have been caused by errors in the inversion process, where the distance and apparent permittivity values corresponding to one frame were incorrectly estimated due to the low quality of the radar data (\eg if the received signal was barely above noise level). The filtering stage should help alleviate this problem.
 %

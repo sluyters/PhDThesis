@@ -40,7 +40,7 @@ Finally, Section~\ref{sec:lui:discussion}  discusses the main strengths and limi
 \lui is a gesture-based interactive application for manipulating multimedia objects on large displays, such as TVs and wall displays, in a semi-public environment.
 It currently focuses on interaction with photos, videos, documents, and maps, for which different sets of functions are desired (\tab~\ref{tab:lui:media-actions}). \lui is designed to be widely distributed and easily installed by being cheap to set up and easy to use. As such, we settled on using the Leap Motion Controller (LMC)\footnote{See \url{https://www.ultraleap.com/product/leap-motion-controller/}} for hand tracking, a cheap off-the-shelf sensor (less than 100\$) that can be plugged via USB to the computer. We selected the LMC for mid-air gesture interaction because it tracks two hands and their ten fingers~\cite{Colgan:2017} with high precision and robustness~\cite{Weichert:2013}, including the palm vector and hand radius. This sensor is comprised of two cameras and three infrared (IR) LEDs. The interaction space is .6m wide by .6m long by .6m deep, resulting in an .22 cubic meter volumetric space which takes the shape of an inverted pyramid above the sensor.
 The LMC API~\cite{Spiegelmock:2013} enables to natively recognize a handful of system-defined gestures~\cite{Brandon:2014}, but custom gesture recognition algorithms often support a wider range of gestures~\cite{Bachmann:2018}. The LMC benefits from better accuracy and precision than other devices, such as an MS Kinect~\cite{Guzsvinecz:2019} or an Intel RealSense~\cite{Khalaf:2019}.
-It is also widely used in many domains of applications such as augmented reality~\cite{Lopez:2015} and activity recognition~\cite{Marin:2016}. Several LMC-based gesture recognition algorithms exist~\cite{Bachmann:2018}. No study compares them on the same basis, apart from \cite{Filho:2018} with three classical machine learning algorithms, but without any recent recognizer such as  DeepGru~\cite{Maghoumi:2019}.
+It is also widely used in many domains of applications such as augmented reality~\cite{Lopez:2015} and activity recognition~\cite{Marin:2016}. Several LMC-based gesture recognition algorithms exist~\cite{Bachmann:2018}. No study compares them on the same basis, apart from \cite{Filho:2018} with three classical machine learning algorithms, but without any recent recognizer such as DeepGru~\cite{Maghoumi:2019}.
 
 \begin{table}
 %    \vspace{-11pt}
@@ -73,97 +73,6 @@ It is also widely used in many domains of applications such as augmented reality
     % \vspace{-10pt}
     \label{tab:lui:media-actions}
 \end{table}
-    
-% \begin{figure}[ht]
-%     \centering
-%     \vspace{-10pt}
-%     \begin{subfigure}{.32\textwidth}
-%         \centering
-%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/welcome_screen_lui.pdf}  
-%         \vspace{-5pt}
-%         \captionsetup{width=.9\linewidth}
-%         \caption{Welcome screen.}
-%         \label{fig:lui:screenshots:welcome-screen}
-%     \end{subfigure}
-%     \begin{subfigure}{.32\textwidth}
-%         \centering
-%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/app_menu.pdf}  
-%         \vspace{-5pt}
-%         \captionsetup{width=.9\linewidth}
-%         \caption{Application menu.}
-%         \label{fig:lui:screenshots:app-menu}
-%     \end{subfigure}
-%     \begin{subfigure}{.32\textwidth}
-%         \centering
-%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/photos-list.pdf}  
-%         \vspace{-5pt}
-%         \captionsetup{width=.9\linewidth}
-%         \caption{Photos app (list).}
-%         \label{fig:lui:screenshots:photos-list}
-%     \end{subfigure}
-    
-%     \begin{subfigure}{.32\textwidth}
-%         \centering
-%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/photos-fullscreen.pdf}  
-%         \vspace{-5pt}
-%         \captionsetup{width=.9\linewidth}
-%         \caption{Photos app (item).}
-%         \label{fig:lui:screenshots:photos-fullscreen}
-%     \end{subfigure}
-%     \begin{subfigure}{.32\textwidth}
-%         \centering
-%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/videos-list.pdf} 
-%         \vspace{-5pt}
-%         \captionsetup{width=.9\linewidth}
-%         \caption{Videos app (list).}
-%         \label{fig:lui:screenshots:videos-list}
-%     \end{subfigure}
-%     \begin{subfigure}{.32\textwidth}
-%         \centering
-%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/videos-fullscreen.pdf}  
-%         \vspace{-5pt}
-%         \captionsetup{width=.9\linewidth}
-%         \caption{Videos app (item).}
-%         \label{fig:lui:screenshots:videos-fullscreen}
-%     \end{subfigure}
-%     \begin{subfigure}{.32\textwidth}
-%         \centering
-%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/documents-list.pdf} 
-%         \vspace{-5pt}
-%         \captionsetup{width=.9\linewidth}
-%         \caption{Documents app (list).}
-%         \label{fig:lui:screenshots:documents-list}
-%     \end{subfigure}
-%     \begin{subfigure}{.32\textwidth}
-%         \centering
-%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/documents-fullscreen.pdf}  
-%         \vspace{-5pt}
-%         \captionsetup{width=.9\linewidth}
-%         \caption{Documents app (item).}
-%         \label{fig:lui:screenshots:documents-fullscreen}
-%     \end{subfigure}
-%     \begin{subfigure}{.32\textwidth}
-%         \centering
-%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/maps.pdf} 
-%         \vspace{-5pt}
-%         \captionsetup{width=.9\linewidth}
-%         \caption{Maps app.}
-%         \label{fig:lui:screenshots:maps}
-%     \end{subfigure}
-%     \begin{subfigure}{.32\textwidth}
-%         \centering
-%         \includegraphics[width=.96\linewidth]{Figures/LUI/UI/fingers.pdf} 
-%         \vspace{-5pt}
-%         \captionsetup{width=.9\linewidth}
-%         \caption{User's hand.}
-%         \label{fig:lui:screenshots:hand}
-%     \end{subfigure}
-    
-%     % \vspace{-4pt}
-%     \caption{Screenshots of the third prototype of the \lui application.}
-%     % \vspace{-14pt}
-%     \label{fig:lui:screenshots}
-% \end{figure}
 
 \begin{figure}[p]
     \centering
