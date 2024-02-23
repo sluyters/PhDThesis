@@ -378,8 +378,11 @@
 %================================================================================%
 %   Bibliography
 %================================================================================%
-\fancyhead[LO,RE]{}%\slshape Bibliography}
-\fancyhead[LE,RO]{\textsl{BIBLIOGRAPHY}}%Bibliography}}
+% \fancyhead[LO,RE]{}%\slshape Bibliography}
+% \fancyhead[LE,RO]{\textsl{BIBLIOGRAPHY}}%Bibliography}}
+\fancyhead{} % Clear headers
+\fancyhead[LE,RO]{\textsl{\leftmark}}%Bibliography}}
+
 {\sloppy
 \printbibliography
 }
@@ -392,8 +395,9 @@
 % \fancyhead[LO,RE]{}%\slshape Bibliography}
 % \fancyhead[LE,RO]{\textsl{APPENDIX}}%Bibliography}}
 \appendix
-\fancyhead[LO,RE]{\textsl{\rightmark}}
-\fancyhead[LE,RO]{\textsl{\leftmark}}
+% \fancyhead{} % Clear headers
+% \fancyhead[LO,RE]{\textsl{\rightmark}}
+% \fancyhead[LE,RO]{\textsl{\leftmark}}
 \renewcommand{\chaptername}{Appendix}
 % \input{Appendices/AppendixA}
 \input{Appendices/App-QuantumLeapModules.tex}
