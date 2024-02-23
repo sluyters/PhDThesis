@@ -388,7 +388,13 @@
 %================================================================================%
 %   Appendices
 %================================================================================%
+
+% \fancyhead[LO,RE]{}%\slshape Bibliography}
+% \fancyhead[LE,RO]{\textsl{APPENDIX}}%Bibliography}}
 \appendix
+\fancyhead[LO,RE]{\textsl{\rightmark}}
+\fancyhead[LE,RO]{\textsl{\leftmark}}
+\renewcommand{\chaptername}{Appendix}
 % \input{Appendices/AppendixA}
 \input{Appendices/App-QuantumLeapModules.tex}
 \input{Appendices/App-QuantumLeapTasks.tex}
